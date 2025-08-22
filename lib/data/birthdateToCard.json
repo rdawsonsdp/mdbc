@@ -1,0 +1,1462 @@
+{
+  "December 30": {
+    "card": "🎭",
+    "name": "Joker"
+  },
+  "May 31": {
+    "card": "A♣",
+    "name": "Ace of Clubs"
+  },
+  "June 29": {
+    "card": "A♣",
+    "name": "Ace of Clubs"
+  },
+  "July 27": {
+    "card": "A♣",
+    "name": "Ace of Clubs"
+  },
+  "August 25": {
+    "card": "A♣",
+    "name": "Ace of Clubs"
+  },
+  "September 23": {
+    "card": "A♣",
+    "name": "Ace of Clubs"
+  },
+  "October 21": {
+    "card": "A♣",
+    "name": "Ace of Clubs"
+  },
+  "November 19": {
+    "card": "A♣",
+    "name": "Ace of Clubs"
+  },
+  "December 17": {
+    "card": "A♣",
+    "name": "Ace of Clubs"
+  },
+  "January 26": {
+    "card": "A♦",
+    "name": "Ace of Diamonds"
+  },
+  "February 24": {
+    "card": "A♦",
+    "name": "Ace of Diamonds"
+  },
+  "March 22": {
+    "card": "A♦",
+    "name": "Ace of Diamonds"
+  },
+  "April 20": {
+    "card": "A♦",
+    "name": "Ace of Diamonds"
+  },
+  "May 18": {
+    "card": "A♦",
+    "name": "Ace of Diamonds"
+  },
+  "June 16": {
+    "card": "A♦",
+    "name": "Ace of Diamonds"
+  },
+  "July 14": {
+    "card": "A♦",
+    "name": "Ace of Diamonds"
+  },
+  "August 12": {
+    "card": "A♦",
+    "name": "Ace of Diamonds"
+  },
+  "September 10": {
+    "card": "A♦",
+    "name": "Ace of Diamonds"
+  },
+  "October 8": {
+    "card": "A♦",
+    "name": "Ace of Diamonds"
+  },
+  "November 6": {
+    "card": "A♦",
+    "name": "Ace of Diamonds"
+  },
+  "December 4": {
+    "card": "A♦",
+    "name": "Ace of Diamonds"
+  },
+  "January 13": {
+    "card": "A♠",
+    "name": "Ace of Spades"
+  },
+  "February 11": {
+    "card": "A♠",
+    "name": "Ace of Spades"
+  },
+  "March 9": {
+    "card": "A♠",
+    "name": "Ace of Spades"
+  },
+  "April 7": {
+    "card": "A♠",
+    "name": "Ace of Spades"
+  },
+  "May 5": {
+    "card": "A♠",
+    "name": "Ace of Spades"
+  },
+  "June 3": {
+    "card": "A♠",
+    "name": "Ace of Spades"
+  },
+  "July 1": {
+    "card": "A♠",
+    "name": "Ace of Spades"
+  },
+  "December 29": {
+    "card": "2♥",
+    "name": "Two of Hearts"
+  },
+  "May 30": {
+    "card": "2♣",
+    "name": "Two of Clubs"
+  },
+  "June 28": {
+    "card": "2♣",
+    "name": "Two of Clubs"
+  },
+  "July 26": {
+    "card": "2♣",
+    "name": "Two of Clubs"
+  },
+  "August 24": {
+    "card": "2♣",
+    "name": "Two of Clubs"
+  },
+  "September 22": {
+    "card": "2♣",
+    "name": "Two of Clubs"
+  },
+  "October 20": {
+    "card": "2♣",
+    "name": "Two of Clubs"
+  },
+  "November 18": {
+    "card": "2♣",
+    "name": "Two of Clubs"
+  },
+  "December 16": {
+    "card": "2♣",
+    "name": "Two of Clubs"
+  },
+  "January 25": {
+    "card": "2♦",
+    "name": "Two of Diamonds"
+  },
+  "February 23": {
+    "card": "2♦",
+    "name": "Two of Diamonds"
+  },
+  "March 21": {
+    "card": "2♦",
+    "name": "Two of Diamonds"
+  },
+  "April 19": {
+    "card": "2♦",
+    "name": "Two of Diamonds"
+  },
+  "May 17": {
+    "card": "2♦",
+    "name": "Two of Diamonds"
+  },
+  "June 15": {
+    "card": "2♦",
+    "name": "Two of Diamonds"
+  },
+  "July 13": {
+    "card": "2♦",
+    "name": "Two of Diamonds"
+  },
+  "August 11": {
+    "card": "2♦",
+    "name": "Two of Diamonds"
+  },
+  "September 9": {
+    "card": "2♦",
+    "name": "Two of Diamonds"
+  },
+  "October 7": {
+    "card": "2♦",
+    "name": "Two of Diamonds"
+  },
+  "November 5": {
+    "card": "2♦",
+    "name": "Two of Diamonds"
+  },
+  "December 3": {
+    "card": "2♦",
+    "name": "Two of Diamonds"
+  },
+  "January 12": {
+    "card": "2♠",
+    "name": "Two of Spades"
+  },
+  "February 10": {
+    "card": "2♠",
+    "name": "Two of Spades"
+  },
+  "March 8": {
+    "card": "2♠",
+    "name": "Two of Spades"
+  },
+  "April 6": {
+    "card": "2♠",
+    "name": "Two of Spades"
+  },
+  "May 4": {
+    "card": "2♠",
+    "name": "Two of Spades"
+  },
+  "June 2": {
+    "card": "2♠",
+    "name": "Two of Spades"
+  },
+  "November 30": {
+    "card": "3♥",
+    "name": "Three of Hearts"
+  },
+  "December 28": {
+    "card": "3♥",
+    "name": "Three of Hearts"
+  },
+  "May 29": {
+    "card": "3♣",
+    "name": "Three of Clubs"
+  },
+  "June 27": {
+    "card": "3♣",
+    "name": "Three of Clubs"
+  },
+  "July 25": {
+    "card": "3♣",
+    "name": "Three of Clubs"
+  },
+  "August 23": {
+    "card": "3♣",
+    "name": "Three of Clubs"
+  },
+  "September 21": {
+    "card": "3♣",
+    "name": "Three of Clubs"
+  },
+  "October 19": {
+    "card": "3♣",
+    "name": "Three of Clubs"
+  },
+  "November 17": {
+    "card": "3♣",
+    "name": "Three of Clubs"
+  },
+  "December 15": {
+    "card": "3♣",
+    "name": "Three of Clubs"
+  },
+  "January 24": {
+    "card": "3♦",
+    "name": "Three of Diamonds"
+  },
+  "February 22": {
+    "card": "3♦",
+    "name": "Three of Diamonds"
+  },
+  "March 20": {
+    "card": "3♦",
+    "name": "Three of Diamonds"
+  },
+  "April 18": {
+    "card": "3♦",
+    "name": "Three of Diamonds"
+  },
+  "May 16": {
+    "card": "3♦",
+    "name": "Three of Diamonds"
+  },
+  "June 14": {
+    "card": "3♦",
+    "name": "Three of Diamonds"
+  },
+  "July 12": {
+    "card": "3♦",
+    "name": "Three of Diamonds"
+  },
+  "August 10": {
+    "card": "3♦",
+    "name": "Three of Diamonds"
+  },
+  "September 8": {
+    "card": "3♦",
+    "name": "Three of Diamonds"
+  },
+  "October 6": {
+    "card": "3♦",
+    "name": "Three of Diamonds"
+  },
+  "November 4": {
+    "card": "3♦",
+    "name": "Three of Diamonds"
+  },
+  "December 2": {
+    "card": "3♦",
+    "name": "Three of Diamonds"
+  },
+  "January 11": {
+    "card": "3♠",
+    "name": "Three of Spades"
+  },
+  "February 9": {
+    "card": "3♠",
+    "name": "Three of Spades"
+  },
+  "March 7": {
+    "card": "3♠",
+    "name": "Three of Spades"
+  },
+  "April 5": {
+    "card": "3♠",
+    "name": "Three of Spades"
+  },
+  "May 3": {
+    "card": "3♠",
+    "name": "Three of Spades"
+  },
+  "June 1": {
+    "card": "3♠",
+    "name": "Three of Spades"
+  },
+  "October 31": {
+    "card": "4♥",
+    "name": "Four of Hearts"
+  },
+  "November 29": {
+    "card": "4♥",
+    "name": "Four of Hearts"
+  },
+  "December 27": {
+    "card": "4♥",
+    "name": "Four of Hearts"
+  },
+  "April 30": {
+    "card": "4♣",
+    "name": "Four of Clubs"
+  },
+  "May 28": {
+    "card": "4♣",
+    "name": "Four of Clubs"
+  },
+  "June 26": {
+    "card": "4♣",
+    "name": "Four of Clubs"
+  },
+  "July 24": {
+    "card": "4♣",
+    "name": "Four of Clubs"
+  },
+  "August 22": {
+    "card": "4♣",
+    "name": "Four of Clubs"
+  },
+  "September 20": {
+    "card": "4♣",
+    "name": "Four of Clubs"
+  },
+  "October 18": {
+    "card": "4♣",
+    "name": "Four of Clubs"
+  },
+  "November 16": {
+    "card": "4♣",
+    "name": "Four of Clubs"
+  },
+  "December 14": {
+    "card": "4♣",
+    "name": "Four of Clubs"
+  },
+  "January 23": {
+    "card": "4♦",
+    "name": "Four of Diamonds"
+  },
+  "February 21": {
+    "card": "4♦",
+    "name": "Four of Diamonds"
+  },
+  "March 19": {
+    "card": "4♦",
+    "name": "Four of Diamonds"
+  },
+  "April 17": {
+    "card": "4♦",
+    "name": "Four of Diamonds"
+  },
+  "May 15": {
+    "card": "4♦",
+    "name": "Four of Diamonds"
+  },
+  "June 13": {
+    "card": "4♦",
+    "name": "Four of Diamonds"
+  },
+  "July 11": {
+    "card": "4♦",
+    "name": "Four of Diamonds"
+  },
+  "August 9": {
+    "card": "4♦",
+    "name": "Four of Diamonds"
+  },
+  "September 7": {
+    "card": "4♦",
+    "name": "Four of Diamonds"
+  },
+  "October 5": {
+    "card": "4♦",
+    "name": "Four of Diamonds"
+  },
+  "November 3": {
+    "card": "4♦",
+    "name": "Four of Diamonds"
+  },
+  "December 1": {
+    "card": "4♦",
+    "name": "Four of Diamonds"
+  },
+  "January 10": {
+    "card": "4♠",
+    "name": "Four of Spades"
+  },
+  "February 8": {
+    "card": "4♠",
+    "name": "Four of Spades"
+  },
+  "March 6": {
+    "card": "4♠",
+    "name": "Four of Spades"
+  },
+  "April 4": {
+    "card": "4♠",
+    "name": "Four of Spades"
+  },
+  "May 2": {
+    "card": "4♠",
+    "name": "Four of Spades"
+  },
+  "October 30": {
+    "card": "5♥",
+    "name": "Five of Hearts"
+  },
+  "November 28": {
+    "card": "5♥",
+    "name": "Five of Hearts"
+  },
+  "December 26": {
+    "card": "5♥",
+    "name": "Five of Hearts"
+  },
+  "March 31": {
+    "card": "5♣",
+    "name": "Five of Clubs"
+  },
+  "April 29": {
+    "card": "5♣",
+    "name": "Five of Clubs"
+  },
+  "May 27": {
+    "card": "5♣",
+    "name": "Five of Clubs"
+  },
+  "June 25": {
+    "card": "5♣",
+    "name": "Five of Clubs"
+  },
+  "July 23": {
+    "card": "5♣",
+    "name": "Five of Clubs"
+  },
+  "August 21": {
+    "card": "5♣",
+    "name": "Five of Clubs"
+  },
+  "September 19": {
+    "card": "5♣",
+    "name": "Five of Clubs"
+  },
+  "October 17": {
+    "card": "5♣",
+    "name": "Five of Clubs"
+  },
+  "November 15": {
+    "card": "5♣",
+    "name": "Five of Clubs"
+  },
+  "December 13": {
+    "card": "5♣",
+    "name": "Five of Clubs"
+  },
+  "January 22": {
+    "card": "5♦",
+    "name": "Five of Diamonds"
+  },
+  "February 20": {
+    "card": "5♦",
+    "name": "Five of Diamonds"
+  },
+  "March 18": {
+    "card": "5♦",
+    "name": "Five of Diamonds"
+  },
+  "April 16": {
+    "card": "5♦",
+    "name": "Five of Diamonds"
+  },
+  "May 14": {
+    "card": "5♦",
+    "name": "Five of Diamonds"
+  },
+  "June 12": {
+    "card": "5♦",
+    "name": "Five of Diamonds"
+  },
+  "July 10": {
+    "card": "5♦",
+    "name": "Five of Diamonds"
+  },
+  "August 8": {
+    "card": "5♦",
+    "name": "Five of Diamonds"
+  },
+  "September 6": {
+    "card": "5♦",
+    "name": "Five of Diamonds"
+  },
+  "October 4": {
+    "card": "5♦",
+    "name": "Five of Diamonds"
+  },
+  "November 2": {
+    "card": "5♦",
+    "name": "Five of Diamonds"
+  },
+  "January 9": {
+    "card": "5♠",
+    "name": "Five of Spades"
+  },
+  "February 7": {
+    "card": "5♠",
+    "name": "Five of Spades"
+  },
+  "March 5": {
+    "card": "5♠",
+    "name": "Five of Spades"
+  },
+  "April 3": {
+    "card": "5♠",
+    "name": "Five of Spades"
+  },
+  "May 1": {
+    "card": "5♠",
+    "name": "Five of Spades"
+  },
+  "October 29": {
+    "card": "6♥",
+    "name": "Six of Hearts"
+  },
+  "November 27": {
+    "card": "6♥",
+    "name": "Six of Hearts"
+  },
+  "December 25": {
+    "card": "6♥",
+    "name": "Six of Hearts"
+  },
+  "March 30": {
+    "card": "6♣",
+    "name": "Six of Clubs"
+  },
+  "April 28": {
+    "card": "6♣",
+    "name": "Six of Clubs"
+  },
+  "May 26": {
+    "card": "6♣",
+    "name": "Six of Clubs"
+  },
+  "June 24": {
+    "card": "6♣",
+    "name": "Six of Clubs"
+  },
+  "July 22": {
+    "card": "6♣",
+    "name": "Six of Clubs"
+  },
+  "August 20": {
+    "card": "6♣",
+    "name": "Six of Clubs"
+  },
+  "September 18": {
+    "card": "6♣",
+    "name": "Six of Clubs"
+  },
+  "October 16": {
+    "card": "6♣",
+    "name": "Six of Clubs"
+  },
+  "November 14": {
+    "card": "6♣",
+    "name": "Six of Clubs"
+  },
+  "December 12": {
+    "card": "6♣",
+    "name": "Six of Clubs"
+  },
+  "January 21": {
+    "card": "6♦",
+    "name": "Six of Diamonds"
+  },
+  "February 19": {
+    "card": "6♦",
+    "name": "Six of Diamonds"
+  },
+  "March 17": {
+    "card": "6♦",
+    "name": "Six of Diamonds"
+  },
+  "April 15": {
+    "card": "6♦",
+    "name": "Six of Diamonds"
+  },
+  "May 13": {
+    "card": "6♦",
+    "name": "Six of Diamonds"
+  },
+  "June 11": {
+    "card": "6♦",
+    "name": "Six of Diamonds"
+  },
+  "July 9": {
+    "card": "6♦",
+    "name": "Six of Diamonds"
+  },
+  "August 7": {
+    "card": "6♦",
+    "name": "Six of Diamonds"
+  },
+  "September 5": {
+    "card": "6♦",
+    "name": "Six of Diamonds"
+  },
+  "October 3": {
+    "card": "6♦",
+    "name": "Six of Diamonds"
+  },
+  "November 1": {
+    "card": "6♦",
+    "name": "Six of Diamonds"
+  },
+  "January 8": {
+    "card": "6♠",
+    "name": "Six of Spades"
+  },
+  "February 6": {
+    "card": "6♠",
+    "name": "Six of Spades"
+  },
+  "March 4": {
+    "card": "6♠",
+    "name": "Six of Spades"
+  },
+  "April 2": {
+    "card": "6♠",
+    "name": "Six of Spades"
+  },
+  "September 30": {
+    "card": "7♥",
+    "name": "Seven of Hearts"
+  },
+  "October 28": {
+    "card": "7♥",
+    "name": "Seven of Hearts"
+  },
+  "November 26": {
+    "card": "7♥",
+    "name": "Seven of Hearts"
+  },
+  "December 24": {
+    "card": "7♥",
+    "name": "Seven of Hearts"
+  },
+  "March 29": {
+    "card": "7♣",
+    "name": "Seven of Clubs"
+  },
+  "April 27": {
+    "card": "7♣",
+    "name": "Seven of Clubs"
+  },
+  "May 25": {
+    "card": "7♣",
+    "name": "Seven of Clubs"
+  },
+  "June 23": {
+    "card": "7♣",
+    "name": "Seven of Clubs"
+  },
+  "July 21": {
+    "card": "7♣",
+    "name": "Seven of Clubs"
+  },
+  "August 19": {
+    "card": "7♣",
+    "name": "Seven of Clubs"
+  },
+  "September 17": {
+    "card": "7♣",
+    "name": "Seven of Clubs"
+  },
+  "October 15": {
+    "card": "7♣",
+    "name": "Seven of Clubs"
+  },
+  "November 13": {
+    "card": "7♣",
+    "name": "Seven of Clubs"
+  },
+  "December 11": {
+    "card": "7♣",
+    "name": "Seven of Clubs"
+  },
+  "January 20": {
+    "card": "7♦",
+    "name": "Seven of Diamonds"
+  },
+  "February 18": {
+    "card": "7♦",
+    "name": "Seven of Diamonds"
+  },
+  "March 16": {
+    "card": "7♦",
+    "name": "Seven of Diamonds"
+  },
+  "April 14": {
+    "card": "7♦",
+    "name": "Seven of Diamonds"
+  },
+  "May 12": {
+    "card": "7♦",
+    "name": "Seven of Diamonds"
+  },
+  "June 10": {
+    "card": "7♦",
+    "name": "Seven of Diamonds"
+  },
+  "July 8": {
+    "card": "7♦",
+    "name": "Seven of Diamonds"
+  },
+  "August 6": {
+    "card": "7♦",
+    "name": "Seven of Diamonds"
+  },
+  "September 4": {
+    "card": "7♦",
+    "name": "Seven of Diamonds"
+  },
+  "October 2": {
+    "card": "7♦",
+    "name": "Seven of Diamonds"
+  },
+  "January 7": {
+    "card": "7♠",
+    "name": "Seven of Spades"
+  },
+  "February 5": {
+    "card": "7♠",
+    "name": "Seven of Spades"
+  },
+  "March 3": {
+    "card": "7♠",
+    "name": "Seven of Spades"
+  },
+  "April 1": {
+    "card": "7♠",
+    "name": "Seven of Spades"
+  },
+  "August 31": {
+    "card": "8♥",
+    "name": "Eight of Hearts"
+  },
+  "September 29": {
+    "card": "8♥",
+    "name": "Eight of Hearts"
+  },
+  "October 27": {
+    "card": "8♥",
+    "name": "Eight of Hearts"
+  },
+  "November 25": {
+    "card": "8♥",
+    "name": "Eight of Hearts"
+  },
+  "December 23": {
+    "card": "8♥",
+    "name": "Eight of Hearts"
+  },
+  "March 28": {
+    "card": "8♣",
+    "name": "Eight of Clubs"
+  },
+  "April 26": {
+    "card": "8♣",
+    "name": "Eight of Clubs"
+  },
+  "May 24": {
+    "card": "8♣",
+    "name": "Eight of Clubs"
+  },
+  "June 22": {
+    "card": "8♣",
+    "name": "Eight of Clubs"
+  },
+  "July 20": {
+    "card": "8♣",
+    "name": "Eight of Clubs"
+  },
+  "August 18": {
+    "card": "8♣",
+    "name": "Eight of Clubs"
+  },
+  "September 16": {
+    "card": "8♣",
+    "name": "Eight of Clubs"
+  },
+  "October 14": {
+    "card": "8♣",
+    "name": "Eight of Clubs"
+  },
+  "November 12": {
+    "card": "8♣",
+    "name": "Eight of Clubs"
+  },
+  "December 10": {
+    "card": "8♣",
+    "name": "Eight of Clubs"
+  },
+  "January 19": {
+    "card": "8♦",
+    "name": "Eight of Diamonds"
+  },
+  "February 17": {
+    "card": "8♦",
+    "name": "Eight of Diamonds"
+  },
+  "March 15": {
+    "card": "8♦",
+    "name": "Eight of Diamonds"
+  },
+  "April 13": {
+    "card": "8♦",
+    "name": "Eight of Diamonds"
+  },
+  "May 11": {
+    "card": "8♦",
+    "name": "Eight of Diamonds"
+  },
+  "June 9": {
+    "card": "8♦",
+    "name": "Eight of Diamonds"
+  },
+  "July 7": {
+    "card": "8♦",
+    "name": "Eight of Diamonds"
+  },
+  "August 5": {
+    "card": "8♦",
+    "name": "Eight of Diamonds"
+  },
+  "September 3": {
+    "card": "8♦",
+    "name": "Eight of Diamonds"
+  },
+  "October 1": {
+    "card": "8♦",
+    "name": "Eight of Diamonds"
+  },
+  "January 6": {
+    "card": "8♠",
+    "name": "Eight of Spades"
+  },
+  "February 4": {
+    "card": "8♠",
+    "name": "Eight of Spades"
+  },
+  "March 2": {
+    "card": "8♠",
+    "name": "Eight of Spades"
+  },
+  "August 30": {
+    "card": "9♥",
+    "name": "Nine of Hearts"
+  },
+  "September 28": {
+    "card": "9♥",
+    "name": "Nine of Hearts"
+  },
+  "October 26": {
+    "card": "9♥",
+    "name": "Nine of Hearts"
+  },
+  "November 24": {
+    "card": "9♥",
+    "name": "Nine of Hearts"
+  },
+  "December 22": {
+    "card": "9♥",
+    "name": "Nine of Hearts"
+  },
+  "January 31": {
+    "card": "9♣",
+    "name": "Nine of Clubs"
+  },
+  "February 29": {
+    "card": "9♣",
+    "name": "Nine of Clubs"
+  },
+  "March 27": {
+    "card": "9♣",
+    "name": "Nine of Clubs"
+  },
+  "April 25": {
+    "card": "9♣",
+    "name": "Nine of Clubs"
+  },
+  "May 23": {
+    "card": "9♣",
+    "name": "Nine of Clubs"
+  },
+  "June 21": {
+    "card": "9♣",
+    "name": "Nine of Clubs"
+  },
+  "July 19": {
+    "card": "9♣",
+    "name": "Nine of Clubs"
+  },
+  "August 17": {
+    "card": "9♣",
+    "name": "Nine of Clubs"
+  },
+  "September 15": {
+    "card": "9♣",
+    "name": "Nine of Clubs"
+  },
+  "October 13": {
+    "card": "9♣",
+    "name": "Nine of Clubs"
+  },
+  "November 11": {
+    "card": "9♣",
+    "name": "Nine of Clubs"
+  },
+  "December 9": {
+    "card": "9♣",
+    "name": "Nine of Clubs"
+  },
+  "January 18": {
+    "card": "9♦",
+    "name": "Nine of Diamonds"
+  },
+  "February 16": {
+    "card": "9♦",
+    "name": "Nine of Diamonds"
+  },
+  "March 14": {
+    "card": "9♦",
+    "name": "Nine of Diamonds"
+  },
+  "April 12": {
+    "card": "9♦",
+    "name": "Nine of Diamonds"
+  },
+  "May 10": {
+    "card": "9♦",
+    "name": "Nine of Diamonds"
+  },
+  "June 8": {
+    "card": "9♦",
+    "name": "Nine of Diamonds"
+  },
+  "July 6": {
+    "card": "9♦",
+    "name": "Nine of Diamonds"
+  },
+  "August 4": {
+    "card": "9♦",
+    "name": "Nine of Diamonds"
+  },
+  "September 2": {
+    "card": "9♦",
+    "name": "Nine of Diamonds"
+  },
+  "January 5": {
+    "card": "9♠",
+    "name": "Nine of Spades"
+  },
+  "February 3": {
+    "card": "9♠",
+    "name": "Nine of Spades"
+  },
+  "March 1": {
+    "card": "9♠",
+    "name": "Nine of Spades"
+  },
+  "July 31": {
+    "card": "10♥",
+    "name": "Ten of Hearts"
+  },
+  "August 29": {
+    "card": "10♥",
+    "name": "Ten of Hearts"
+  },
+  "September 27": {
+    "card": "10♥",
+    "name": "Ten of Hearts"
+  },
+  "October 25": {
+    "card": "10♥",
+    "name": "Ten of Hearts"
+  },
+  "November 23": {
+    "card": "10♥",
+    "name": "Ten of Hearts"
+  },
+  "December 21": {
+    "card": "10♥",
+    "name": "Ten of Hearts"
+  },
+  "January 30": {
+    "card": "10♣",
+    "name": "Ten of Clubs"
+  },
+  "February 28": {
+    "card": "10♣",
+    "name": "Ten of Clubs"
+  },
+  "March 26": {
+    "card": "10♣",
+    "name": "Ten of Clubs"
+  },
+  "April 24": {
+    "card": "10♣",
+    "name": "Ten of Clubs"
+  },
+  "May 22": {
+    "card": "10♣",
+    "name": "Ten of Clubs"
+  },
+  "June 20": {
+    "card": "10♣",
+    "name": "Ten of Clubs"
+  },
+  "July 18": {
+    "card": "10♣",
+    "name": "Ten of Clubs"
+  },
+  "August 16": {
+    "card": "10♣",
+    "name": "Ten of Clubs"
+  },
+  "September 14": {
+    "card": "10♣",
+    "name": "Ten of Clubs"
+  },
+  "October 12": {
+    "card": "10♣",
+    "name": "Ten of Clubs"
+  },
+  "November 10": {
+    "card": "10♣",
+    "name": "Ten of Clubs"
+  },
+  "December 8": {
+    "card": "10♣",
+    "name": "Ten of Clubs"
+  },
+  "January 17": {
+    "card": "10♦",
+    "name": "Ten of Diamonds"
+  },
+  "February 15": {
+    "card": "10♦",
+    "name": "Ten of Diamonds"
+  },
+  "March 13": {
+    "card": "10♦",
+    "name": "Ten of Diamonds"
+  },
+  "April 11": {
+    "card": "10♦",
+    "name": "Ten of Diamonds"
+  },
+  "May 9": {
+    "card": "10♦",
+    "name": "Ten of Diamonds"
+  },
+  "June 7": {
+    "card": "10♦",
+    "name": "Ten of Diamonds"
+  },
+  "July 5": {
+    "card": "10♦",
+    "name": "Ten of Diamonds"
+  },
+  "August 3": {
+    "card": "10♦",
+    "name": "Ten of Diamonds"
+  },
+  "September 1": {
+    "card": "10♦",
+    "name": "Ten of Diamonds"
+  },
+  "January 4": {
+    "card": "10♠",
+    "name": "Ten of Spades"
+  },
+  "February 2": {
+    "card": "10♠",
+    "name": "Ten of Spades"
+  },
+  "July 30": {
+    "card": "J♥",
+    "name": "Jack of Hearts"
+  },
+  "August 28": {
+    "card": "J♥",
+    "name": "Jack of Hearts"
+  },
+  "September 26": {
+    "card": "J♥",
+    "name": "Jack of Hearts"
+  },
+  "October 24": {
+    "card": "J♥",
+    "name": "Jack of Hearts"
+  },
+  "November 22": {
+    "card": "J♥",
+    "name": "Jack of Hearts"
+  },
+  "December 20": {
+    "card": "J♥",
+    "name": "Jack of Hearts"
+  },
+  "January 29": {
+    "card": "J♣",
+    "name": "Jack of Clubs"
+  },
+  "February 27": {
+    "card": "J♣",
+    "name": "Jack of Clubs"
+  },
+  "March 25": {
+    "card": "J♣",
+    "name": "Jack of Clubs"
+  },
+  "April 23": {
+    "card": "J♣",
+    "name": "Jack of Clubs"
+  },
+  "May 21": {
+    "card": "J♣",
+    "name": "Jack of Clubs"
+  },
+  "June 19": {
+    "card": "J♣",
+    "name": "Jack of Clubs"
+  },
+  "July 17": {
+    "card": "J♣",
+    "name": "Jack of Clubs"
+  },
+  "August 15": {
+    "card": "J♣",
+    "name": "Jack of Clubs"
+  },
+  "September 13": {
+    "card": "J♣",
+    "name": "Jack of Clubs"
+  },
+  "October 11": {
+    "card": "J♣",
+    "name": "Jack of Clubs"
+  },
+  "November 9": {
+    "card": "J♣",
+    "name": "Jack of Clubs"
+  },
+  "December 7": {
+    "card": "J♣",
+    "name": "Jack of Clubs"
+  },
+  "January 16": {
+    "card": "J♦",
+    "name": "Jack of Diamonds"
+  },
+  "February 14": {
+    "card": "J♦",
+    "name": "Jack of Diamonds"
+  },
+  "March 12": {
+    "card": "J♦",
+    "name": "Jack of Diamonds"
+  },
+  "April 10": {
+    "card": "J♦",
+    "name": "Jack of Diamonds"
+  },
+  "May 8": {
+    "card": "J♦",
+    "name": "Jack of Diamonds"
+  },
+  "June 6": {
+    "card": "J♦",
+    "name": "Jack of Diamonds"
+  },
+  "July 4": {
+    "card": "J♦",
+    "name": "Jack of Diamonds"
+  },
+  "August 2": {
+    "card": "J♦",
+    "name": "Jack of Diamonds"
+  },
+  "January 3": {
+    "card": "J♠",
+    "name": "Jack of Spades"
+  },
+  "February 1": {
+    "card": "J♠",
+    "name": "Jack of Spades"
+  },
+  "July 29": {
+    "card": "Q♥",
+    "name": "Queen of Hearts"
+  },
+  "August 27": {
+    "card": "Q♥",
+    "name": "Queen of Hearts"
+  },
+  "September 25": {
+    "card": "Q♥",
+    "name": "Queen of Hearts"
+  },
+  "October 23": {
+    "card": "Q♥",
+    "name": "Queen of Hearts"
+  },
+  "November 21": {
+    "card": "Q♥",
+    "name": "Queen of Hearts"
+  },
+  "December 19": {
+    "card": "Q♥",
+    "name": "Queen of Hearts"
+  },
+  "January 28": {
+    "card": "Q♣",
+    "name": "Queen of Clubs"
+  },
+  "February 26": {
+    "card": "Q♣",
+    "name": "Queen of Clubs"
+  },
+  "March 24": {
+    "card": "Q♣",
+    "name": "Queen of Clubs"
+  },
+  "April 22": {
+    "card": "Q♣",
+    "name": "Queen of Clubs"
+  },
+  "May 20": {
+    "card": "Q♣",
+    "name": "Queen of Clubs"
+  },
+  "June 18": {
+    "card": "Q♣",
+    "name": "Queen of Clubs"
+  },
+  "July 16": {
+    "card": "Q♣",
+    "name": "Queen of Clubs"
+  },
+  "August 14": {
+    "card": "Q♣",
+    "name": "Queen of Clubs"
+  },
+  "September 12": {
+    "card": "Q♣",
+    "name": "Queen of Clubs"
+  },
+  "October 10": {
+    "card": "Q♣",
+    "name": "Queen of Clubs"
+  },
+  "November 8": {
+    "card": "Q♣",
+    "name": "Queen of Clubs"
+  },
+  "December 6": {
+    "card": "Q♣",
+    "name": "Queen of Clubs"
+  },
+  "January 15": {
+    "card": "Q♦",
+    "name": "Queen of Diamonds"
+  },
+  "February 13": {
+    "card": "Q♦",
+    "name": "Queen of Diamonds"
+  },
+  "March 11": {
+    "card": "Q♦",
+    "name": "Queen of Diamonds"
+  },
+  "April 9": {
+    "card": "Q♦",
+    "name": "Queen of Diamonds"
+  },
+  "May 7": {
+    "card": "Q♦",
+    "name": "Queen of Diamonds"
+  },
+  "June 5": {
+    "card": "Q♦",
+    "name": "Queen of Diamonds"
+  },
+  "July 3": {
+    "card": "Q♦",
+    "name": "Queen of Diamonds"
+  },
+  "August 1": {
+    "card": "Q♦",
+    "name": "Queen of Diamonds"
+  },
+  "January 2": {
+    "card": "Q♠",
+    "name": "Queen of Spades"
+  },
+  "June 30": {
+    "card": "K♥",
+    "name": "King of Hearts"
+  },
+  "July 28": {
+    "card": "K♥",
+    "name": "King of Hearts"
+  },
+  "August 26": {
+    "card": "K♥",
+    "name": "King of Hearts"
+  },
+  "September 24": {
+    "card": "K♥",
+    "name": "King of Hearts"
+  },
+  "October 22": {
+    "card": "K♥",
+    "name": "King of Hearts"
+  },
+  "November 20": {
+    "card": "K♥",
+    "name": "King of Hearts"
+  },
+  "December 18": {
+    "card": "K♥",
+    "name": "King of Hearts"
+  },
+  "January 27": {
+    "card": "K♣",
+    "name": "King of Clubs"
+  },
+  "February 25": {
+    "card": "K♣",
+    "name": "King of Clubs"
+  },
+  "March 23": {
+    "card": "K♣",
+    "name": "King of Clubs"
+  },
+  "April 21": {
+    "card": "K♣",
+    "name": "King of Clubs"
+  },
+  "May 19": {
+    "card": "K♣",
+    "name": "King of Clubs"
+  },
+  "June 17": {
+    "card": "K♣",
+    "name": "King of Clubs"
+  },
+  "July 15": {
+    "card": "K♣",
+    "name": "King of Clubs"
+  },
+  "August 13": {
+    "card": "K♣",
+    "name": "King of Clubs"
+  },
+  "September 11": {
+    "card": "K♣",
+    "name": "King of Clubs"
+  },
+  "October 9": {
+    "card": "K♣",
+    "name": "King of Clubs"
+  },
+  "November 7": {
+    "card": "K♣",
+    "name": "King of Clubs"
+  },
+  "December 5": {
+    "card": "K♣",
+    "name": "King of Clubs"
+  },
+  "January 14": {
+    "card": "K♦",
+    "name": "King of Diamonds"
+  },
+  "February 12": {
+    "card": "K♦",
+    "name": "King of Diamonds"
+  },
+  "March 10": {
+    "card": "K♦",
+    "name": "King of Diamonds"
+  },
+  "April 8": {
+    "card": "K♦",
+    "name": "King of Diamonds"
+  },
+  "May 6": {
+    "card": "K♦",
+    "name": "King of Diamonds"
+  },
+  "June 4": {
+    "card": "K♦",
+    "name": "King of Diamonds"
+  },
+  "July 2": {
+    "card": "K♦",
+    "name": "King of Diamonds"
+  },
+  "January 1": {
+    "card": "K♠",
+    "name": "King of Spades"
+  }
+}
