@@ -180,9 +180,10 @@ export default function MDBCApp() {
 
   const getCardImageUrl = (card) => {
     if (!card) return '/cards/Joker.png';
-    // Convert card format (e.g., "A♥" to "AH", "10♦" to "10D")
-    const suit = card.slice(-1);
-    const rank = card.slice(0, -1);
+    // Remove any spaces and convert card format (e.g., "A ♥" to "AH", "10 ♦" to "10D")
+    const cleanCard = card.replace(/\s+/g, '');
+    const suit = cleanCard.slice(-1);
+    const rank = cleanCard.slice(0, -1);
     const suitMap = { '♥': 'H', '♦': 'D', '♣': 'C', '♠': 'S' };
     return `/cards/${rank}${suitMap[suit] || 'S'}.png`;
   };
