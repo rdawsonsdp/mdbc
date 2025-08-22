@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { getBirthCardFromDate } from '../utils/birthCardLookup';
 import { getForecastForAge } from '../utils/yearlyForecastLookup';
 import { getCardActions } from '../utils/actionLookup';
@@ -21,9 +22,11 @@ const FlippableCard = ({ card, title, description, imageUrl }) => {
       >
         <div className="card-inner">
           <div className="card-front">
-            <img 
+            <Image 
               src={imageUrl} 
               alt={card}
+              width={150}
+              height={210}
               className="w-full h-full object-cover rounded-lg shadow-lg card-hover"
             />
           </div>
@@ -62,6 +65,15 @@ export default function MDBCApp() {
     }
   }, []);
 
+  // Helper function to convert month name to index (0-11)
+  const getMonthIndex = (monthName) => {
+    const months = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    return months.indexOf(monthName);
+  };
+
   const handleSkipCarousel = () => {
     setStep('form');
   };
@@ -71,9 +83,17 @@ export default function MDBCApp() {
     const birthCardData = getBirthCardFromDate(dateKey);
     setBirthCard(birthCardData);
     
-    const currentYear = new Date().getFullYear();
-    const birthYear = parseInt(year);
-    const calculatedAge = currentYear - birthYear;
+    // Calculate age properly accounting for whether birthday has passed this year
+    const today = new Date();
+    const birthDate = new Date(parseInt(year), getMonthIndex(month), parseInt(day));
+    let calculatedAge = today.getFullYear() - birthDate.getFullYear();
+    
+    // Check if birthday hasn't occurred yet this year
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      calculatedAge--;
+    }
+    
     setAge(calculatedAge);
     
     // Get yearly forecast
@@ -263,7 +283,7 @@ export default function MDBCApp() {
       <div className="max-w-7xl mx-auto">
         {/* Header with Birth Card */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-4">{name}'s Birth Card Reading</h1>
+          <h1 className="text-3xl font-bold mb-4">{name}&apos;s Birth Card Reading</h1>
           <p className="text-lg mb-2">Born: {month} {day}, {year}</p>
           <div className="flex items-center justify-center gap-4 mb-4">
             <input
@@ -319,15 +339,21 @@ export default function MDBCApp() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold mb-6 text-center">Your 52 Day Energetic Business Cycles</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 justify-items-center">
-            {planetaryPeriods.map((period, idx) => (
-              <FlippableCard
-                key={idx}
-                card={period.card}
-                title={`${period.planet} (${period.startDate})`}
-                description={cardActivities[period.card]?.entrepreneurialActivation}
-                imageUrl={getCardImageUrl(period.card)}
-              />
-            ))}
+            {yearlyCards.slice(0, 7).map((item, idx) => {
+              const planetNames = ['Mercury', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'];
+              const planetName = planetNames[idx] || item.type;
+              const correspondingPeriod = planetaryPeriods[idx];
+              
+              return (
+                <FlippableCard
+                  key={idx}
+                  card={item.card}
+                  title={`${planetName} (${correspondingPeriod?.startDate || ''})`}
+                  description={cardActivities[item.card]?.entrepreneurialActivation}
+                  imageUrl={getCardImageUrl(item.card)}
+                />
+              );
+            })}
           </div>
         </section>
 
