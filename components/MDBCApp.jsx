@@ -578,14 +578,19 @@ export default function MDBCApp() {
                 return `${monthNames[parseInt(month) - 1]} ${day}`;
               };
               
+              // Get the corresponding card from yearly forecast based on planet name
+              const planetNameLower = period.planet.toLowerCase();
+              const yearlyCard = yearlyCards.find(card => card.type.toLowerCase() === planetNameLower);
+              const cardToDisplay = yearlyCard?.card || period.card;
+              
               return (
                 <div key={idx} className="text-center">
                   <p className="text-sm font-medium mb-1">{formatDate(period.startDate)}</p>
                   <p className="text-sm text-purple-600 font-semibold mb-2">{period.planet}</p>
                   <FlippableCard
-                    card={period.card}
-                    description={cardActivities[period.card]?.entrepreneurialActivation}
-                    imageUrl={getCardImageUrl(period.card)}
+                    card={cardToDisplay}
+                    description={cardActivities[cardToDisplay]?.entrepreneurialActivation}
+                    imageUrl={getCardImageUrl(cardToDisplay)}
                     cardType="planetary"
                     isCurrent={getCurrentPlanetaryPeriod() === period.planet}
                   />
