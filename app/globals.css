@@ -9,9 +9,10 @@ textarea {
   color: #000000 !important;
 }
 
-/* Card flip animation styles */
+/* Enhanced Card flip animation styles */
 .card-container {
   perspective: 1000px;
+  position: relative;
 }
 
 .card-inner {
@@ -19,7 +20,7 @@ textarea {
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.6s;
+  transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
   transform-style: preserve-3d;
 }
 
@@ -33,20 +34,74 @@ textarea {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .card-back {
   transform: rotateY(180deg);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 2px solid #e2e8f0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
-/* Card hover effects */
+/* Enhanced Card hover effects */
 .card-hover {
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-hover:active {
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* Current card highlighting */
+.current-card {
+  box-shadow: 0 0 0 3px #8B5CF6, 0 20px 40px rgba(139, 92, 246, 0.3);
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 3px #8B5CF6, 0 20px 40px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 5px #8B5CF6, 0 20px 40px rgba(139, 92, 246, 0.5);
+  }
+}
+
+/* Card description scrolling */
+.card-description {
+  overflow-y: auto;
+  max-height: 60vh;
+  padding: 15px;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #f7fafc;
+}
+
+.card-description::-webkit-scrollbar {
+  width: 6px;
+}
+
+.card-description::-webkit-scrollbar-track {
+  background: #f7fafc;
+  border-radius: 3px;
+}
+
+.card-description::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+.card-description::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
 }
 
 /* Shimmer effect */
@@ -92,4 +147,83 @@ textarea {
 .ripple:active::before {
   width: 300px;
   height: 300px;
+}
+
+/* Sparkle effect */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+.sparkle {
+  position: relative;
+  overflow: visible;
+}
+
+.sparkle::after {
+  content: '✨';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  animation: sparkle 1s ease-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Notification toast */
+.notification-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: slideInFromRight 0.5s ease-out, fadeOut 0.5s ease-out 2.5s forwards;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* Enhanced hover shimmer */
+.shimmer-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.shimmer-hover:hover::before {
+  left: 100%;
 }
