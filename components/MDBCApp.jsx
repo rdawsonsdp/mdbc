@@ -84,6 +84,7 @@ export default function MDBCApp() {
   const [emotionalIntent, setEmotionalIntent] = useState('practical');
   const [notification, setNotification] = useState(null);
   const [sparkleElements, setSparkleElements] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
 
   // Load saved profiles and conversations from localStorage
   useEffect(() => {
@@ -632,11 +633,55 @@ export default function MDBCApp() {
             <div className="flex items-center gap-8">
               <div>
                 <p className="text-sm text-gray-600">Name/Business Name</p>
-                <p className="text-xl font-semibold">{name}</p>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="text-xl font-semibold p-2 border border-navy-300 rounded text-black bg-white"
+                  />
+                ) : (
+                  <p className="text-xl font-semibold">{name}</p>
+                )}
               </div>
               <div>
                 <p className="text-sm text-gray-600">Date of Birth</p>
-                <p className="text-xl font-semibold">{month} {day}, {year}</p>
+                {isEditing ? (
+                  <div className="flex gap-1">
+                    <select 
+                      value={month} 
+                      onChange={(e) => setMonth(e.target.value)}
+                      className="p-2 border border-navy-300 rounded text-black text-sm"
+                    >
+                      <option value="">Month</option>
+                      {["January","February","March","April","May","June","July","August","September","October","November","December"].map(m => (
+                        <option key={m} value={m}>{m.slice(0,3)}</option>
+                      ))}
+                    </select>
+                    <select 
+                      value={day} 
+                      onChange={(e) => setDay(e.target.value)}
+                      className="p-2 border border-navy-300 rounded text-black text-sm"
+                    >
+                      <option value="">Day</option>
+                      {[...Array(31)].map((_, i) => (
+                        <option key={i+1} value={i+1}>{i+1}</option>
+                      ))}
+                    </select>
+                    <select 
+                      value={year} 
+                      onChange={(e) => setYear(e.target.value)}
+                      className="p-2 border border-navy-300 rounded text-black text-sm"
+                    >
+                      <option value="">Year</option>
+                      {Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i).map(y => (
+                        <option key={y} value={y}>{y}</option>
+                      ))}
+                    </select>
+                  </div>
+                ) : (
+                  <p className="text-xl font-semibold">{month} {day}, {year}</p>
+                )}
               </div>
               <div>
                 <p className="text-sm text-gray-600">Age</p>
@@ -646,41 +691,102 @@ export default function MDBCApp() {
                     value={age}
                     onChange={(e) => setAge(parseInt(e.target.value))}
                     className="w-16 p-2 border border-gray-300 rounded text-black text-center"
+                    disabled={!isEditing}
                   />
-                  <button
-                    onClick={() => {
-                      const newAge = age;
-                      getForecastForAge(birthCard.card, newAge).then(setYearlyCards);
-                    }}
-                    className="text-sm text-blue-600 hover:underline"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    id="save-profile-btn"
-                    onClick={saveProfile}
-                    className={`text-sm text-blue-600 hover:underline shimmer-hover ${sparkleElements.includes('save-profile-btn') ? 'sparkle' : ''}`}
-                  >
-                    Save
-                  </button>
-                  <button
-                    onClick={() => {
-                      // Find and delete current profile if it exists
-                      const currentProfile = savedProfiles.find(p => 
-                        p.name === name && 
-                        p.month === month && 
-                        p.day === day && 
-                        p.year === year
-                      );
-                      if (currentProfile) {
-                        deleteProfile(currentProfile.id);
-                      }
-                      setStep('form');
-                    }}
-                    className="text-sm text-red-600 hover:underline"
-                  >
-                    Delete
-                  </button>
+                  {isEditing ? (
+                    <div className="flex gap-2">
+                      <button
+                        onClick={async () => {
+                          // Save changes and regenerate entire reading
+                          setIsEditing(false);
+                          
+                          // Regenerate everything with new data
+                          const dateKey = `${month} ${parseInt(day)}`;
+                          const birthCardData = getBirthCardFromDate(dateKey);
+                          setBirthCard(birthCardData);
+                          
+                          // Recalculate age properly
+                          const today = new Date();
+                          const birthDate = new Date(parseInt(year), getMonthIndex(month), parseInt(day));
+                          let calculatedAge = today.getFullYear() - birthDate.getFullYear();
+                          
+                          // Check if birthday hasn't occurred yet this year
+                          const monthDiff = today.getMonth() - birthDate.getMonth();
+                          if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                            calculatedAge--;
+                          }
+                          
+                          setAge(calculatedAge);
+                          
+                          // Get new yearly forecast
+                          const forecast = await getForecastForAge(birthCardData.card, calculatedAge);
+                          setYearlyCards(forecast);
+                          
+                          // Get new planetary periods
+                          const periods = getAllPlanetaryPeriods(dateKey);
+                          setPlanetaryPeriods(periods);
+                          
+                          // Reset chat with new welcome message
+                          setChatMessages([{
+                            role: 'assistant',
+                            content: `Welcome! I am your Cardology Business Coach, I'm here to help you activate your entrepreneurial gifts and decode your million-dollar blueprint using your birth card, yearly spreads, and planetary cycles—so you can unlock your most aligned path to business success.`
+                          }]);
+                          
+                          showNotification('✨ Information updated and reading refreshed!');
+                        }}
+                        className="px-3 py-1 bg-gold-600 text-white rounded hover:bg-gold-700 transition-colors text-sm font-medium"
+                      >
+                        Save
+                      </button>
+                      <button
+                        onClick={() => {
+                          setIsEditing(false);
+                          // Could restore previous values if needed
+                        }}
+                        className="px-3 py-1 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors text-sm"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => setIsEditing(true)}
+                        className="px-3 py-1 bg-navy-600 text-white rounded hover:bg-navy-700 transition-colors text-sm"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        id="save-profile-btn"
+                        onClick={() => {
+                          saveProfile();
+                          showNotification('✨ Profile saved successfully!');
+                        }}
+                        className={`px-3 py-1 bg-gold-600 text-white rounded hover:bg-gold-700 transition-colors text-sm shimmer-hover ${sparkleElements.includes('save-profile-btn') ? 'sparkle' : ''}`}
+                      >
+                        Save
+                      </button>
+                      <button
+                        onClick={() => {
+                          // Find and delete current profile if it exists
+                          const currentProfile = savedProfiles.find(p => 
+                            p.name === name && 
+                            p.month === month && 
+                            p.day === day && 
+                            p.year === year
+                          );
+                          if (currentProfile) {
+                            deleteProfile(currentProfile.id);
+                            showNotification('🗑️ Profile deleted successfully!');
+                          }
+                          setStep('form');
+                        }}
+                        className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition-colors text-sm"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
