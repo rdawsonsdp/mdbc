@@ -26,15 +26,15 @@ const FlippableCard = ({ card, title, description, imageUrl, isCurrent = false, 
       <div 
         className={`card-container ${isFlipped ? 'flipped' : ''} ${isCurrent ? 'current-card' : ''}`}
         onClick={handleCardClick}
-        style={{ width: '150px', height: '210px' }}
+        style={{ width: '100px', height: '140px' }}
       >
         <div className="card-inner">
           <div className="card-front">
             <Image 
               src={imageUrl} 
               alt={card}
-              width={150}
-              height={210}
+              width={100}
+              height={140}
               className={`w-full h-full object-cover rounded-lg shadow-lg card-hover shimmer-hover ${
                 isCurrent ? 'ring-4 ring-purple-400 ring-opacity-60' : ''
               }`}
@@ -111,6 +111,14 @@ export default function MDBCApp() {
     setStep('form');
   };
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length);
+  };
+
   const handleSubmit = async () => {
     const dateKey = `${month} ${parseInt(day)}`;
     const birthCardData = getBirthCardFromDate(dateKey);
@@ -142,7 +150,7 @@ export default function MDBCApp() {
     // Initialize chat with welcome message
     setChatMessages([{
       role: 'assistant',
-      content: `Welcome! I'm your Cardology Business Coach. With your ${birthCardData.name} birth card, you have unique entrepreneurial gifts waiting to be activated. I'm here to decode your million-dollar blueprint using your birth card, yearly spreads, and planetary cycles. Let's unlock your aligned path to business success. What would you like to explore first?`
+      content: `Welcome! I am your Cardology Business Coach, I'm here to help you activate your entrepreneurial gifts and decode your million-dollar blueprint using your birth card, yearly spreads, and planetary cycles—so you can unlock your most aligned path to business success.`
     }]);
   };
 
@@ -359,30 +367,56 @@ export default function MDBCApp() {
               ))}
             </div>
             
-            {/* Carousel indicators */}
-            <div className="flex justify-center mt-6 space-x-2">
-              {carouselSlides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    currentSlide === index 
-                      ? 'bg-primary w-8' 
-                      : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
+            {/* Navigation arrows and indicators */}
+            <div className="flex justify-between items-center mt-6">
+              <button
+                onClick={prevSlide}
+                className="flex items-center text-gray-600 hover:text-primary transition-colors"
+                aria-label="Previous slide"
+              >
+                <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Back
+              </button>
+              
+              <div className="flex space-x-2">
+                {carouselSlides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      currentSlide === index 
+                        ? 'bg-primary w-8' 
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+              <button
+                onClick={nextSlide}
+                className="flex items-center text-gray-600 hover:text-primary transition-colors"
+                aria-label="Next slide"
+              >
+                Next
+                <svg className="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
           </div>
           
-          {/* Skip button */}
-          <button
-            onClick={handleSkipCarousel}
-            className="w-full bg-primary text-white px-6 py-3 rounded-xl shadow hover:bg-gray-800 transition ripple"
-          >
-            Skip
-          </button>
+          {/* Skip text */}
+          <div className="text-center">
+            <button
+              onClick={handleSkipCarousel}
+              className="text-gray-600 hover:text-primary transition-colors underline"
+            >
+              Skip
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -394,51 +428,8 @@ export default function MDBCApp() {
         <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
           <h2 className="text-2xl font-bold mb-6 text-center">Enter Your Information</h2>
           
-          <input
-            type="text"
-            placeholder="Name/Business Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full p-3 mb-4 border border-secondary rounded-lg text-black"
-          />
-          
-          <div className="grid grid-cols-3 gap-2 mb-4">
-            <select 
-              value={month} 
-              onChange={(e) => setMonth(e.target.value)}
-              className="p-3 border border-secondary rounded-lg text-black"
-            >
-              <option value="">Month</option>
-              {["January","February","March","April","May","June","July","August","September","October","November","December"].map(m => (
-                <option key={m} value={m}>{m}</option>
-              ))}
-            </select>
-            
-            <select 
-              value={day} 
-              onChange={(e) => setDay(e.target.value)}
-              className="p-3 border border-secondary rounded-lg text-black"
-            >
-              <option value="">Day</option>
-              {[...Array(31)].map((_, i) => (
-                <option key={i+1} value={i+1}>{i+1}</option>
-              ))}
-            </select>
-            
-            <select 
-              value={year} 
-              onChange={(e) => setYear(e.target.value)}
-              className="p-3 border border-secondary rounded-lg text-black"
-            >
-              <option value="">Year</option>
-              {Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i).map(y => (
-                <option key={y} value={y}>{y}</option>
-              ))}
-            </select>
-          </div>
-
           {savedProfiles.length > 0 && (
-            <div className="mb-4">
+            <div className="mb-6">
               <label className="block text-sm font-medium mb-2">Saved Profiles</label>
               <select 
                 onChange={(e) => {
@@ -447,7 +438,7 @@ export default function MDBCApp() {
                 }}
                 className="w-full p-3 border border-secondary rounded-lg text-black"
               >
-                <option value="">Select a saved reading...</option>
+                <option value="">-- Select Saved Profile --</option>
                 {savedProfiles.map(profile => (
                   <option key={profile.id} value={profile.id}>
                     {profile.name} - {profile.birthDate}
@@ -456,6 +447,55 @@ export default function MDBCApp() {
               </select>
             </div>
           )}
+          
+          <div className="mb-4">
+            <label className="block text-sm font-medium mb-2">Name</label>
+            <input
+              type="text"
+              placeholder="Enter name/business name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full p-3 border border-secondary rounded-lg text-black"
+            />
+          </div>
+          
+          <div className="mb-6">
+            <label className="block text-sm font-medium mb-2">Birth Date</label>
+            <div className="grid grid-cols-3 gap-2">
+              <select 
+                value={month} 
+                onChange={(e) => setMonth(e.target.value)}
+                className="p-3 border border-secondary rounded-lg text-black"
+              >
+                <option value="">Month</option>
+                {["January","February","March","April","May","June","July","August","September","October","November","December"].map(m => (
+                  <option key={m} value={m}>{m}</option>
+                ))}
+              </select>
+              
+              <select 
+                value={day} 
+                onChange={(e) => setDay(e.target.value)}
+                className="p-3 border border-secondary rounded-lg text-black"
+              >
+                <option value="">Day</option>
+                {[...Array(31)].map((_, i) => (
+                  <option key={i+1} value={i+1}>{i+1}</option>
+                ))}
+              </select>
+              
+              <select 
+                value={year} 
+                onChange={(e) => setYear(e.target.value)}
+                className="p-3 border border-secondary rounded-lg text-black"
+              >
+                <option value="">Year</option>
+                {Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i).map(y => (
+                  <option key={y} value={y}>{y}</option>
+                ))}
+              </select>
+            </div>
+          </div>
           
           <button
             onClick={handleSubmit}
@@ -472,6 +512,20 @@ export default function MDBCApp() {
   return (
     <div className="min-h-screen bg-background p-4">
       <div className="max-w-7xl mx-auto">
+        {/* Navigation and Instructions */}
+        <div className="flex justify-between items-center mb-6">
+          <button
+            onClick={() => setStep('form')}
+            className="flex items-center text-gray-600 hover:text-primary transition-colors"
+          >
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Form
+          </button>
+          <p className="text-gray-600 text-sm">Click cards to flip and view details</p>
+        </div>
+        
         {/* Header Section */}
         <div className="bg-purple-50 p-6 rounded-lg mb-8">
           <div className="flex items-center justify-between flex-wrap gap-4">
@@ -535,8 +589,8 @@ export default function MDBCApp() {
 
         {/* Yearly Strategic Outlook */}
         <section className="bg-purple-50 p-6 rounded-lg mb-8">
-          <h2 className="text-2xl font-bold mb-2 text-center text-purple-600">Yearly Energetic Outlook</h2>
-          <p className="text-center text-gray-600 mb-6">{name}&apos;s energetic outlook for age {age}</p>
+          <h2 className="text-2xl font-bold mb-2 text-center text-purple-600">Yearly Strategic Outlook</h2>
+          <p className="text-center text-gray-600 mb-6">{name} Strategic Outlook for {age}</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
             {/* Birth Card */}
             {birthCard && (
@@ -566,7 +620,7 @@ export default function MDBCApp() {
 
         {/* Planetary Periods */}
         <section className="bg-purple-50 p-6 rounded-lg mb-8">
-          <h2 className="text-2xl font-bold mb-2 text-center text-purple-600">Card Ruling Each 52-day Planetary Period</h2>
+          <h2 className="text-2xl font-bold mb-2 text-center text-purple-600">Card Ruling Each 52-day Business Cycle</h2>
           <p className="text-center text-gray-600 mb-6">Current planetary influences throughout the year</p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 justify-items-center">
             {planetaryPeriods.map((period, idx) => {
@@ -660,7 +714,7 @@ export default function MDBCApp() {
                                 setActiveConversation(null);
                                 setChatMessages([{
                                   role: 'assistant',
-                                  content: `Welcome! I'm your Cardology Business Coach. With your ${birthCard.name} birth card, you have unique entrepreneurial gifts waiting to be activated. I'm here to decode your million-dollar blueprint using your birth card, yearly spreads, and planetary cycles. Let's unlock your aligned path to business success. What would you like to explore first?`
+                                  content: `Welcome! I am your Cardology Business Coach, I'm here to help you activate your entrepreneurial gifts and decode your million-dollar blueprint using your birth card, yearly spreads, and planetary cycles—so you can unlock your most aligned path to business success.`
                                 }]);
                               }
                             }
