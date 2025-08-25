@@ -81,7 +81,6 @@ export default function MDBCApp() {
   const [savedConversations, setSavedConversations] = useState([]);
   const [activeConversation, setActiveConversation] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [emotionalIntent, setEmotionalIntent] = useState('practical');
   const [notification, setNotification] = useState(null);
   const [sparkleElements, setSparkleElements] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
@@ -268,20 +267,11 @@ export default function MDBCApp() {
     setChatMessages([...chatMessages, newMessage]);
     setChatInput('');
     
-    // In a real implementation, this would be an API call with getSystemPrompt(emotionalIntent)
-    // For now, simulate GPT response with cardology context and selected tone
+    // Simulate GPT response with cardology context
     setTimeout(() => {
-      const toneResponses = {
-        supportive: `I see such beautiful potential in your ${birthCard.name} birth card! This card is like a loving blueprint that shows your natural entrepreneurial gifts. You're in your ${age}-year cycle where the ${yearlyCards[0]?.type || 'Long Range'} card (${yearlyCards[0]?.card || ''}) is gently opening new doors for you. Trust in your journey - you have everything within you to succeed. What feels most important to explore right now?`,
-        practical: `Your ${birthCard.name} birth card is a million-dollar blueprint, period. Here's what's happening: In your ${age}-year cycle, the ${yearlyCards[0]?.type || 'Long Range'} card (${yearlyCards[0]?.card || ''}) is creating specific income opportunities. Let's cut to the chase - what concrete business challenge do you need solved right now?`,
-        educational: `Your ${birthCard.name} birth card carries ancient wisdom about entrepreneurial mastery. In Cardology, this card represents specific archetypal energies that govern business success. Currently, your ${age}-year cycle activates the ${yearlyCards[0]?.type || 'Long Range'} card (${yearlyCards[0]?.card || ''}), which teaches us about timing and strategic alignment. Would you like to understand the deeper meaning behind these energetic patterns?`,
-        gentle: `I want you to know that your ${birthCard.name} birth card holds such tender wisdom about your path. Sometimes the journey can feel overwhelming, and that's completely okay. Right now, in your ${age}-year cycle, the ${yearlyCards[0]?.type || 'Long Range'} card (${yearlyCards[0]?.card || ''}) is offering gentle guidance for your next steps. Take all the time you need - what would feel most supportive to explore together?`,
-        empowering: `Your ${birthCard.name} birth card is PURE POWER! You were born with an entrepreneurial signature that's designed for massive success. In your ${age}-year cycle, the ${yearlyCards[0]?.type || 'Long Range'} card (${yearlyCards[0]?.card || ''}) is literally activating your millionaire frequency right now. You're unstoppable when you align with these energies. What bold vision are you ready to manifest?`
-      };
-      
       const response = {
         role: 'assistant',
-        content: toneResponses[emotionalIntent] || toneResponses.practical
+        content: `Your ${birthCard.name} birth card is a million-dollar blueprint. Here's what's happening: In your ${age}-year cycle, the ${yearlyCards[0]?.type || 'Long Range'} card (${yearlyCards[0]?.card || ''}) is creating specific opportunities. What would you like to explore about your cardology insights?`
       };
       setChatMessages(prev => [...prev, response]);
     }, 1000);
@@ -971,32 +961,6 @@ export default function MDBCApp() {
                 ))}
               </div>
               
-              {/* Emotional Intent Selector */}
-              <div className="mb-3">
-                <label className="block text-sm font-medium mb-2 text-gray-700">Coaching Tone:</label>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    { key: 'practical', label: 'Practical', desc: 'Actionable strategies' },
-                    { key: 'supportive', label: 'Supportive', desc: 'Encouraging guidance' },
-                    { key: 'educational', label: 'Educational', desc: 'Deep wisdom' },
-                    { key: 'gentle', label: 'Gentle', desc: 'Soft & patient' },
-                    { key: 'empowering', label: 'Empowering', desc: 'Confidence building' }
-                  ].map(tone => (
-                    <button
-                      key={tone.key}
-                      onClick={() => setEmotionalIntent(tone.key)}
-                      className={`px-3 py-1 text-sm rounded-full border transition ${
-                        emotionalIntent === tone.key
-                          ? 'bg-navy-600 text-white border-navy-600'
-                          : 'bg-white text-gray-700 border-gray-300 hover:border-gold-400'
-                      }`}
-                      title={tone.desc}
-                    >
-                      {tone.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
               
               <div className="flex gap-2">
                 <input
