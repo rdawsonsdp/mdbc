@@ -1,0 +1,367 @@
+﻿Date,Card,Card Name
+December 30,A♥,Ace of Hearts
+May 31,A♣,Ace of Clubs
+June 29,A♣,Ace of Clubs
+July 27,A♣,Ace of Clubs
+August 25,A♣,Ace of Clubs
+September 23,A♣,Ace of Clubs
+October 21,A♣,Ace of Clubs
+November 19,A♣,Ace of Clubs
+December 17,A♣,Ace of Clubs
+January 26,A♦,Ace of Diamonds
+February 24,A♦,Ace of Diamonds
+March 22,A♦,Ace of Diamonds
+April 20,A♦,Ace of Diamonds
+May 18,A♦,Ace of Diamonds
+June 16,A♦,Ace of Diamonds
+July 14,A♦,Ace of Diamonds
+August 12,A♦,Ace of Diamonds
+September 10,A♦,Ace of Diamonds
+October 8,A♦,Ace of Diamonds
+November 6,A♦,Ace of Diamonds
+December 4,A♦,Ace of Diamonds
+January 13,A♠,Ace of Spades
+February 11,A♠,Ace of Spades
+March 9,A♠,Ace of Spades
+April 7,A♠,Ace of Spades
+May 5,A♠,Ace of Spades
+June 3,A♠,Ace of Spades
+July 1,A♠,Ace of Spades
+December 29,2♥,Two of Hearts
+May 30,2♣,Two of Clubs
+June 28,2♣,Two of Clubs
+July 26,2♣,Two of Clubs
+August 24,2♣,Two of Clubs
+September 22,2♣,Two of Clubs
+October 20,2♣,Two of Clubs
+November 18,2♣,Two of Clubs
+December 16,2♣,Two of Clubs
+January 25,2♦,Two of Diamonds
+February 23,2♦,Two of Diamonds
+March 21,2♦,Two of Diamonds
+April 19,2♦,Two of Diamonds
+May 17,2♦,Two of Diamonds
+June 15,2♦,Two of Diamonds
+July 13,2♦,Two of Diamonds
+August 11,2♦,Two of Diamonds
+September 9,2♦,Two of Diamonds
+October 7,2♦,Two of Diamonds
+November 5,2♦,Two of Diamonds
+December 3,2♦,Two of Diamonds
+January 12,2♠,Two of Spades
+February 10,2♠,Two of Spades
+March 8,2♠,Two of Spades
+April 6,2♠,Two of Spades
+May 4,2♠,Two of Spades
+June 2,2♠,Two of Spades
+November 30,3♥,Three of Hearts
+December 28,3♥,Three of Hearts
+May 29,3♣,Three of Clubs
+June 27,3♣,Three of Clubs
+July 25,3♣,Three of Clubs
+August 23,3♣,Three of Clubs
+September 21,3♣,Three of Clubs
+October 19,3♣,Three of Clubs
+November 17,3♣,Three of Clubs
+December 15,3♣,Three of Clubs
+January 24,3♦,Three of Diamonds
+February 22,3♦,Three of Diamonds
+March 20,3♦,Three of Diamonds
+April 18,3♦,Three of Diamonds
+May 16,3♦,Three of Diamonds
+June 14,3♦,Three of Diamonds
+July 12,3♦,Three of Diamonds
+August 10,3♦,Three of Diamonds
+September 8,3♦,Three of Diamonds
+October 6,3♦,Three of Diamonds
+November 4,3♦,Three of Diamonds
+December 2,3♦,Three of Diamonds
+January 11,3♠,Three of Spades
+February 9,3♠,Three of Spades
+March 7,3♠,Three of Spades
+April 5,3♠,Three of Spades
+May 3,3♠,Three of Spades
+June 1,3♠,Three of Spades
+October 31,4♥,Four of Hearts
+November 29,4♥,Four of Hearts
+December 27,4♥,Four of Hearts
+April 30,4♣,Four of Clubs
+May 28,4♣,Four of Clubs
+June 26,4♣,Four of Clubs
+July 24,4♣,Four of Clubs
+August 22,4♣,Four of Clubs
+September 20,4♣,Four of Clubs
+October 18,4♣,Four of Clubs
+November 16,4♣,Four of Clubs
+December 14,4♣,Four of Clubs
+January 23,4♦,Four of Diamonds
+February 21,4♦,Four of Diamonds
+March 19,4♦,Four of Diamonds
+April 17,4♦,Four of Diamonds
+May 15,4♦,Four of Diamonds
+June 13,4♦,Four of Diamonds
+July 11,4♦,Four of Diamonds
+August 9,4♦,Four of Diamonds
+September 7,4♦,Four of Diamonds
+October 5,4♦,Four of Diamonds
+November 3,4♦,Four of Diamonds
+December 1,4♦,Four of Diamonds
+January 10,4♠,Four of Spades
+February 8,4♠,Four of Spades
+March 6,4♠,Four of Spades
+April 4,4♠,Four of Spades
+May 2,4♠,Four of Spades
+October 30,5♥,Five of Hearts
+November 28,5♥,Five of Hearts
+December 26,5♥,Five of Hearts
+March 31,5♣,Five of Clubs
+April 29,5♣,Five of Clubs
+May 27,5♣,Five of Clubs
+June 25,5♣,Five of Clubs
+July 23,5♣,Five of Clubs
+August 21,5♣,Five of Clubs
+September 19,5♣,Five of Clubs
+October 17,5♣,Five of Clubs
+November 15,5♣,Five of Clubs
+December 13,5♣,Five of Clubs
+January 22,5♦,Five of Diamonds
+February 20,5♦,Five of Diamonds
+March 18,5♦,Five of Diamonds
+April 16,5♦,Five of Diamonds
+May 14,5♦,Five of Diamonds
+June 12,5♦,Five of Diamonds
+July 10,5♦,Five of Diamonds
+August 8,5♦,Five of Diamonds
+September 6,5♦,Five of Diamonds
+October 4,5♦,Five of Diamonds
+November 2,5♦,Five of Diamonds
+January 9,5♠,Five of Spades
+February 7,5♠,Five of Spades
+March 5,5♠,Five of Spades
+April 3,5♠,Five of Spades
+May 1,5♠,Five of Spades
+October 29,6♥,Six of Hearts
+November 27,6♥,Six of Hearts
+December 25,6♥,Six of Hearts
+March 30,6♣,Six of Clubs
+April 28,6♣,Six of Clubs
+May 26,6♣,Six of Clubs
+June 24,6♣,Six of Clubs
+July 22,6♣,Six of Clubs
+August 20,6♣,Six of Clubs
+September 18,6♣,Six of Clubs
+October 16,6♣,Six of Clubs
+November 14,6♣,Six of Clubs
+December 12,6♣,Six of Clubs
+January 21,6♦,Six of Diamonds
+February 19,6♦,Six of Diamonds
+March 17,6♦,Six of Diamonds
+April 15,6♦,Six of Diamonds
+May 13,6♦,Six of Diamonds
+June 11,6♦,Six of Diamonds
+July 9,6♦,Six of Diamonds
+August 7,6♦,Six of Diamonds
+September 5,6♦,Six of Diamonds
+October 3,6♦,Six of Diamonds
+November 1,6♦,Six of Diamonds
+January 8,6♠,Six of Spades
+February 6,6♠,Six of Spades
+March 4,6♠,Six of Spades
+April 2,6♠,Six of Spades
+September 30,7♥,Seven of Hearts
+October 28,7♥,Seven of Hearts
+November 26,7♥,Seven of Hearts
+December 24,7♥,Seven of Hearts
+March 29,7♣,Seven of Clubs
+April 27,7♣,Seven of Clubs
+May 25,7♣,Seven of Clubs
+June 23,7♣,Seven of Clubs
+July 21,7♣,Seven of Clubs
+August 19,7♣,Seven of Clubs
+September 17,7♣,Seven of Clubs
+October 15,7♣,Seven of Clubs
+November 13,7♣,Seven of Clubs
+December 11,7♣,Seven of Clubs
+January 20,7♦,Seven of Diamonds
+February 18,7♦,Seven of Diamonds
+March 16,7♦,Seven of Diamonds
+April 14,7♦,Seven of Diamonds
+May 12,7♦,Seven of Diamonds
+June 10,7♦,Seven of Diamonds
+July 8,7♦,Seven of Diamonds
+August 6,7♦,Seven of Diamonds
+September 4,7♦,Seven of Diamonds
+October 2,7♦,Seven of Diamonds
+January 7,7♠,Seven of Spades
+February 5,7♠,Seven of Spades
+March 3,7♠,Seven of Spades
+April 1,7♠,Seven of Spades
+August 31,8♥,Eight of Hearts
+September 29,8♥,Eight of Hearts
+October 27,8♥,Eight of Hearts
+November 25,8♥,Eight of Hearts
+December 23,8♥,Eight of Hearts
+March 28,8♣,Eight of Clubs
+April 26,8♣,Eight of Clubs
+May 24,8♣,Eight of Clubs
+June 22,8♣,Eight of Clubs
+July 20,8♣,Eight of Clubs
+August 18,8♣,Eight of Clubs
+September 16,8♣,Eight of Clubs
+October 14,8♣,Eight of Clubs
+November 12,8♣,Eight of Clubs
+December 10,8♣,Eight of Clubs
+January 19,8♦,Eight of Diamonds
+February 17,8♦,Eight of Diamonds
+March 15,8♦,Eight of Diamonds
+April 13,8♦,Eight of Diamonds
+May 11,8♦,Eight of Diamonds
+June 9,8♦,Eight of Diamonds
+July 7,8♦,Eight of Diamonds
+August 5,8♦,Eight of Diamonds
+September 3,8♦,Eight of Diamonds
+October 1,8♦,Eight of Diamonds
+January 6,8♠,Eight of Spades
+February 4,8♠,Eight of Spades
+March 2,8♠,Eight of Spades
+August 30,9♥,Nine of Hearts
+September 28,9♥,Nine of Hearts
+October 26,9♥,Nine of Hearts
+November 24,9♥,Nine of Hearts
+December 22,9♥,Nine of Hearts
+January 31,9♣,Nine of Clubs
+February 29,9♣,Nine of Clubs
+March 27,9♣,Nine of Clubs
+April 25,9♣,Nine of Clubs
+May 23,9♣,Nine of Clubs
+June 21,9♣,Nine of Clubs
+July 19,9♣,Nine of Clubs
+August 17,9♣,Nine of Clubs
+September 15,9♣,Nine of Clubs
+October 13,9♣,Nine of Clubs
+November 11,9♣,Nine of Clubs
+December 9,9♣,Nine of Clubs
+January 18,9♦,Nine of Diamonds
+February 16,9♦,Nine of Diamonds
+March 14,9♦,Nine of Diamonds
+April 12,9♦,Nine of Diamonds
+May 10,9♦,Nine of Diamonds
+June 8,9♦,Nine of Diamonds
+July 6,9♦,Nine of Diamonds
+August 4,9♦,Nine of Diamonds
+September 2,9♦,Nine of Diamonds
+January 5,9♠,Nine of Spades
+February 3,9♠,Nine of Spades
+March 1,9♠,Nine of Spades
+July 31,10♥,Ten of Hearts
+August 29,10♥,Ten of Hearts
+September 27,10♥,Ten of Hearts
+October 25,10♥,Ten of Hearts
+November 23,10♥,Ten of Hearts
+December 21,10♥,Ten of Hearts
+January 30,10♣,Ten of Clubs
+February 28,10♣,Ten of Clubs
+March 26,10♣,Ten of Clubs
+April 24,10♣,Ten of Clubs
+May 22,10♣,Ten of Clubs
+June 20,10♣,Ten of Clubs
+July 18,10♣,Ten of Clubs
+August 16,10♣,Ten of Clubs
+September 14,10♣,Ten of Clubs
+October 12,10♣,Ten of Clubs
+November 10,10♣,Ten of Clubs
+December 8,10♣,Ten of Clubs
+January 17,10♦,Ten of Diamonds
+February 15,10♦,Ten of Diamonds
+March 13,10♦,Ten of Diamonds
+April 11,10♦,Ten of Diamonds
+May 9,10♦,Ten of Diamonds
+June 7,10♦,Ten of Diamonds
+July 5,10♦,Ten of Diamonds
+August 3,10♦,Ten of Diamonds
+September 1,10♦,Ten of Diamonds
+January 4,10♠,Ten of Spades
+February 2,10♠,Ten of Spades
+July 30,J♥,Jack of Hearts
+August 28,J♥,Jack of Hearts
+September 26,J♥,Jack of Hearts
+October 24,J♥,Jack of Hearts
+November 22,J♥,Jack of Hearts
+December 20,J♥,Jack of Hearts
+January 29,J♣,Jack of Clubs
+February 27,J♣,Jack of Clubs
+March 25,J♣,Jack of Clubs
+April 23,J♣,Jack of Clubs
+May 21,J♣,Jack of Clubs
+June 19,J♣,Jack of Clubs
+July 17,J♣,Jack of Clubs
+August 15,J♣,Jack of Clubs
+September 13,J♣,Jack of Clubs
+October 11,J♣,Jack of Clubs
+November 9,J♣,Jack of Clubs
+December 7,J♣,Jack of Clubs
+January 16,J♦,Jack of Diamonds
+February 14,J♦,Jack of Diamonds
+March 12,J♦,Jack of Diamonds
+April 10,J♦,Jack of Diamonds
+May 8,J♦,Jack of Diamonds
+June 6,J♦,Jack of Diamonds
+July 4,J♦,Jack of Diamonds
+August 2,J♦,Jack of Diamonds
+January 3,J♠,Jack of Spades
+February 1,J♠,Jack of Spades
+July 29,Q♥,Queen of Hearts
+August 27,Q♥,Queen of Hearts
+September 25,Q♥,Queen of Hearts
+October 23,Q♥,Queen of Hearts
+November 21,Q♥,Queen of Hearts
+December 19,Q♥,Queen of Hearts
+January 28,Q♣,Queen of Clubs
+February 26,Q♣,Queen of Clubs
+March 24,Q♣,Queen of Clubs
+April 22,Q♣,Queen of Clubs
+May 20,Q♣,Queen of Clubs
+June 18,Q♣,Queen of Clubs
+July 16,Q♣,Queen of Clubs
+August 14,Q♣,Queen of Clubs
+September 12,Q♣,Queen of Clubs
+October 10,Q♣,Queen of Clubs
+November 8,Q♣,Queen of Clubs
+December 6,Q♣,Queen of Clubs
+January 15,Q♦,Queen of Diamonds
+February 13,Q♦,Queen of Diamonds
+March 11,Q♦,Queen of Diamonds
+April 9,Q♦,Queen of Diamonds
+May 7,Q♦,Queen of Diamonds
+June 5,Q♦,Queen of Diamonds
+July 3,Q♦,Queen of Diamonds
+August 1,Q♦,Queen of Diamonds
+January 2,Q♠,Queen of Spades
+June 30,K♥,King of Hearts
+July 28,K♥,King of Hearts
+August 26,K♥,King of Hearts
+September 24,K♥,King of Hearts
+October 22,K♥,King of Hearts
+November 20,K♥,King of Hearts
+December 18,K♥,King of Hearts
+January 27,K♣,King of Clubs
+February 25,K♣,King of Clubs
+March 23,K♣,King of Clubs
+April 21,K♣,King of Clubs
+May 19,K♣,King of Clubs
+June 17,K♣,King of Clubs
+July 15,K♣,King of Clubs
+August 13,K♣,King of Clubs
+September 11,K♣,King of Clubs
+October 9,K♣,King of Clubs
+November 7,K♣,King of Clubs
+December 5,K♣,King of Clubs
+January 14,K♦,King of Diamonds
+February 12,K♦,King of Diamonds
+March 10,K♦,King of Diamonds
+April 8,K♦,King of Diamonds
+May 6,K♦,King of Diamonds
+June 4,K♦,King of Diamonds
+July 2,K♦,King of Diamonds
+January 1,K♠,King of Spades
+December 30,🎭,Joker

@@ -15,7 +15,7 @@ async function loadYearlyForecastsData() {
   if (yearlyForecastsData) return yearlyForecastsData;
   
   try {
-    const response = await fetch('/lib/data/Yearly Forecasts.csv');
+    const response = await fetch('/data/Yearly Forecasts.csv');
     if (!response.ok) {
       throw new Error(`Failed to load Yearly Forecasts.csv: ${response.status}`);
     }
@@ -54,6 +54,8 @@ export async function fetchYearlyForecastData(birthCard, age) {
     const a = String(Number(age));                   // compare as string
     
     console.log(`Looking up forecast for birth card: "${bc}", age: "${a}"`);
+    console.log(`First few rows of data:`, data.slice(0, 3));
+    console.log(`Headers:`, data.length > 0 ? Object.keys(data[0]) : 'No data');
     
     // Find the row where (Birth Card == bc) && (AGE == a)
     const row = findRowWhere(data, {

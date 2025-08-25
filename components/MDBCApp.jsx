@@ -945,6 +945,25 @@ export default function MDBCApp() {
             </div>
           )}
           
+          {/* Debug: Show enhanced data status */}
+          {process.env.NODE_ENV === 'development' && (
+            <div className="text-center py-2">
+              <button onClick={validateCSVs} className="text-sm bg-gray-200 px-3 py-1 rounded">
+                Test CSV Access
+              </button>
+              {enhancedCardData && (
+                <p className="text-xs text-green-600 mt-1">
+                  Enhanced data loaded: {enhancedCardData.strategicOutlook?.length || 0} strategic, {enhancedCardData.planetaryPeriods?.length || 0} planetary
+                </p>
+              )}
+              {csvValidation && (
+                <p className="text-xs text-gray-600 mt-1">
+                  CSV Status: {csvValidation.errors.length === 0 ? '✅ All OK' : `❌ ${csvValidation.errors.length} errors`}
+                </p>
+              )}
+            </div>
+          )}
+          
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
             {/* Enhanced Birth Card */}
             {birthCard && enhancedCardData && (

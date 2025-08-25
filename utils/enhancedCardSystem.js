@@ -19,6 +19,7 @@ import { normalizeBirthCardForCSV } from './csvParser.js';
  */
 export async function getEnhancedCardData(birthCard, age, birthDate) {
   console.log('Getting enhanced card data:', { birthCard, age, birthDate });
+  console.log('Normalized birth card for CSV:', normalizeBirthCardForCSV(birthCard));
   
   try {
     // STEP 3: Fetch yearly forecast data from CSV
@@ -185,7 +186,7 @@ export async function validateCSVAccess() {
   };
   
   try {
-    const response1 = await fetch('/lib/data/Yearly Forecasts.csv');
+    const response1 = await fetch('/data/Yearly Forecasts.csv');
     results.yearlyForecasts = response1.ok;
     if (!response1.ok) results.errors.push('Yearly Forecasts.csv not accessible');
   } catch (error) {
@@ -193,7 +194,7 @@ export async function validateCSVAccess() {
   }
   
   try {
-    const response2 = await fetch('/lib/data/Planetary Periods.csv');
+    const response2 = await fetch('/data/Planetary Periods.csv');
     results.planetaryPeriods = response2.ok;
     if (!response2.ok) results.errors.push('Planetary Periods.csv not accessible');
   } catch (error) {
@@ -201,7 +202,7 @@ export async function validateCSVAccess() {
   }
   
   try {
-    const response3 = await fetch('/lib/data/Card to Activities MDBC.csv');
+    const response3 = await fetch('/data/Card to Activities MDBC.csv');
     results.cardActivities = response3.ok;
     if (!response3.ok) results.errors.push('Card to Activities MDBC.csv not accessible');
   } catch (error) {

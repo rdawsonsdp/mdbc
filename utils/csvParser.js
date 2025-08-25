@@ -36,13 +36,13 @@ export function parseCSV(csvContent) {
   
   // Remove BOM if present and filter empty lines
   const cleanLines = lines
-    .map(line => line.replace(/^\uFEFF/, ''))
+    .map(line => line.replace(/^\uFEFF/, '').trim())
     .filter(line => line.length > 0);
   
   if (cleanLines.length === 0) return [];
   
   // Parse headers
-  const headers = parseCSVLine(cleanLines[0]);
+  const headers = parseCSVLine(cleanLines[0]).map(h => h.trim());
   
   // Parse data rows
   for (let i = 1; i < cleanLines.length; i++) {

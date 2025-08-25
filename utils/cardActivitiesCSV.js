@@ -16,7 +16,7 @@ async function loadCardActivitiesData() {
   if (cardActivitiesData) return cardActivitiesData;
   
   try {
-    const response = await fetch('/lib/data/Card to Activities MDBC.csv');
+    const response = await fetch('/data/Card to Activities MDBC.csv');
     if (!response.ok) {
       throw new Error(`Failed to load Card to Activities MDBC.csv: ${response.status}`);
     }

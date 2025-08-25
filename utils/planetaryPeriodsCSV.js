@@ -15,7 +15,7 @@ async function loadPlanetaryPeriodsData() {
   if (planetaryPeriodsData) return planetaryPeriodsData;
   
   try {
-    const response = await fetch('/lib/data/Planetary Periods.csv');
+    const response = await fetch('/data/Planetary Periods.csv');
     if (!response.ok) {
       throw new Error(`Failed to load Planetary Periods.csv: ${response.status}`);
     }
@@ -85,8 +85,18 @@ export function getCardImagePath(card) {
     return '/cards/card-back.png';
   }
   
-  const slug = cardToSlug(card);
-  return `/cards/png/${slug}.png`;
+  // Convert card format (e.g., "K♠" -> "KS.png")
+  const cardMapping = {
+    '♠': 'S', '♣': 'C', '♦': 'D', '♥': 'H'
+  };
+  
+  const match = card.match(/^([2-9JQKA]|10)([♠♣♦♥])$/);
+  if (!match) return '/cards/card-back.png';
+  
+  const [, rank, suit] = match;
+  const suitCode = cardMapping[suit] || 'S';
+  
+  return `/cards/${rank}${suitCode}.png`;
 }
 
 /**

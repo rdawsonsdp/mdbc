@@ -1,0 +1,4394 @@
+{
+  "January 1": {
+    "card": "K ♠",
+    "periods": {
+      "mercury": "1/1",
+      "venus": "2/22",
+      "mars": "4/15",
+      "jupiter": "6/6",
+      "saturn": "7/28",
+      "uranus": "9/18",
+      "neptune": "11/9"
+    }
+  },
+  "January 2": {
+    "card": "Q ♠",
+    "periods": {
+      "mercury": "1/2",
+      "venus": "2/23",
+      "mars": "4/16",
+      "jupiter": "6/7",
+      "saturn": "7/29",
+      "uranus": "9/19",
+      "neptune": "11/10"
+    }
+  },
+  "January 3": {
+    "card": "J ♠",
+    "periods": {
+      "mercury": "1/3",
+      "venus": "2/24",
+      "mars": "4/17",
+      "jupiter": "6/8",
+      "saturn": "7/30",
+      "uranus": "9/20",
+      "neptune": "11/11"
+    }
+  },
+  "January 4": {
+    "card": "10 ♠",
+    "periods": {
+      "mercury": "1/4",
+      "venus": "2/25",
+      "mars": "4/18",
+      "jupiter": "6/9",
+      "saturn": "7/31",
+      "uranus": "9/21",
+      "neptune": "11/12"
+    }
+  },
+  "January 5": {
+    "card": "9 ♠",
+    "periods": {
+      "mercury": "1/5",
+      "venus": "2/26",
+      "mars": "4/19",
+      "jupiter": "6/10",
+      "saturn": "8/1",
+      "uranus": "9/22",
+      "neptune": "11/13"
+    }
+  },
+  "January 6": {
+    "card": "8 ♠",
+    "periods": {
+      "mercury": "1/6",
+      "venus": "2/27",
+      "mars": "4/20",
+      "jupiter": "6/11",
+      "saturn": "8/2",
+      "uranus": "9/23",
+      "neptune": "11/14"
+    }
+  },
+  "January 7": {
+    "card": "7 ♠",
+    "periods": {
+      "mercury": "1/7",
+      "venus": "2/28",
+      "mars": "4/21",
+      "jupiter": "6/12",
+      "saturn": "8/3",
+      "uranus": "9/24",
+      "neptune": "11/15"
+    }
+  },
+  "January 8": {
+    "card": "6 ♠",
+    "periods": {
+      "mercury": "1/8",
+      "venus": "3/1",
+      "mars": "4/22",
+      "jupiter": "6/13",
+      "saturn": "8/4",
+      "uranus": "9/25",
+      "neptune": "11/16"
+    }
+  },
+  "January 9": {
+    "card": "5 ♠",
+    "periods": {
+      "mercury": "1/9",
+      "venus": "3/2",
+      "mars": "4/23",
+      "jupiter": "6/14",
+      "saturn": "8/5",
+      "uranus": "9/26",
+      "neptune": "11/17"
+    }
+  },
+  "January 10": {
+    "card": "4 ♠",
+    "periods": {
+      "mercury": "1/10",
+      "venus": "3/3",
+      "mars": "4/24",
+      "jupiter": "6/15",
+      "saturn": "8/6",
+      "uranus": "9/27",
+      "neptune": "11/18"
+    }
+  },
+  "January 11": {
+    "card": "3 ♠",
+    "periods": {
+      "mercury": "1/11",
+      "venus": "3/4",
+      "mars": "4/25",
+      "jupiter": "6/16",
+      "saturn": "8/7",
+      "uranus": "9/28",
+      "neptune": "11/19"
+    }
+  },
+  "January 12": {
+    "card": "2 ♠",
+    "periods": {
+      "mercury": "1/12",
+      "venus": "3/5",
+      "mars": "4/26",
+      "jupiter": "6/17",
+      "saturn": "8/8",
+      "uranus": "9/29",
+      "neptune": "11/20"
+    }
+  },
+  "January 13": {
+    "card": "A ♠",
+    "periods": {
+      "mercury": "1/13",
+      "venus": "3/6",
+      "mars": "4/27",
+      "jupiter": "6/18",
+      "saturn": "8/9",
+      "uranus": "9/30",
+      "neptune": "11/21"
+    }
+  },
+  "January 14": {
+    "card": "K ♦",
+    "periods": {
+      "mercury": "1/14",
+      "venus": "3/7",
+      "mars": "4/28",
+      "jupiter": "6/19",
+      "saturn": "8/10",
+      "uranus": "10/1",
+      "neptune": "11/22"
+    }
+  },
+  "January 15": {
+    "card": "Q ♦",
+    "periods": {
+      "mercury": "1/15",
+      "venus": "3/8",
+      "mars": "4/29",
+      "jupiter": "6/20",
+      "saturn": "8/11",
+      "uranus": "10/2",
+      "neptune": "11/23"
+    }
+  },
+  "January 16": {
+    "card": "J ♦",
+    "periods": {
+      "mercury": "1/16",
+      "venus": "3/9",
+      "mars": "4/30",
+      "jupiter": "6/21",
+      "saturn": "8/12",
+      "uranus": "10/3",
+      "neptune": "11/24"
+    }
+  },
+  "January 17": {
+    "card": "10 ♦",
+    "periods": {
+      "mercury": "1/17",
+      "venus": "3/10",
+      "mars": "5/1",
+      "jupiter": "6/22",
+      "saturn": "8/13",
+      "uranus": "10/4",
+      "neptune": "11/25"
+    }
+  },
+  "January 18": {
+    "card": "9 ♦",
+    "periods": {
+      "mercury": "1/18",
+      "venus": "3/11",
+      "mars": "5/2",
+      "jupiter": "6/23",
+      "saturn": "8/14",
+      "uranus": "10/5",
+      "neptune": "11/26"
+    }
+  },
+  "January 19": {
+    "card": "8 ♦",
+    "periods": {
+      "mercury": "1/19",
+      "venus": "3/12",
+      "mars": "5/3",
+      "jupiter": "6/24",
+      "saturn": "8/15",
+      "uranus": "10/6",
+      "neptune": "11/27"
+    }
+  },
+  "January 20": {
+    "card": "7 ♦",
+    "periods": {
+      "mercury": "1/20",
+      "venus": "3/13",
+      "mars": "5/4",
+      "jupiter": "6/25",
+      "saturn": "8/16",
+      "uranus": "10/7",
+      "neptune": "11/28"
+    }
+  },
+  "January 21": {
+    "card": "6 ♦",
+    "periods": {
+      "mercury": "1/21",
+      "venus": "3/14",
+      "mars": "5/5",
+      "jupiter": "6/26",
+      "saturn": "8/17",
+      "uranus": "10/8",
+      "neptune": "11/29"
+    }
+  },
+  "January 22": {
+    "card": "5 ♦",
+    "periods": {
+      "mercury": "1/22",
+      "venus": "3/15",
+      "mars": "5/6",
+      "jupiter": "6/27",
+      "saturn": "8/18",
+      "uranus": "10/9",
+      "neptune": "11/30"
+    }
+  },
+  "January 23": {
+    "card": "4 ♦",
+    "periods": {
+      "mercury": "1/23",
+      "venus": "3/16",
+      "mars": "5/7",
+      "jupiter": "6/28",
+      "saturn": "8/19",
+      "uranus": "10/10",
+      "neptune": "12/1"
+    }
+  },
+  "January 24": {
+    "card": "3 ♦",
+    "periods": {
+      "mercury": "1/24",
+      "venus": "3/17",
+      "mars": "5/8",
+      "jupiter": "6/29",
+      "saturn": "8/20",
+      "uranus": "10/11",
+      "neptune": "12/2"
+    }
+  },
+  "January 25": {
+    "card": "2 ♦",
+    "periods": {
+      "mercury": "1/25",
+      "venus": "3/18",
+      "mars": "5/9",
+      "jupiter": "6/30",
+      "saturn": "8/21",
+      "uranus": "10/12",
+      "neptune": "12/3"
+    }
+  },
+  "January 26": {
+    "card": "A ♣",
+    "periods": {
+      "mercury": "1/26",
+      "venus": "3/19",
+      "mars": "5/10",
+      "jupiter": "7/1",
+      "saturn": "8/22",
+      "uranus": "10/13",
+      "neptune": "12/4"
+    }
+  },
+  "January 27": {
+    "card": "K  ♣",
+    "periods": {
+      "mercury": "1/27",
+      "venus": "3/20",
+      "mars": "5/11",
+      "jupiter": "7/2",
+      "saturn": "8/23",
+      "uranus": "10/14",
+      "neptune": "12/5"
+    }
+  },
+  "January 28": {
+    "card": "Q ♣",
+    "periods": {
+      "mercury": "1/28",
+      "venus": "3/21",
+      "mars": "5/12",
+      "jupiter": "7/3",
+      "saturn": "8/24",
+      "uranus": "10/15",
+      "neptune": "12/6"
+    }
+  },
+  "January 29": {
+    "card": "J ♣",
+    "periods": {
+      "mercury": "1/29",
+      "venus": "3/22",
+      "mars": "5/13",
+      "jupiter": "7/4",
+      "saturn": "8/25",
+      "uranus": "10/16",
+      "neptune": "12/7"
+    }
+  },
+  "January 30": {
+    "card": "10 ♣",
+    "periods": {
+      "mercury": "1/30",
+      "venus": "3/23",
+      "mars": "5/14",
+      "jupiter": "7/5",
+      "saturn": "8/26",
+      "uranus": "10/17",
+      "neptune": "12/8"
+    }
+  },
+  "January 31": {
+    "card": "9 ♣",
+    "periods": {
+      "mercury": "1/31",
+      "venus": "3/24",
+      "mars": "5/15",
+      "jupiter": "7/6",
+      "saturn": "8/27",
+      "uranus": "10/18",
+      "neptune": "12/9"
+    }
+  },
+  "February 1": {
+    "card": "J ♠",
+    "periods": {
+      "mercury": "2/1",
+      "venus": "3/25",
+      "mars": "5/16",
+      "jupiter": "7/7",
+      "saturn": "8/28",
+      "uranus": "10/19",
+      "neptune": "12/10"
+    }
+  },
+  "February 2": {
+    "card": "10 ♠",
+    "periods": {
+      "mercury": "2/2",
+      "venus": "3/26",
+      "mars": "5/17",
+      "jupiter": "7/8",
+      "saturn": "8/29",
+      "uranus": "10/20",
+      "neptune": "12/11"
+    }
+  },
+  "February 3": {
+    "card": "9 ♠",
+    "periods": {
+      "mercury": "2/3",
+      "venus": "3/27",
+      "mars": "5/18",
+      "jupiter": "7/9",
+      "saturn": "8/30",
+      "uranus": "10/21",
+      "neptune": "12/12"
+    }
+  },
+  "February 4": {
+    "card": "8 ♠",
+    "periods": {
+      "mercury": "2/4",
+      "venus": "3/28",
+      "mars": "5/19",
+      "jupiter": "7/10",
+      "saturn": "8/31",
+      "uranus": "10/22",
+      "neptune": "12/13"
+    }
+  },
+  "February 5": {
+    "card": "7 ♠",
+    "periods": {
+      "mercury": "2/5",
+      "venus": "3/29",
+      "mars": "5/20",
+      "jupiter": "7/11",
+      "saturn": "9/1",
+      "uranus": "10/23",
+      "neptune": "12/14"
+    }
+  },
+  "February 6": {
+    "card": "6 ♠",
+    "periods": {
+      "mercury": "2/6",
+      "venus": "3/30",
+      "mars": "5/21",
+      "jupiter": "7/12",
+      "saturn": "9/2",
+      "uranus": "10/24",
+      "neptune": "12/15"
+    }
+  },
+  "February 7": {
+    "card": "5 ♠",
+    "periods": {
+      "mercury": "2/7",
+      "venus": "3/31",
+      "mars": "5/22",
+      "jupiter": "7/13",
+      "saturn": "9/3",
+      "uranus": "10/25",
+      "neptune": "12/16"
+    }
+  },
+  "February 8": {
+    "card": "4 ♠",
+    "periods": {
+      "mercury": "2/8",
+      "venus": "4/1",
+      "mars": "5/23",
+      "jupiter": "7/14",
+      "saturn": "9/4",
+      "uranus": "10/26",
+      "neptune": "12/17"
+    }
+  },
+  "February 9": {
+    "card": "3 ♠",
+    "periods": {
+      "mercury": "2/9",
+      "venus": "4/2",
+      "mars": "5/24",
+      "jupiter": "7/15",
+      "saturn": "9/5",
+      "uranus": "10/27",
+      "neptune": "12/18"
+    }
+  },
+  "February 10": {
+    "card": "2 ♠",
+    "periods": {
+      "mercury": "2/10",
+      "venus": "4/3",
+      "mars": "5/25",
+      "jupiter": "7/16",
+      "saturn": "9/6",
+      "uranus": "10/28",
+      "neptune": "12/19"
+    }
+  },
+  "February 11": {
+    "card": "A ♠",
+    "periods": {
+      "mercury": "2/11",
+      "venus": "4/4",
+      "mars": "5/26",
+      "jupiter": "7/17",
+      "saturn": "9/7",
+      "uranus": "10/29",
+      "neptune": "12/20"
+    }
+  },
+  "February 12": {
+    "card": "K ♦",
+    "periods": {
+      "mercury": "2/12",
+      "venus": "4/5",
+      "mars": "5/27",
+      "jupiter": "7/18",
+      "saturn": "9/8",
+      "uranus": "10/30",
+      "neptune": "12/21"
+    }
+  },
+  "February 13": {
+    "card": "Q ♦",
+    "periods": {
+      "mercury": "2/13",
+      "venus": "4/6",
+      "mars": "5/28",
+      "jupiter": "7/19",
+      "saturn": "9/9",
+      "uranus": "10/31",
+      "neptune": "12/22"
+    }
+  },
+  "February 14": {
+    "card": "J ♦",
+    "periods": {
+      "mercury": "2/14",
+      "venus": "4/7",
+      "mars": "5/29",
+      "jupiter": "7/20",
+      "saturn": "9/10",
+      "uranus": "11/1",
+      "neptune": "12/23"
+    }
+  },
+  "February 15": {
+    "card": "10 ♦",
+    "periods": {
+      "mercury": "2/15",
+      "venus": "4/8",
+      "mars": "5/30",
+      "jupiter": "7/21",
+      "saturn": "9/11",
+      "uranus": "11/2",
+      "neptune": "12/24"
+    }
+  },
+  "February 16": {
+    "card": "9 ♦",
+    "periods": {
+      "mercury": "2/16",
+      "venus": "4/9",
+      "mars": "5/31",
+      "jupiter": "7/22",
+      "saturn": "9/12",
+      "uranus": "11/3",
+      "neptune": "12/25"
+    }
+  },
+  "February 17": {
+    "card": "8 ♦",
+    "periods": {
+      "mercury": "2/17",
+      "venus": "4/10",
+      "mars": "6/1",
+      "jupiter": "7/23",
+      "saturn": "9/13",
+      "uranus": "11/4",
+      "neptune": "12/26"
+    }
+  },
+  "February 18": {
+    "card": "7 ♦",
+    "periods": {
+      "mercury": "2/18",
+      "venus": "4/11",
+      "mars": "6/2",
+      "jupiter": "7/24",
+      "saturn": "9/14",
+      "uranus": "11/5",
+      "neptune": "12/27"
+    }
+  },
+  "February 19": {
+    "card": "6 ♦",
+    "periods": {
+      "mercury": "2/19",
+      "venus": "4/12",
+      "mars": "6/3",
+      "jupiter": "7/25",
+      "saturn": "9/15",
+      "uranus": "11/6",
+      "neptune": "12/28"
+    }
+  },
+  "February 20": {
+    "card": "5 ♦",
+    "periods": {
+      "mercury": "2/20",
+      "venus": "4/13",
+      "mars": "6/4",
+      "jupiter": "7/26",
+      "saturn": "9/16",
+      "uranus": "11/7",
+      "neptune": "12/29"
+    }
+  },
+  "February 21": {
+    "card": "4 ♦",
+    "periods": {
+      "mercury": "2/21",
+      "venus": "4/14",
+      "mars": "6/5",
+      "jupiter": "7/27",
+      "saturn": "9/17",
+      "uranus": "11/8",
+      "neptune": "12/30"
+    }
+  },
+  "February 22": {
+    "card": "3 ♦",
+    "periods": {
+      "mercury": "2/22",
+      "venus": "4/15",
+      "mars": "6/6",
+      "jupiter": "7/28",
+      "saturn": "9/18",
+      "uranus": "11/9",
+      "neptune": "1/1"
+    }
+  },
+  "February 23": {
+    "card": "2 ♦",
+    "periods": {
+      "mercury": "2/23",
+      "venus": "4/16",
+      "mars": "6/7",
+      "jupiter": "7/29",
+      "saturn": "9/19",
+      "uranus": "11/10",
+      "neptune": "1/2"
+    }
+  },
+  "February 24": {
+    "card": "A ♦",
+    "periods": {
+      "mercury": "2/24",
+      "venus": "4/17",
+      "mars": "6/8",
+      "jupiter": "7/30",
+      "saturn": "9/20",
+      "uranus": "11/11",
+      "neptune": "1/3"
+    }
+  },
+  "February 25": {
+    "card": "K ♣",
+    "periods": {
+      "mercury": "2/25",
+      "venus": "4/18",
+      "mars": "6/9",
+      "jupiter": "7/31",
+      "saturn": "9/21",
+      "uranus": "11/12",
+      "neptune": "1/4"
+    }
+  },
+  "February 26": {
+    "card": "Q ♣",
+    "periods": {
+      "mercury": "2/26",
+      "venus": "4/19",
+      "mars": "6/10",
+      "jupiter": "8/1",
+      "saturn": "9/22",
+      "uranus": "11/13",
+      "neptune": "1/5"
+    }
+  },
+  "February 27": {
+    "card": "J ♣",
+    "periods": {
+      "mercury": "2/27",
+      "venus": "4/20",
+      "mars": "6/11",
+      "jupiter": "8/2",
+      "saturn": "9/23",
+      "uranus": "11/14",
+      "neptune": "1/6"
+    }
+  },
+  "February 28": {
+    "card": "10 ♣",
+    "periods": {
+      "mercury": "2/28",
+      "venus": "4/21",
+      "mars": "6/12",
+      "jupiter": "8/3",
+      "saturn": "9/24",
+      "uranus": "11/15",
+      "neptune": "1/7"
+    }
+  },
+  "February 29": {
+    "card": "9 ♣",
+    "periods": {
+      "mercury": "2/1",
+      "venus": "4/21",
+      "mars": "6/12",
+      "jupiter": "8/3",
+      "saturn": "9/24",
+      "uranus": "11/15",
+      "neptune": "1/7"
+    }
+  },
+  "March 1": {
+    "card": "9 ♠",
+    "periods": {
+      "mercury": "3/1",
+      "venus": "4/22",
+      "mars": "6/13",
+      "jupiter": "8/4",
+      "saturn": "9/25",
+      "uranus": "11/16",
+      "neptune": "1/8"
+    }
+  },
+  "March 2": {
+    "card": "8 ♠",
+    "periods": {
+      "mercury": "3/2",
+      "venus": "4/23",
+      "mars": "6/14",
+      "jupiter": "8/5",
+      "saturn": "9/26",
+      "uranus": "11/17",
+      "neptune": "1/9"
+    }
+  },
+  "March 3": {
+    "card": "7 ♠",
+    "periods": {
+      "mercury": "3/3",
+      "venus": "4/24",
+      "mars": "6/15",
+      "jupiter": "8/6",
+      "saturn": "9/27",
+      "uranus": "11/18",
+      "neptune": "1/10"
+    }
+  },
+  "March 4": {
+    "card": "6 ♠",
+    "periods": {
+      "mercury": "3/4",
+      "venus": "4/25",
+      "mars": "6/16",
+      "jupiter": "8/7",
+      "saturn": "9/28",
+      "uranus": "11/19",
+      "neptune": "1/11"
+    }
+  },
+  "March 5": {
+    "card": "5 ♠",
+    "periods": {
+      "mercury": "3/5",
+      "venus": "4/26",
+      "mars": "6/17",
+      "jupiter": "8/8",
+      "saturn": "9/29",
+      "uranus": "11/20",
+      "neptune": "1/12"
+    }
+  },
+  "March 6": {
+    "card": "4 ♠",
+    "periods": {
+      "mercury": "3/6",
+      "venus": "4/27",
+      "mars": "6/18",
+      "jupiter": "8/9",
+      "saturn": "9/30",
+      "uranus": "11/21",
+      "neptune": "1/13"
+    }
+  },
+  "March 7": {
+    "card": "3 ♠",
+    "periods": {
+      "mercury": "3/7",
+      "venus": "4/28",
+      "mars": "6/19",
+      "jupiter": "8/10",
+      "saturn": "10/1",
+      "uranus": "11/22",
+      "neptune": "1/14"
+    }
+  },
+  "March 8": {
+    "card": "2 ♠",
+    "periods": {
+      "mercury": "3/8",
+      "venus": "4/29",
+      "mars": "6/20",
+      "jupiter": "8/11",
+      "saturn": "10/2",
+      "uranus": "11/23",
+      "neptune": "1/15"
+    }
+  },
+  "March 9": {
+    "card": "A ♠",
+    "periods": {
+      "mercury": "3/9",
+      "venus": "4/30",
+      "mars": "6/21",
+      "jupiter": "8/12",
+      "saturn": "10/3",
+      "uranus": "11/24",
+      "neptune": "1/16"
+    }
+  },
+  "March 10": {
+    "card": "K ♦",
+    "periods": {
+      "mercury": "3/10",
+      "venus": "5/1",
+      "mars": "6/22",
+      "jupiter": "8/13",
+      "saturn": "10/4",
+      "uranus": "11/25",
+      "neptune": "1/17"
+    }
+  },
+  "March 11": {
+    "card": "Q ♦",
+    "periods": {
+      "mercury": "3/11",
+      "venus": "5/2",
+      "mars": "6/23",
+      "jupiter": "8/14",
+      "saturn": "10/5",
+      "uranus": "11/26",
+      "neptune": "1/18"
+    }
+  },
+  "March 12": {
+    "card": "J ♦",
+    "periods": {
+      "mercury": "3/12",
+      "venus": "5/3",
+      "mars": "6/24",
+      "jupiter": "8/15",
+      "saturn": "10/6",
+      "uranus": "11/27",
+      "neptune": "1/19"
+    }
+  },
+  "March 13": {
+    "card": "10 ♦",
+    "periods": {
+      "mercury": "3/13",
+      "venus": "5/4",
+      "mars": "6/25",
+      "jupiter": "8/16",
+      "saturn": "10/7",
+      "uranus": "11/28",
+      "neptune": "1/20"
+    }
+  },
+  "March 14": {
+    "card": "9 ♦",
+    "periods": {
+      "mercury": "3/14",
+      "venus": "5/5",
+      "mars": "6/26",
+      "jupiter": "8/17",
+      "saturn": "10/8",
+      "uranus": "11/29",
+      "neptune": "1/21"
+    }
+  },
+  "March 15": {
+    "card": "8 ♦",
+    "periods": {
+      "mercury": "3/15",
+      "venus": "5/6",
+      "mars": "6/27",
+      "jupiter": "8/18",
+      "saturn": "10/9",
+      "uranus": "11/30",
+      "neptune": "1/22"
+    }
+  },
+  "March 16": {
+    "card": "7 ♦",
+    "periods": {
+      "mercury": "3/16",
+      "venus": "5/7",
+      "mars": "6/28",
+      "jupiter": "8/19",
+      "saturn": "10/10",
+      "uranus": "12/1",
+      "neptune": "1/23"
+    }
+  },
+  "March 17": {
+    "card": "6 ♦",
+    "periods": {
+      "mercury": "3/17",
+      "venus": "5/8",
+      "mars": "6/29",
+      "jupiter": "8/20",
+      "saturn": "10/11",
+      "uranus": "12/2",
+      "neptune": "1/24"
+    }
+  },
+  "March 18": {
+    "card": "5 ♦",
+    "periods": {
+      "mercury": "3/18",
+      "venus": "5/9",
+      "mars": "6/30",
+      "jupiter": "8/21",
+      "saturn": "10/12",
+      "uranus": "12/3",
+      "neptune": "1/25"
+    }
+  },
+  "March 19": {
+    "card": "4 ♦",
+    "periods": {
+      "mercury": "3/19",
+      "venus": "5/10",
+      "mars": "7/1",
+      "jupiter": "8/22",
+      "saturn": "10/13",
+      "uranus": "12/4",
+      "neptune": "1/26"
+    }
+  },
+  "March 20": {
+    "card": "3 ♦",
+    "periods": {
+      "mercury": "3/20",
+      "venus": "5/11",
+      "mars": "7/2",
+      "jupiter": "8/23",
+      "saturn": "10/14",
+      "uranus": "12/5",
+      "neptune": "1/27"
+    }
+  },
+  "March 21": {
+    "card": "2 ♦",
+    "periods": {
+      "mercury": "3/21",
+      "venus": "5/12",
+      "mars": "7/3",
+      "jupiter": "8/24",
+      "saturn": "10/15",
+      "uranus": "12/6",
+      "neptune": "1/28"
+    }
+  },
+  "March 22": {
+    "card": "A ♦",
+    "periods": {
+      "mercury": "3/22",
+      "venus": "5/13",
+      "mars": "7/4",
+      "jupiter": "8/25",
+      "saturn": "10/16",
+      "uranus": "12/7",
+      "neptune": "1/29"
+    }
+  },
+  "March 23": {
+    "card": "K ♣",
+    "periods": {
+      "mercury": "3/23",
+      "venus": "5/14",
+      "mars": "7/5",
+      "jupiter": "8/26",
+      "saturn": "10/17",
+      "uranus": "12/8",
+      "neptune": "1/30"
+    }
+  },
+  "March 24": {
+    "card": "Q ♣",
+    "periods": {
+      "mercury": "3/24",
+      "venus": "5/15",
+      "mars": "7/6",
+      "jupiter": "8/27",
+      "saturn": "10/18",
+      "uranus": "12/9",
+      "neptune": "1/31"
+    }
+  },
+  "March 25": {
+    "card": "J ♣",
+    "periods": {
+      "mercury": "3/25",
+      "venus": "5/16",
+      "mars": "7/7",
+      "jupiter": "8/28",
+      "saturn": "10/19",
+      "uranus": "12/10",
+      "neptune": "2/1"
+    }
+  },
+  "March 26": {
+    "card": "10 ♣",
+    "periods": {
+      "mercury": "3/26",
+      "venus": "5/17",
+      "mars": "7/8",
+      "jupiter": "8/29",
+      "saturn": "10/20",
+      "uranus": "12/11",
+      "neptune": "2/2"
+    }
+  },
+  "March 27": {
+    "card": "9 ♣",
+    "periods": {
+      "mercury": "3/27",
+      "venus": "5/18",
+      "mars": "7/9",
+      "jupiter": "8/30",
+      "saturn": "10/21",
+      "uranus": "12/12",
+      "neptune": "2/3"
+    }
+  },
+  "March 28": {
+    "card": "8 ♣",
+    "periods": {
+      "mercury": "3/28",
+      "venus": "5/19",
+      "mars": "7/10",
+      "jupiter": "8/31",
+      "saturn": "10/22",
+      "uranus": "12/13",
+      "neptune": "2/4"
+    }
+  },
+  "March 29": {
+    "card": "7 ♣",
+    "periods": {
+      "mercury": "3/29",
+      "venus": "5/20",
+      "mars": "7/11",
+      "jupiter": "9/1",
+      "saturn": "10/23",
+      "uranus": "12/14",
+      "neptune": "2/5"
+    }
+  },
+  "March 30": {
+    "card": "6 ♣",
+    "periods": {
+      "mercury": "3/30",
+      "venus": "5/21",
+      "mars": "7/12",
+      "jupiter": "9/2",
+      "saturn": "10/24",
+      "uranus": "12/15",
+      "neptune": "2/6"
+    }
+  },
+  "March 31": {
+    "card": "5 ♣",
+    "periods": {
+      "mercury": "3/31",
+      "venus": "5/22",
+      "mars": "7/13",
+      "jupiter": "9/3",
+      "saturn": "10/25",
+      "uranus": "12/16",
+      "neptune": "2/7"
+    }
+  },
+  "April 1": {
+    "card": "7 ♠",
+    "periods": {
+      "mercury": "4/1",
+      "venus": "5/23",
+      "mars": "7/14",
+      "jupiter": "9/4",
+      "saturn": "10/26",
+      "uranus": "12/17",
+      "neptune": "2/8"
+    }
+  },
+  "April 2": {
+    "card": "6 ♠",
+    "periods": {
+      "mercury": "4/2",
+      "venus": "5/24",
+      "mars": "7/15",
+      "jupiter": "9/5",
+      "saturn": "10/27",
+      "uranus": "12/18",
+      "neptune": "2/9"
+    }
+  },
+  "April 3": {
+    "card": "5 ♠",
+    "periods": {
+      "mercury": "4/3",
+      "venus": "5/25",
+      "mars": "7/16",
+      "jupiter": "9/6",
+      "saturn": "10/28",
+      "uranus": "12/19",
+      "neptune": "2/10"
+    }
+  },
+  "April 4": {
+    "card": "4 ♠",
+    "periods": {
+      "mercury": "4/4",
+      "venus": "5/26",
+      "mars": "7/17",
+      "jupiter": "9/7",
+      "saturn": "10/29",
+      "uranus": "12/20",
+      "neptune": "2/11"
+    }
+  },
+  "April 5": {
+    "card": "3 ♠",
+    "periods": {
+      "mercury": "4/5",
+      "venus": "5/27",
+      "mars": "7/18",
+      "jupiter": "9/8",
+      "saturn": "10/30",
+      "uranus": "12/21",
+      "neptune": "2/12"
+    }
+  },
+  "April 6": {
+    "card": "2 ♠",
+    "periods": {
+      "mercury": "4/6",
+      "venus": "5/28",
+      "mars": "7/19",
+      "jupiter": "9/9",
+      "saturn": "10/31",
+      "uranus": "12/22",
+      "neptune": "2/13"
+    }
+  },
+  "April 7": {
+    "card": "A ♠",
+    "periods": {
+      "mercury": "4/7",
+      "venus": "5/29",
+      "mars": "7/20",
+      "jupiter": "9/10",
+      "saturn": "11/1",
+      "uranus": "12/23",
+      "neptune": "2/14"
+    }
+  },
+  "April 8": {
+    "card": "K ♦",
+    "periods": {
+      "mercury": "4/8",
+      "venus": "5/30",
+      "mars": "7/21",
+      "jupiter": "9/11",
+      "saturn": "11/2",
+      "uranus": "12/24",
+      "neptune": "2/15"
+    }
+  },
+  "April 9": {
+    "card": "Q ♦",
+    "periods": {
+      "mercury": "4/9",
+      "venus": "5/31",
+      "mars": "7/22",
+      "jupiter": "9/12",
+      "saturn": "11/3",
+      "uranus": "12/25",
+      "neptune": "2/16"
+    }
+  },
+  "April 10": {
+    "card": "J ♦",
+    "periods": {
+      "mercury": "4/10",
+      "venus": "6/1",
+      "mars": "7/23",
+      "jupiter": "9/13",
+      "saturn": "11/4",
+      "uranus": "12/26",
+      "neptune": "2/17"
+    }
+  },
+  "April 11": {
+    "card": "10 ♦",
+    "periods": {
+      "mercury": "4/11",
+      "venus": "6/2",
+      "mars": "7/24",
+      "jupiter": "9/14",
+      "saturn": "11/5",
+      "uranus": "12/27",
+      "neptune": "2/18"
+    }
+  },
+  "April 12": {
+    "card": "9 ♦",
+    "periods": {
+      "mercury": "4/12",
+      "venus": "6/3",
+      "mars": "7/25",
+      "jupiter": "9/15",
+      "saturn": "11/6",
+      "uranus": "12/28",
+      "neptune": "2/19"
+    }
+  },
+  "April 13": {
+    "card": "8 ♦",
+    "periods": {
+      "mercury": "4/13",
+      "venus": "6/4",
+      "mars": "7/26",
+      "jupiter": "9/16",
+      "saturn": "11/7",
+      "uranus": "12/29",
+      "neptune": "2/20"
+    }
+  },
+  "April 14": {
+    "card": "7 ♦",
+    "periods": {
+      "mercury": "4/14",
+      "venus": "6/5",
+      "mars": "7/27",
+      "jupiter": "9/17",
+      "saturn": "11/8",
+      "uranus": "12/30",
+      "neptune": "2/21"
+    }
+  },
+  "April 15": {
+    "card": "6 ♦",
+    "periods": {
+      "mercury": "4/15",
+      "venus": "6/6",
+      "mars": "7/28",
+      "jupiter": "9/18",
+      "saturn": "11/9",
+      "uranus": "1/1",
+      "neptune": "2/22"
+    }
+  },
+  "April 16": {
+    "card": "5 ♦",
+    "periods": {
+      "mercury": "4/16",
+      "venus": "6/7",
+      "mars": "7/29",
+      "jupiter": "9/19",
+      "saturn": "11/10",
+      "uranus": "1/2",
+      "neptune": "2/23"
+    }
+  },
+  "April 17": {
+    "card": "4 ♦",
+    "periods": {
+      "mercury": "4/17",
+      "venus": "6/8",
+      "mars": "7/30",
+      "jupiter": "9/20",
+      "saturn": "11/11",
+      "uranus": "1/3",
+      "neptune": "2/24"
+    }
+  },
+  "April 18": {
+    "card": "3 ♦",
+    "periods": {
+      "mercury": "4/18",
+      "venus": "6/9",
+      "mars": "7/31",
+      "jupiter": "9/21",
+      "saturn": "11/12",
+      "uranus": "1/4",
+      "neptune": "2/25"
+    }
+  },
+  "April 19": {
+    "card": "2 ♦",
+    "periods": {
+      "mercury": "4/19",
+      "venus": "6/10",
+      "mars": "8/1",
+      "jupiter": "9/22",
+      "saturn": "11/13",
+      "uranus": "1/5",
+      "neptune": "2/26"
+    }
+  },
+  "April 20": {
+    "card": "A ♦",
+    "periods": {
+      "mercury": "4/20",
+      "venus": "6/11",
+      "mars": "8/2",
+      "jupiter": "9/23",
+      "saturn": "11/14",
+      "uranus": "1/6",
+      "neptune": "2/27"
+    }
+  },
+  "April 21": {
+    "card": "K ♣",
+    "periods": {
+      "mercury": "4/21",
+      "venus": "6/12",
+      "mars": "8/3",
+      "jupiter": "9/24",
+      "saturn": "11/15",
+      "uranus": "1/7",
+      "neptune": "2/28"
+    }
+  },
+  "April 22": {
+    "card": "Q ♣",
+    "periods": {
+      "mercury": "4/22",
+      "venus": "6/13",
+      "mars": "8/4",
+      "jupiter": "9/25",
+      "saturn": "11/16",
+      "uranus": "1/8",
+      "neptune": "3/1"
+    }
+  },
+  "April 23": {
+    "card": "J ♣",
+    "periods": {
+      "mercury": "4/23",
+      "venus": "6/14",
+      "mars": "8/5",
+      "jupiter": "9/26",
+      "saturn": "11/17",
+      "uranus": "1/9",
+      "neptune": "3/2"
+    }
+  },
+  "April 24": {
+    "card": "10 ♣",
+    "periods": {
+      "mercury": "4/24",
+      "venus": "6/15",
+      "mars": "8/6",
+      "jupiter": "9/27",
+      "saturn": "11/18",
+      "uranus": "1/10",
+      "neptune": "3/3"
+    }
+  },
+  "April 25": {
+    "card": "9 ♣",
+    "periods": {
+      "mercury": "4/25",
+      "venus": "6/16",
+      "mars": "8/7",
+      "jupiter": "9/28",
+      "saturn": "11/19",
+      "uranus": "1/11",
+      "neptune": "3/4"
+    }
+  },
+  "April 26": {
+    "card": "8 ♣",
+    "periods": {
+      "mercury": "4/26",
+      "venus": "6/17",
+      "mars": "8/8",
+      "jupiter": "9/29",
+      "saturn": "11/20",
+      "uranus": "1/12",
+      "neptune": "3/5"
+    }
+  },
+  "April 27": {
+    "card": "7 ♣",
+    "periods": {
+      "mercury": "4/27",
+      "venus": "6/18",
+      "mars": "8/9",
+      "jupiter": "9/30",
+      "saturn": "11/21",
+      "uranus": "1/13",
+      "neptune": "3/6"
+    }
+  },
+  "April 28": {
+    "card": "6 ♣",
+    "periods": {
+      "mercury": "4/28",
+      "venus": "6/19",
+      "mars": "8/10",
+      "jupiter": "10/1",
+      "saturn": "11/22",
+      "uranus": "1/14",
+      "neptune": "3/7"
+    }
+  },
+  "April 29": {
+    "card": "5 ♣",
+    "periods": {
+      "mercury": "4/29",
+      "venus": "6/20",
+      "mars": "8/11",
+      "jupiter": "10/2",
+      "saturn": "11/23",
+      "uranus": "1/15",
+      "neptune": "3/8"
+    }
+  },
+  "April 30": {
+    "card": "4 ♣",
+    "periods": {
+      "mercury": "4/30",
+      "venus": "6/21",
+      "mars": "8/12",
+      "jupiter": "10/3",
+      "saturn": "11/24",
+      "uranus": "1/16",
+      "neptune": "3/9"
+    }
+  },
+  "May 1": {
+    "card": "5 ♠",
+    "periods": {
+      "mercury": "5/1",
+      "venus": "6/22",
+      "mars": "8/13",
+      "jupiter": "10/4",
+      "saturn": "11/25",
+      "uranus": "1/17",
+      "neptune": "3/10"
+    }
+  },
+  "May 2": {
+    "card": "4 ♠",
+    "periods": {
+      "mercury": "5/2",
+      "venus": "6/23",
+      "mars": "8/14",
+      "jupiter": "10/5",
+      "saturn": "11/26",
+      "uranus": "1/18",
+      "neptune": "3/11"
+    }
+  },
+  "May 3": {
+    "card": "3 ♠",
+    "periods": {
+      "mercury": "5/3",
+      "venus": "6/24",
+      "mars": "8/15",
+      "jupiter": "10/6",
+      "saturn": "11/27",
+      "uranus": "1/19",
+      "neptune": "3/12"
+    }
+  },
+  "May 4": {
+    "card": "2 ♠",
+    "periods": {
+      "mercury": "5/4",
+      "venus": "6/25",
+      "mars": "8/16",
+      "jupiter": "10/7",
+      "saturn": "11/28",
+      "uranus": "1/20",
+      "neptune": "3/13"
+    }
+  },
+  "May 5": {
+    "card": "A ♠",
+    "periods": {
+      "mercury": "5/5",
+      "venus": "6/26",
+      "mars": "8/17",
+      "jupiter": "10/8",
+      "saturn": "11/29",
+      "uranus": "1/21",
+      "neptune": "3/14"
+    }
+  },
+  "May 6": {
+    "card": "K ♦",
+    "periods": {
+      "mercury": "5/6",
+      "venus": "6/27",
+      "mars": "8/18",
+      "jupiter": "10/9",
+      "saturn": "11/30",
+      "uranus": "1/22",
+      "neptune": "3/15"
+    }
+  },
+  "May 7": {
+    "card": "Q ♦",
+    "periods": {
+      "mercury": "5/7",
+      "venus": "6/28",
+      "mars": "8/19",
+      "jupiter": "10/10",
+      "saturn": "12/1",
+      "uranus": "1/23",
+      "neptune": "3/16"
+    }
+  },
+  "May 8": {
+    "card": "J ♦",
+    "periods": {
+      "mercury": "5/8",
+      "venus": "6/29",
+      "mars": "8/20",
+      "jupiter": "10/11",
+      "saturn": "12/2",
+      "uranus": "1/24",
+      "neptune": "3/17"
+    }
+  },
+  "May 9": {
+    "card": "10 ♦",
+    "periods": {
+      "mercury": "5/9",
+      "venus": "6/30",
+      "mars": "8/21",
+      "jupiter": "10/12",
+      "saturn": "12/3",
+      "uranus": "1/25",
+      "neptune": "3/18"
+    }
+  },
+  "May 10": {
+    "card": "9 ♦",
+    "periods": {
+      "mercury": "5/10",
+      "venus": "7/1",
+      "mars": "8/22",
+      "jupiter": "10/13",
+      "saturn": "12/4",
+      "uranus": "1/26",
+      "neptune": "3/19"
+    }
+  },
+  "May 11": {
+    "card": "8 ♦",
+    "periods": {
+      "mercury": "5/11",
+      "venus": "7/2",
+      "mars": "8/23",
+      "jupiter": "10/14",
+      "saturn": "12/5",
+      "uranus": "1/27",
+      "neptune": "3/20"
+    }
+  },
+  "May 12": {
+    "card": "7 ♦",
+    "periods": {
+      "mercury": "5/12",
+      "venus": "7/3",
+      "mars": "8/24",
+      "jupiter": "10/15",
+      "saturn": "12/6",
+      "uranus": "1/28",
+      "neptune": "3/21"
+    }
+  },
+  "May 13": {
+    "card": "6 ♦",
+    "periods": {
+      "mercury": "5/13",
+      "venus": "7/4",
+      "mars": "8/25",
+      "jupiter": "10/16",
+      "saturn": "12/7",
+      "uranus": "1/29",
+      "neptune": "3/22"
+    }
+  },
+  "May 14": {
+    "card": "5 ♦",
+    "periods": {
+      "mercury": "5/14",
+      "venus": "7/5",
+      "mars": "8/26",
+      "jupiter": "10/17",
+      "saturn": "12/8",
+      "uranus": "1/30",
+      "neptune": "3/23"
+    }
+  },
+  "May 15": {
+    "card": "4 ♦",
+    "periods": {
+      "mercury": "5/15",
+      "venus": "7/6",
+      "mars": "8/27",
+      "jupiter": "10/18",
+      "saturn": "12/9",
+      "uranus": "1/31",
+      "neptune": "3/24"
+    }
+  },
+  "May 16": {
+    "card": "3 ♦",
+    "periods": {
+      "mercury": "5/16",
+      "venus": "7/7",
+      "mars": "8/28",
+      "jupiter": "10/19",
+      "saturn": "12/10",
+      "uranus": "2/1",
+      "neptune": "3/25"
+    }
+  },
+  "May 17": {
+    "card": "2 ♦",
+    "periods": {
+      "mercury": "5/17",
+      "venus": "7/8",
+      "mars": "8/29",
+      "jupiter": "10/20",
+      "saturn": "12/11",
+      "uranus": "2/2",
+      "neptune": "3/26"
+    }
+  },
+  "May 18": {
+    "card": "A ♦",
+    "periods": {
+      "mercury": "5/18",
+      "venus": "7/9",
+      "mars": "8/30",
+      "jupiter": "10/21",
+      "saturn": "12/12",
+      "uranus": "2/3",
+      "neptune": "3/27"
+    }
+  },
+  "May 19": {
+    "card": "K ♣",
+    "periods": {
+      "mercury": "5/19",
+      "venus": "7/10",
+      "mars": "8/31",
+      "jupiter": "10/22",
+      "saturn": "12/13",
+      "uranus": "2/4",
+      "neptune": "3/28"
+    }
+  },
+  "May 20": {
+    "card": "Q ♣",
+    "periods": {
+      "mercury": "5/20",
+      "venus": "7/11",
+      "mars": "9/1",
+      "jupiter": "10/23",
+      "saturn": "12/14",
+      "uranus": "2/5",
+      "neptune": "3/29"
+    }
+  },
+  "May 21": {
+    "card": "J ♣",
+    "periods": {
+      "mercury": "5/21",
+      "venus": "7/12",
+      "mars": "9/2",
+      "jupiter": "10/24",
+      "saturn": "12/15",
+      "uranus": "2/6",
+      "neptune": "3/30"
+    }
+  },
+  "May 22": {
+    "card": "10 ♣",
+    "periods": {
+      "mercury": "5/22",
+      "venus": "7/13",
+      "mars": "9/3",
+      "jupiter": "10/25",
+      "saturn": "12/16",
+      "uranus": "2/7",
+      "neptune": "3/31"
+    }
+  },
+  "May 23": {
+    "card": "9 ♣",
+    "periods": {
+      "mercury": "5/23",
+      "venus": "7/14",
+      "mars": "9/4",
+      "jupiter": "10/26",
+      "saturn": "12/17",
+      "uranus": "2/8",
+      "neptune": "4/1"
+    }
+  },
+  "May 24": {
+    "card": "8 ♣",
+    "periods": {
+      "mercury": "5/24",
+      "venus": "7/15",
+      "mars": "9/5",
+      "jupiter": "10/27",
+      "saturn": "12/18",
+      "uranus": "2/9",
+      "neptune": "4/2"
+    }
+  },
+  "May 25": {
+    "card": "7 ♣",
+    "periods": {
+      "mercury": "5/25",
+      "venus": "7/16",
+      "mars": "9/6",
+      "jupiter": "10/28",
+      "saturn": "12/19",
+      "uranus": "2/10",
+      "neptune": "4/3"
+    }
+  },
+  "May 26": {
+    "card": "6 ♣",
+    "periods": {
+      "mercury": "5/26",
+      "venus": "7/17",
+      "mars": "9/7",
+      "jupiter": "10/29",
+      "saturn": "12/20",
+      "uranus": "2/11",
+      "neptune": "4/4"
+    }
+  },
+  "May 27": {
+    "card": "5 ♣",
+    "periods": {
+      "mercury": "5/27",
+      "venus": "7/18",
+      "mars": "9/8",
+      "jupiter": "10/30",
+      "saturn": "12/21",
+      "uranus": "2/12",
+      "neptune": "4/5"
+    }
+  },
+  "May 28": {
+    "card": "4 ♣",
+    "periods": {
+      "mercury": "5/28",
+      "venus": "7/19",
+      "mars": "9/9",
+      "jupiter": "10/31",
+      "saturn": "12/22",
+      "uranus": "2/13",
+      "neptune": "4/6"
+    }
+  },
+  "May 29": {
+    "card": "3 ♣",
+    "periods": {
+      "mercury": "5/29",
+      "venus": "7/20",
+      "mars": "9/10",
+      "jupiter": "11/1",
+      "saturn": "12/23",
+      "uranus": "2/14",
+      "neptune": "4/7"
+    }
+  },
+  "May 30": {
+    "card": "2 ♣",
+    "periods": {
+      "mercury": "5/30",
+      "venus": "7/21",
+      "mars": "9/11",
+      "jupiter": "11/2",
+      "saturn": "12/24",
+      "uranus": "2/15",
+      "neptune": "4/8"
+    }
+  },
+  "May 31": {
+    "card": "A ♣",
+    "periods": {
+      "mercury": "5/31",
+      "venus": "7/22",
+      "mars": "9/12",
+      "jupiter": "11/3",
+      "saturn": "12/25",
+      "uranus": "2/16",
+      "neptune": "4/9"
+    }
+  },
+  "June 1": {
+    "card": "3 ♠",
+    "periods": {
+      "mercury": "6/1",
+      "venus": "7/23",
+      "mars": "9/13",
+      "jupiter": "11/4",
+      "saturn": "12/26",
+      "uranus": "2/17",
+      "neptune": "4/10"
+    }
+  },
+  "June 2": {
+    "card": "2 ♠",
+    "periods": {
+      "mercury": "6/2",
+      "venus": "7/24",
+      "mars": "9/14",
+      "jupiter": "11/5",
+      "saturn": "12/27",
+      "uranus": "2/18",
+      "neptune": "4/11"
+    }
+  },
+  "June 3": {
+    "card": "A ♠",
+    "periods": {
+      "mercury": "6/3",
+      "venus": "7/25",
+      "mars": "9/15",
+      "jupiter": "11/6",
+      "saturn": "12/28",
+      "uranus": "2/19",
+      "neptune": "4/12"
+    }
+  },
+  "June 4": {
+    "card": "K ♦",
+    "periods": {
+      "mercury": "6/4",
+      "venus": "7/26",
+      "mars": "9/16",
+      "jupiter": "11/7",
+      "saturn": "12/29",
+      "uranus": "2/20",
+      "neptune": "4/13"
+    }
+  },
+  "June 5": {
+    "card": "Q ♦",
+    "periods": {
+      "mercury": "6/5",
+      "venus": "7/27",
+      "mars": "9/17",
+      "jupiter": "11/8",
+      "saturn": "12/30",
+      "uranus": "2/21",
+      "neptune": "4/14"
+    }
+  },
+  "June 6": {
+    "card": "J ♦",
+    "periods": {
+      "mercury": "6/6",
+      "venus": "7/28",
+      "mars": "9/18",
+      "jupiter": "11/9",
+      "saturn": "1/1",
+      "uranus": "2/22",
+      "neptune": "4/15"
+    }
+  },
+  "June 7": {
+    "card": "10 ♦",
+    "periods": {
+      "mercury": "6/7",
+      "venus": "7/29",
+      "mars": "9/19",
+      "jupiter": "11/10",
+      "saturn": "1/2",
+      "uranus": "2/23",
+      "neptune": "4/16"
+    }
+  },
+  "June 8": {
+    "card": "9 ♦",
+    "periods": {
+      "mercury": "6/8",
+      "venus": "7/30",
+      "mars": "9/20",
+      "jupiter": "11/11",
+      "saturn": "1/3",
+      "uranus": "2/24",
+      "neptune": "4/17"
+    }
+  },
+  "June 9": {
+    "card": "8 ♦",
+    "periods": {
+      "mercury": "6/9",
+      "venus": "7/31",
+      "mars": "9/21",
+      "jupiter": "11/12",
+      "saturn": "1/4",
+      "uranus": "2/25",
+      "neptune": "4/18"
+    }
+  },
+  "June 10": {
+    "card": "7 ♦",
+    "periods": {
+      "mercury": "6/10",
+      "venus": "8/1",
+      "mars": "9/22",
+      "jupiter": "11/13",
+      "saturn": "1/5",
+      "uranus": "2/26",
+      "neptune": "4/19"
+    }
+  },
+  "June 11": {
+    "card": "6 ♦",
+    "periods": {
+      "mercury": "6/11",
+      "venus": "8/2",
+      "mars": "9/23",
+      "jupiter": "11/14",
+      "saturn": "1/6",
+      "uranus": "2/27",
+      "neptune": "4/20"
+    }
+  },
+  "June 12": {
+    "card": "5 ♦",
+    "periods": {
+      "mercury": "6/12",
+      "venus": "8/3",
+      "mars": "9/24",
+      "jupiter": "11/15",
+      "saturn": "1/7",
+      "uranus": "2/28",
+      "neptune": "4/21"
+    }
+  },
+  "June 13": {
+    "card": "4 ♦",
+    "periods": {
+      "mercury": "6/13",
+      "venus": "8/4",
+      "mars": "9/25",
+      "jupiter": "11/16",
+      "saturn": "1/8",
+      "uranus": "3/1",
+      "neptune": "4/22"
+    }
+  },
+  "June 14": {
+    "card": "3 ♦",
+    "periods": {
+      "mercury": "6/14",
+      "venus": "8/5",
+      "mars": "9/26",
+      "jupiter": "11/17",
+      "saturn": "1/9",
+      "uranus": "3/2",
+      "neptune": "4/23"
+    }
+  },
+  "June 15": {
+    "card": "2 ♦",
+    "periods": {
+      "mercury": "6/15",
+      "venus": "8/6",
+      "mars": "9/27",
+      "jupiter": "11/18",
+      "saturn": "1/10",
+      "uranus": "3/3",
+      "neptune": "4/24"
+    }
+  },
+  "June 16": {
+    "card": "A ♦",
+    "periods": {
+      "mercury": "6/16",
+      "venus": "8/7",
+      "mars": "9/28",
+      "jupiter": "11/19",
+      "saturn": "1/11",
+      "uranus": "3/4",
+      "neptune": "4/25"
+    }
+  },
+  "June 17": {
+    "card": "K ♣",
+    "periods": {
+      "mercury": "6/17",
+      "venus": "8/8",
+      "mars": "9/29",
+      "jupiter": "11/20",
+      "saturn": "1/12",
+      "uranus": "3/5",
+      "neptune": "4/26"
+    }
+  },
+  "June 18": {
+    "card": "Q ♣",
+    "periods": {
+      "mercury": "6/18",
+      "venus": "8/9",
+      "mars": "9/30",
+      "jupiter": "11/21",
+      "saturn": "1/13",
+      "uranus": "3/6",
+      "neptune": "4/27"
+    }
+  },
+  "June 19": {
+    "card": "J ♣",
+    "periods": {
+      "mercury": "6/19",
+      "venus": "8/10",
+      "mars": "10/1",
+      "jupiter": "11/22",
+      "saturn": "1/14",
+      "uranus": "3/7",
+      "neptune": "4/28"
+    }
+  },
+  "June 20": {
+    "card": "10 ♣",
+    "periods": {
+      "mercury": "6/20",
+      "venus": "8/11",
+      "mars": "10/2",
+      "jupiter": "11/23",
+      "saturn": "1/15",
+      "uranus": "3/8",
+      "neptune": "4/29"
+    }
+  },
+  "June 21": {
+    "card": "9 ♣",
+    "periods": {
+      "mercury": "6/21",
+      "venus": "8/12",
+      "mars": "10/3",
+      "jupiter": "11/24",
+      "saturn": "1/16",
+      "uranus": "3/9",
+      "neptune": "4/30"
+    }
+  },
+  "June 22": {
+    "card": "8 ♣",
+    "periods": {
+      "mercury": "6/22",
+      "venus": "8/13",
+      "mars": "10/4",
+      "jupiter": "11/25",
+      "saturn": "1/17",
+      "uranus": "3/10",
+      "neptune": "5/1"
+    }
+  },
+  "June 23": {
+    "card": "7 ♣",
+    "periods": {
+      "mercury": "6/23",
+      "venus": "8/14",
+      "mars": "10/5",
+      "jupiter": "11/26",
+      "saturn": "1/18",
+      "uranus": "3/11",
+      "neptune": "5/2"
+    }
+  },
+  "June 24": {
+    "card": "6 ♣",
+    "periods": {
+      "mercury": "6/24",
+      "venus": "8/15",
+      "mars": "10/6",
+      "jupiter": "11/27",
+      "saturn": "1/19",
+      "uranus": "3/12",
+      "neptune": "5/3"
+    }
+  },
+  "June 25": {
+    "card": "5 ♣",
+    "periods": {
+      "mercury": "6/25",
+      "venus": "8/16",
+      "mars": "10/7",
+      "jupiter": "11/28",
+      "saturn": "1/20",
+      "uranus": "3/13",
+      "neptune": "5/4"
+    }
+  },
+  "June 26": {
+    "card": "4 ♣",
+    "periods": {
+      "mercury": "6/26",
+      "venus": "8/17",
+      "mars": "10/8",
+      "jupiter": "11/29",
+      "saturn": "1/21",
+      "uranus": "3/14",
+      "neptune": "5/5"
+    }
+  },
+  "June 27": {
+    "card": "3 ♣",
+    "periods": {
+      "mercury": "6/27",
+      "venus": "8/18",
+      "mars": "10/9",
+      "jupiter": "11/30",
+      "saturn": "1/22",
+      "uranus": "3/15",
+      "neptune": "5/6"
+    }
+  },
+  "June 28": {
+    "card": "2 ♣",
+    "periods": {
+      "mercury": "6/28",
+      "venus": "8/19",
+      "mars": "10/10",
+      "jupiter": "12/1",
+      "saturn": "1/23",
+      "uranus": "3/16",
+      "neptune": "5/7"
+    }
+  },
+  "June 29": {
+    "card": "A ♣",
+    "periods": {
+      "mercury": "6/29",
+      "venus": "8/20",
+      "mars": "10/11",
+      "jupiter": "12/2",
+      "saturn": "1/24",
+      "uranus": "3/17",
+      "neptune": "5/8"
+    }
+  },
+  "June 30": {
+    "card": "K  ♥",
+    "periods": {
+      "mercury": "6/30",
+      "venus": "8/21",
+      "mars": "10/12",
+      "jupiter": "12/3",
+      "saturn": "1/25",
+      "uranus": "3/18",
+      "neptune": "5/9"
+    }
+  },
+  "July 1": {
+    "card": "A ♠",
+    "periods": {
+      "mercury": "7/1",
+      "venus": "8/22",
+      "mars": "10/13",
+      "jupiter": "12/4",
+      "saturn": "1/26",
+      "uranus": "3/19",
+      "neptune": "5/10"
+    }
+  },
+  "July 2": {
+    "card": "K ♦",
+    "periods": {
+      "mercury": "7/2",
+      "venus": "8/23",
+      "mars": "10/14",
+      "jupiter": "12/5",
+      "saturn": "1/27",
+      "uranus": "3/20",
+      "neptune": "5/11"
+    }
+  },
+  "July 3": {
+    "card": "Q ♦",
+    "periods": {
+      "mercury": "7/3",
+      "venus": "8/24",
+      "mars": "10/15",
+      "jupiter": "12/6",
+      "saturn": "1/28",
+      "uranus": "3/21",
+      "neptune": "5/12"
+    }
+  },
+  "July 4": {
+    "card": "J ♦",
+    "periods": {
+      "mercury": "7/4",
+      "venus": "8/25",
+      "mars": "10/16",
+      "jupiter": "12/7",
+      "saturn": "1/29",
+      "uranus": "3/22",
+      "neptune": "5/13"
+    }
+  },
+  "July 5": {
+    "card": "10 ♦",
+    "periods": {
+      "mercury": "7/5",
+      "venus": "8/26",
+      "mars": "10/17",
+      "jupiter": "12/8",
+      "saturn": "1/30",
+      "uranus": "3/23",
+      "neptune": "5/14"
+    }
+  },
+  "July 6": {
+    "card": "9 ♦",
+    "periods": {
+      "mercury": "7/6",
+      "venus": "8/27",
+      "mars": "10/18",
+      "jupiter": "12/9",
+      "saturn": "1/31",
+      "uranus": "3/24",
+      "neptune": "5/15"
+    }
+  },
+  "July 7": {
+    "card": "8 ♦",
+    "periods": {
+      "mercury": "7/7",
+      "venus": "8/28",
+      "mars": "10/19",
+      "jupiter": "12/10",
+      "saturn": "2/1",
+      "uranus": "3/25",
+      "neptune": "5/16"
+    }
+  },
+  "July 8": {
+    "card": "7 ♦",
+    "periods": {
+      "mercury": "7/8",
+      "venus": "8/29",
+      "mars": "10/20",
+      "jupiter": "12/11",
+      "saturn": "2/2",
+      "uranus": "3/26",
+      "neptune": "5/17"
+    }
+  },
+  "July 9": {
+    "card": "6 ♦",
+    "periods": {
+      "mercury": "7/9",
+      "venus": "8/30",
+      "mars": "10/21",
+      "jupiter": "12/12",
+      "saturn": "2/3",
+      "uranus": "3/27",
+      "neptune": "5/18"
+    }
+  },
+  "July 10": {
+    "card": "5 ♦",
+    "periods": {
+      "mercury": "7/10",
+      "venus": "8/31",
+      "mars": "10/22",
+      "jupiter": "12/13",
+      "saturn": "2/4",
+      "uranus": "3/28",
+      "neptune": "5/19"
+    }
+  },
+  "July 11": {
+    "card": "4 ♦",
+    "periods": {
+      "mercury": "7/11",
+      "venus": "9/1",
+      "mars": "10/23",
+      "jupiter": "12/14",
+      "saturn": "2/5",
+      "uranus": "3/29",
+      "neptune": "5/20"
+    }
+  },
+  "July 12": {
+    "card": "3 ♦",
+    "periods": {
+      "mercury": "7/12",
+      "venus": "9/2",
+      "mars": "10/24",
+      "jupiter": "12/15",
+      "saturn": "2/6",
+      "uranus": "3/30",
+      "neptune": "5/21"
+    }
+  },
+  "July 13": {
+    "card": "2 ♦",
+    "periods": {
+      "mercury": "7/13",
+      "venus": "9/3",
+      "mars": "10/25",
+      "jupiter": "12/16",
+      "saturn": "2/7",
+      "uranus": "3/31",
+      "neptune": "5/22"
+    }
+  },
+  "July 14": {
+    "card": "A ♦",
+    "periods": {
+      "mercury": "7/14",
+      "venus": "9/4",
+      "mars": "10/26",
+      "jupiter": "12/17",
+      "saturn": "2/8",
+      "uranus": "4/1",
+      "neptune": "5/23"
+    }
+  },
+  "July 15": {
+    "card": "K ♣",
+    "periods": {
+      "mercury": "7/15",
+      "venus": "9/5",
+      "mars": "10/27",
+      "jupiter": "12/18",
+      "saturn": "2/9",
+      "uranus": "4/2",
+      "neptune": "5/24"
+    }
+  },
+  "July 16": {
+    "card": "Q ♣",
+    "periods": {
+      "mercury": "7/16",
+      "venus": "9/6",
+      "mars": "10/28",
+      "jupiter": "12/19",
+      "saturn": "2/10",
+      "uranus": "4/3",
+      "neptune": "5/25"
+    }
+  },
+  "July 17": {
+    "card": "J ♣",
+    "periods": {
+      "mercury": "7/17",
+      "venus": "9/7",
+      "mars": "10/29",
+      "jupiter": "12/20",
+      "saturn": "2/11",
+      "uranus": "4/4",
+      "neptune": "5/26"
+    }
+  },
+  "July 18": {
+    "card": "10 ♣",
+    "periods": {
+      "mercury": "7/18",
+      "venus": "9/8",
+      "mars": "10/30",
+      "jupiter": "12/21",
+      "saturn": "2/12",
+      "uranus": "4/5",
+      "neptune": "5/27"
+    }
+  },
+  "July 19": {
+    "card": "9 ♣",
+    "periods": {
+      "mercury": "7/19",
+      "venus": "9/9",
+      "mars": "10/31",
+      "jupiter": "12/22",
+      "saturn": "2/13",
+      "uranus": "4/6",
+      "neptune": "5/28"
+    }
+  },
+  "July 20": {
+    "card": "8 ♣",
+    "periods": {
+      "mercury": "7/20",
+      "venus": "9/10",
+      "mars": "11/1",
+      "jupiter": "12/23",
+      "saturn": "2/14",
+      "uranus": "4/7",
+      "neptune": "5/29"
+    }
+  },
+  "July 21": {
+    "card": "7 ♣",
+    "periods": {
+      "mercury": "7/21",
+      "venus": "9/11",
+      "mars": "11/2",
+      "jupiter": "12/24",
+      "saturn": "2/15",
+      "uranus": "4/8",
+      "neptune": "5/30"
+    }
+  },
+  "July 22": {
+    "card": "6 ♣",
+    "periods": {
+      "mercury": "7/22",
+      "venus": "9/12",
+      "mars": "11/3",
+      "jupiter": "12/25",
+      "saturn": "2/16",
+      "uranus": "4/9",
+      "neptune": "5/31"
+    }
+  },
+  "July 23": {
+    "card": "5 ♣",
+    "periods": {
+      "mercury": "7/23",
+      "venus": "9/13",
+      "mars": "11/4",
+      "jupiter": "12/26",
+      "saturn": "2/17",
+      "uranus": "4/10",
+      "neptune": "6/1"
+    }
+  },
+  "July 24": {
+    "card": "4 ♣",
+    "periods": {
+      "mercury": "7/24",
+      "venus": "9/14",
+      "mars": "11/5",
+      "jupiter": "12/27",
+      "saturn": "2/18",
+      "uranus": "4/11",
+      "neptune": "6/2"
+    }
+  },
+  "July 25": {
+    "card": "3 ♣",
+    "periods": {
+      "mercury": "7/25",
+      "venus": "9/15",
+      "mars": "11/6",
+      "jupiter": "12/28",
+      "saturn": "2/19",
+      "uranus": "4/12",
+      "neptune": "6/3"
+    }
+  },
+  "July 26": {
+    "card": "2 ♣",
+    "periods": {
+      "mercury": "7/26",
+      "venus": "9/16",
+      "mars": "11/7",
+      "jupiter": "12/29",
+      "saturn": "2/20",
+      "uranus": "4/13",
+      "neptune": "6/4"
+    }
+  },
+  "July 27": {
+    "card": "A ♣",
+    "periods": {
+      "mercury": "7/27",
+      "venus": "9/17",
+      "mars": "11/8",
+      "jupiter": "12/30",
+      "saturn": "2/21",
+      "uranus": "4/14",
+      "neptune": "6/5"
+    }
+  },
+  "July 28": {
+    "card": "K ♥",
+    "periods": {
+      "mercury": "7/28",
+      "venus": "9/18",
+      "mars": "11/9",
+      "jupiter": "1/1",
+      "saturn": "2/22",
+      "uranus": "4/15",
+      "neptune": "6/6"
+    }
+  },
+  "July 29": {
+    "card": "Q ♥",
+    "periods": {
+      "mercury": "7/29",
+      "venus": "9/19",
+      "mars": "11/10",
+      "jupiter": "1/2",
+      "saturn": "2/23",
+      "uranus": "4/16",
+      "neptune": "6/7"
+    }
+  },
+  "July 30": {
+    "card": "J ♥",
+    "periods": {
+      "mercury": "7/30",
+      "venus": "9/20",
+      "mars": "11/11",
+      "jupiter": "1/3",
+      "saturn": "2/24",
+      "uranus": "4/17",
+      "neptune": "6/8"
+    }
+  },
+  "July 31": {
+    "card": "10 ♥",
+    "periods": {
+      "mercury": "7/31",
+      "venus": "9/21",
+      "mars": "11/12",
+      "jupiter": "1/4",
+      "saturn": "2/25",
+      "uranus": "4/18",
+      "neptune": "6/9"
+    }
+  },
+  "August 1": {
+    "card": "Q ♦",
+    "periods": {
+      "mercury": "8/1",
+      "venus": "9/22",
+      "mars": "11/13",
+      "jupiter": "1/5",
+      "saturn": "2/26",
+      "uranus": "4/19",
+      "neptune": "6/10"
+    }
+  },
+  "August 2": {
+    "card": "J ♦",
+    "periods": {
+      "mercury": "8/2",
+      "venus": "9/23",
+      "mars": "11/14",
+      "jupiter": "1/6",
+      "saturn": "2/27",
+      "uranus": "4/20",
+      "neptune": "6/11"
+    }
+  },
+  "August 3": {
+    "card": "10 ♦",
+    "periods": {
+      "mercury": "8/3",
+      "venus": "9/24",
+      "mars": "11/15",
+      "jupiter": "1/7",
+      "saturn": "2/28",
+      "uranus": "4/21",
+      "neptune": "6/12"
+    }
+  },
+  "August 4": {
+    "card": "9 ♦",
+    "periods": {
+      "mercury": "8/4",
+      "venus": "9/25",
+      "mars": "11/16",
+      "jupiter": "1/8",
+      "saturn": "3/1",
+      "uranus": "4/22",
+      "neptune": "6/13"
+    }
+  },
+  "August 5": {
+    "card": "8 ♦",
+    "periods": {
+      "mercury": "8/5",
+      "venus": "9/26",
+      "mars": "11/17",
+      "jupiter": "1/9",
+      "saturn": "3/2",
+      "uranus": "4/23",
+      "neptune": "6/14"
+    }
+  },
+  "August 6": {
+    "card": "7 ♦",
+    "periods": {
+      "mercury": "8/6",
+      "venus": "9/27",
+      "mars": "11/18",
+      "jupiter": "1/10",
+      "saturn": "3/3",
+      "uranus": "4/24",
+      "neptune": "6/15"
+    }
+  },
+  "August 7": {
+    "card": "6 ♦",
+    "periods": {
+      "mercury": "8/7",
+      "venus": "9/28",
+      "mars": "11/19",
+      "jupiter": "1/11",
+      "saturn": "3/4",
+      "uranus": "4/25",
+      "neptune": "6/16"
+    }
+  },
+  "August 8": {
+    "card": "5 ♦",
+    "periods": {
+      "mercury": "8/8",
+      "venus": "9/29",
+      "mars": "11/20",
+      "jupiter": "1/12",
+      "saturn": "3/5",
+      "uranus": "4/26",
+      "neptune": "6/17"
+    }
+  },
+  "August 9": {
+    "card": "4 ♦",
+    "periods": {
+      "mercury": "8/9",
+      "venus": "9/30",
+      "mars": "11/21",
+      "jupiter": "1/13",
+      "saturn": "3/6",
+      "uranus": "4/27",
+      "neptune": "6/18"
+    }
+  },
+  "August 10": {
+    "card": "3 ♦",
+    "periods": {
+      "mercury": "8/10",
+      "venus": "10/1",
+      "mars": "11/22",
+      "jupiter": "1/14",
+      "saturn": "3/7",
+      "uranus": "4/28",
+      "neptune": "6/19"
+    }
+  },
+  "August 11": {
+    "card": "2 ♦",
+    "periods": {
+      "mercury": "8/11",
+      "venus": "10/2",
+      "mars": "11/23",
+      "jupiter": "1/15",
+      "saturn": "3/8",
+      "uranus": "4/29",
+      "neptune": "6/20"
+    }
+  },
+  "August 12": {
+    "card": "A ♦",
+    "periods": {
+      "mercury": "8/12",
+      "venus": "10/3",
+      "mars": "11/24",
+      "jupiter": "1/16",
+      "saturn": "3/9",
+      "uranus": "4/30",
+      "neptune": "6/21"
+    }
+  },
+  "August 13": {
+    "card": "K ♣",
+    "periods": {
+      "mercury": "8/13",
+      "venus": "10/4",
+      "mars": "11/25",
+      "jupiter": "1/17",
+      "saturn": "3/10",
+      "uranus": "5/1",
+      "neptune": "6/22"
+    }
+  },
+  "August 14": {
+    "card": "Q ♣",
+    "periods": {
+      "mercury": "8/14",
+      "venus": "10/5",
+      "mars": "11/26",
+      "jupiter": "1/18",
+      "saturn": "3/11",
+      "uranus": "5/2",
+      "neptune": "6/23"
+    }
+  },
+  "August 15": {
+    "card": "J ♣",
+    "periods": {
+      "mercury": "8/15",
+      "venus": "10/6",
+      "mars": "11/27",
+      "jupiter": "1/19",
+      "saturn": "3/12",
+      "uranus": "5/3",
+      "neptune": "6/24"
+    }
+  },
+  "August 16": {
+    "card": "10 ♣",
+    "periods": {
+      "mercury": "8/16",
+      "venus": "10/7",
+      "mars": "11/28",
+      "jupiter": "1/20",
+      "saturn": "3/13",
+      "uranus": "5/4",
+      "neptune": "6/25"
+    }
+  },
+  "August 17": {
+    "card": "9 ♣",
+    "periods": {
+      "mercury": "8/17",
+      "venus": "10/8",
+      "mars": "11/29",
+      "jupiter": "1/21",
+      "saturn": "3/14",
+      "uranus": "5/5",
+      "neptune": "6/26"
+    }
+  },
+  "August 18": {
+    "card": "8 ♣",
+    "periods": {
+      "mercury": "8/18",
+      "venus": "10/9",
+      "mars": "11/30",
+      "jupiter": "1/22",
+      "saturn": "3/15",
+      "uranus": "5/6",
+      "neptune": "6/27"
+    }
+  },
+  "August 19": {
+    "card": "7 ♣",
+    "periods": {
+      "mercury": "8/19",
+      "venus": "10/10",
+      "mars": "12/1",
+      "jupiter": "1/23",
+      "saturn": "3/16",
+      "uranus": "5/7",
+      "neptune": "6/28"
+    }
+  },
+  "August 20": {
+    "card": "6 ♣",
+    "periods": {
+      "mercury": "8/20",
+      "venus": "10/11",
+      "mars": "12/2",
+      "jupiter": "1/24",
+      "saturn": "3/17",
+      "uranus": "5/8",
+      "neptune": "6/29"
+    }
+  },
+  "August 21": {
+    "card": "5 ♣",
+    "periods": {
+      "mercury": "8/21",
+      "venus": "10/12",
+      "mars": "12/3",
+      "jupiter": "1/25",
+      "saturn": "3/18",
+      "uranus": "5/9",
+      "neptune": "6/30"
+    }
+  },
+  "August 22": {
+    "card": "4 ♣",
+    "periods": {
+      "mercury": "8/22",
+      "venus": "10/13",
+      "mars": "12/4",
+      "jupiter": "1/26",
+      "saturn": "3/19",
+      "uranus": "5/10",
+      "neptune": "7/1"
+    }
+  },
+  "August 23": {
+    "card": "3 ♣",
+    "periods": {
+      "mercury": "8/23",
+      "venus": "10/14",
+      "mars": "12/5",
+      "jupiter": "1/27",
+      "saturn": "3/20",
+      "uranus": "5/11",
+      "neptune": "7/2"
+    }
+  },
+  "August 24": {
+    "card": "2 ♣",
+    "periods": {
+      "mercury": "8/24",
+      "venus": "10/15",
+      "mars": "12/6",
+      "jupiter": "1/28",
+      "saturn": "3/21",
+      "uranus": "5/12",
+      "neptune": "7/3"
+    }
+  },
+  "August 25": {
+    "card": "A ♣",
+    "periods": {
+      "mercury": "8/25",
+      "venus": "10/16",
+      "mars": "12/7",
+      "jupiter": "1/29",
+      "saturn": "3/22",
+      "uranus": "5/13",
+      "neptune": "7/4"
+    }
+  },
+  "August 26": {
+    "card": "K ♥",
+    "periods": {
+      "mercury": "8/26",
+      "venus": "10/17",
+      "mars": "12/8",
+      "jupiter": "1/30",
+      "saturn": "3/23",
+      "uranus": "5/14",
+      "neptune": "7/5"
+    }
+  },
+  "August 27": {
+    "card": "Q ♥",
+    "periods": {
+      "mercury": "8/27",
+      "venus": "10/18",
+      "mars": "12/9",
+      "jupiter": "1/31",
+      "saturn": "3/24",
+      "uranus": "5/15",
+      "neptune": "7/6"
+    }
+  },
+  "August 28": {
+    "card": "J ♥",
+    "periods": {
+      "mercury": "8/28",
+      "venus": "10/19",
+      "mars": "12/10",
+      "jupiter": "2/1",
+      "saturn": "3/25",
+      "uranus": "5/16",
+      "neptune": "7/7"
+    }
+  },
+  "August 29": {
+    "card": "10 ♥",
+    "periods": {
+      "mercury": "8/29",
+      "venus": "10/20",
+      "mars": "12/11",
+      "jupiter": "2/2",
+      "saturn": "3/26",
+      "uranus": "5/17",
+      "neptune": "7/8"
+    }
+  },
+  "August 30": {
+    "card": "9 ♥",
+    "periods": {
+      "mercury": "8/30",
+      "venus": "10/21",
+      "mars": "12/12",
+      "jupiter": "2/3",
+      "saturn": "3/27",
+      "uranus": "5/18",
+      "neptune": "7/9"
+    }
+  },
+  "August 31": {
+    "card": "8 ♥",
+    "periods": {
+      "mercury": "8/31",
+      "venus": "10/22",
+      "mars": "12/13",
+      "jupiter": "2/4",
+      "saturn": "3/28",
+      "uranus": "5/19",
+      "neptune": "7/10"
+    }
+  },
+  "September 1": {
+    "card": "10 ♦",
+    "periods": {
+      "mercury": "9/1",
+      "venus": "10/23",
+      "mars": "12/14",
+      "jupiter": "2/5",
+      "saturn": "3/29",
+      "uranus": "5/20",
+      "neptune": "7/11"
+    }
+  },
+  "September 2": {
+    "card": "9 ♦",
+    "periods": {
+      "mercury": "9/2",
+      "venus": "10/24",
+      "mars": "12/15",
+      "jupiter": "2/6",
+      "saturn": "3/30",
+      "uranus": "5/21",
+      "neptune": "7/12"
+    }
+  },
+  "September 3": {
+    "card": "8 ♦",
+    "periods": {
+      "mercury": "9/3",
+      "venus": "10/25",
+      "mars": "12/16",
+      "jupiter": "2/7",
+      "saturn": "3/31",
+      "uranus": "5/22",
+      "neptune": "7/13"
+    }
+  },
+  "September 4": {
+    "card": "7 ♦",
+    "periods": {
+      "mercury": "9/4",
+      "venus": "10/26",
+      "mars": "12/17",
+      "jupiter": "2/8",
+      "saturn": "4/1",
+      "uranus": "5/23",
+      "neptune": "7/14"
+    }
+  },
+  "September 5": {
+    "card": "6 ♦",
+    "periods": {
+      "mercury": "9/5",
+      "venus": "10/27",
+      "mars": "12/18",
+      "jupiter": "2/9",
+      "saturn": "4/2",
+      "uranus": "5/24",
+      "neptune": "7/15"
+    }
+  },
+  "September 6": {
+    "card": "5 ♦",
+    "periods": {
+      "mercury": "9/6",
+      "venus": "10/28",
+      "mars": "12/19",
+      "jupiter": "2/10",
+      "saturn": "4/3",
+      "uranus": "5/25",
+      "neptune": "7/16"
+    }
+  },
+  "September 7": {
+    "card": "4  ♦",
+    "periods": {
+      "mercury": "9/7",
+      "venus": "10/29",
+      "mars": "12/20",
+      "jupiter": "2/11",
+      "saturn": "4/4",
+      "uranus": "5/26",
+      "neptune": "7/17"
+    }
+  },
+  "September 8": {
+    "card": "3 ♦",
+    "periods": {
+      "mercury": "9/8",
+      "venus": "10/30",
+      "mars": "12/21",
+      "jupiter": "2/12",
+      "saturn": "4/5",
+      "uranus": "5/27",
+      "neptune": "7/18"
+    }
+  },
+  "September 9": {
+    "card": "2 ♦",
+    "periods": {
+      "mercury": "9/9",
+      "venus": "10/31",
+      "mars": "12/22",
+      "jupiter": "2/13",
+      "saturn": "4/6",
+      "uranus": "5/28",
+      "neptune": "7/19"
+    }
+  },
+  "September 10": {
+    "card": "A ♦",
+    "periods": {
+      "mercury": "9/10",
+      "venus": "11/1",
+      "mars": "12/23",
+      "jupiter": "2/14",
+      "saturn": "4/7",
+      "uranus": "5/29",
+      "neptune": "7/20"
+    }
+  },
+  "September 11": {
+    "card": "K ♣",
+    "periods": {
+      "mercury": "9/11",
+      "venus": "11/2",
+      "mars": "12/24",
+      "jupiter": "2/15",
+      "saturn": "4/8",
+      "uranus": "5/30",
+      "neptune": "7/21"
+    }
+  },
+  "September 12": {
+    "card": "Q ♣",
+    "periods": {
+      "mercury": "9/12",
+      "venus": "11/3",
+      "mars": "12/25",
+      "jupiter": "2/16",
+      "saturn": "4/9",
+      "uranus": "5/31",
+      "neptune": "7/22"
+    }
+  },
+  "September 13": {
+    "card": "J ♣",
+    "periods": {
+      "mercury": "9/13",
+      "venus": "11/4",
+      "mars": "12/26",
+      "jupiter": "2/17",
+      "saturn": "4/10",
+      "uranus": "6/1",
+      "neptune": "7/23"
+    }
+  },
+  "September 14": {
+    "card": "10 ♣",
+    "periods": {
+      "mercury": "9/14",
+      "venus": "11/5",
+      "mars": "12/27",
+      "jupiter": "2/18",
+      "saturn": "4/11",
+      "uranus": "6/2",
+      "neptune": "7/24"
+    }
+  },
+  "September 15": {
+    "card": "9 ♣",
+    "periods": {
+      "mercury": "9/15",
+      "venus": "11/6",
+      "mars": "12/28",
+      "jupiter": "2/19",
+      "saturn": "4/12",
+      "uranus": "6/3",
+      "neptune": "7/25"
+    }
+  },
+  "September 16": {
+    "card": "8 ♣",
+    "periods": {
+      "mercury": "9/16",
+      "venus": "11/7",
+      "mars": "12/29",
+      "jupiter": "2/20",
+      "saturn": "4/13",
+      "uranus": "6/4",
+      "neptune": "7/26"
+    }
+  },
+  "September 17": {
+    "card": "7 ♣",
+    "periods": {
+      "mercury": "9/17",
+      "venus": "11/8",
+      "mars": "12/30",
+      "jupiter": "2/21",
+      "saturn": "4/14",
+      "uranus": "6/5",
+      "neptune": "7/27"
+    }
+  },
+  "September 18": {
+    "card": "6 ♣",
+    "periods": {
+      "mercury": "9/18",
+      "venus": "11/9",
+      "mars": "1/1",
+      "jupiter": "2/22",
+      "saturn": "4/15",
+      "uranus": "6/6",
+      "neptune": "7/28"
+    }
+  },
+  "September 19": {
+    "card": "5 ♣",
+    "periods": {
+      "mercury": "9/19",
+      "venus": "11/10",
+      "mars": "1/2",
+      "jupiter": "2/23",
+      "saturn": "4/16",
+      "uranus": "6/7",
+      "neptune": "7/29"
+    }
+  },
+  "September 20": {
+    "card": "4 ♣",
+    "periods": {
+      "mercury": "9/20",
+      "venus": "11/11",
+      "mars": "1/3",
+      "jupiter": "2/24",
+      "saturn": "4/17",
+      "uranus": "6/8",
+      "neptune": "7/30"
+    }
+  },
+  "September 21": {
+    "card": "3 ♣",
+    "periods": {
+      "mercury": "9/21",
+      "venus": "11/12",
+      "mars": "1/4",
+      "jupiter": "2/25",
+      "saturn": "4/18",
+      "uranus": "6/9",
+      "neptune": "7/31"
+    }
+  },
+  "September 22": {
+    "card": "2 ♣",
+    "periods": {
+      "mercury": "9/22",
+      "venus": "11/13",
+      "mars": "1/5",
+      "jupiter": "2/26",
+      "saturn": "4/19",
+      "uranus": "6/10",
+      "neptune": "8/1"
+    }
+  },
+  "September 23": {
+    "card": "A ♣",
+    "periods": {
+      "mercury": "9/23",
+      "venus": "11/14",
+      "mars": "1/6",
+      "jupiter": "2/27",
+      "saturn": "4/20",
+      "uranus": "6/11",
+      "neptune": "8/2"
+    }
+  },
+  "September 24": {
+    "card": "K ♥",
+    "periods": {
+      "mercury": "9/24",
+      "venus": "11/15",
+      "mars": "1/7",
+      "jupiter": "2/28",
+      "saturn": "4/21",
+      "uranus": "6/12",
+      "neptune": "8/3"
+    }
+  },
+  "September 25": {
+    "card": "Q ♥",
+    "periods": {
+      "mercury": "9/25",
+      "venus": "11/16",
+      "mars": "1/8",
+      "jupiter": "3/1",
+      "saturn": "4/22",
+      "uranus": "6/13",
+      "neptune": "8/4"
+    }
+  },
+  "September 26": {
+    "card": "J ♥",
+    "periods": {
+      "mercury": "9/26",
+      "venus": "11/17",
+      "mars": "1/9",
+      "jupiter": "3/2",
+      "saturn": "4/23",
+      "uranus": "6/14",
+      "neptune": "8/5"
+    }
+  },
+  "September 27": {
+    "card": "10 ♥",
+    "periods": {
+      "mercury": "9/27",
+      "venus": "11/18",
+      "mars": "1/10",
+      "jupiter": "3/3",
+      "saturn": "4/24",
+      "uranus": "6/15",
+      "neptune": "8/6"
+    }
+  },
+  "September 28": {
+    "card": "9 ♥",
+    "periods": {
+      "mercury": "9/28",
+      "venus": "11/19",
+      "mars": "1/11",
+      "jupiter": "3/4",
+      "saturn": "4/25",
+      "uranus": "6/16",
+      "neptune": "8/7"
+    }
+  },
+  "September 29": {
+    "card": "8 ♥",
+    "periods": {
+      "mercury": "9/29",
+      "venus": "11/20",
+      "mars": "1/12",
+      "jupiter": "3/5",
+      "saturn": "4/26",
+      "uranus": "6/17",
+      "neptune": "8/8"
+    }
+  },
+  "September 30": {
+    "card": "7 ♥",
+    "periods": {
+      "mercury": "9/30",
+      "venus": "11/21",
+      "mars": "1/13",
+      "jupiter": "3/6",
+      "saturn": "4/27",
+      "uranus": "6/18",
+      "neptune": "8/9"
+    }
+  },
+  "October 1": {
+    "card": "8 ♦",
+    "periods": {
+      "mercury": "10/1",
+      "venus": "11/22",
+      "mars": "1/14",
+      "jupiter": "3/7",
+      "saturn": "4/28",
+      "uranus": "6/19",
+      "neptune": "8/10"
+    }
+  },
+  "October 2": {
+    "card": "7 ♦",
+    "periods": {
+      "mercury": "10/2",
+      "venus": "11/23",
+      "mars": "1/15",
+      "jupiter": "3/8",
+      "saturn": "4/29",
+      "uranus": "6/20",
+      "neptune": "8/11"
+    }
+  },
+  "October 3": {
+    "card": "6 ♦",
+    "periods": {
+      "mercury": "10/3",
+      "venus": "11/24",
+      "mars": "1/16",
+      "jupiter": "3/9",
+      "saturn": "4/30",
+      "uranus": "6/21",
+      "neptune": "8/12"
+    }
+  },
+  "October 4": {
+    "card": "5 ♦",
+    "periods": {
+      "mercury": "10/4",
+      "venus": "11/25",
+      "mars": "1/17",
+      "jupiter": "3/10",
+      "saturn": "5/1",
+      "uranus": "6/22",
+      "neptune": "8/13"
+    }
+  },
+  "October 5": {
+    "card": "4 ♦",
+    "periods": {
+      "mercury": "10/5",
+      "venus": "11/26",
+      "mars": "1/18",
+      "jupiter": "3/11",
+      "saturn": "5/2",
+      "uranus": "6/23",
+      "neptune": "8/14"
+    }
+  },
+  "October 6": {
+    "card": "3 ♦",
+    "periods": {
+      "mercury": "10/6",
+      "venus": "11/27",
+      "mars": "1/19",
+      "jupiter": "3/12",
+      "saturn": "5/3",
+      "uranus": "6/24",
+      "neptune": "8/15"
+    }
+  },
+  "October 7": {
+    "card": "2 ♦",
+    "periods": {
+      "mercury": "10/7",
+      "venus": "11/28",
+      "mars": "1/20",
+      "jupiter": "3/13",
+      "saturn": "5/4",
+      "uranus": "6/25",
+      "neptune": "8/16"
+    }
+  },
+  "October 8": {
+    "card": "A ♦",
+    "periods": {
+      "mercury": "10/8",
+      "venus": "11/29",
+      "mars": "1/21",
+      "jupiter": "3/14",
+      "saturn": "5/5",
+      "uranus": "6/26",
+      "neptune": "8/17"
+    }
+  },
+  "October 9": {
+    "card": "K ♣",
+    "periods": {
+      "mercury": "10/9",
+      "venus": "11/30",
+      "mars": "1/22",
+      "jupiter": "3/15",
+      "saturn": "5/6",
+      "uranus": "6/27",
+      "neptune": "8/18"
+    }
+  },
+  "October 10": {
+    "card": "Q ♣",
+    "periods": {
+      "mercury": "10/10",
+      "venus": "12/1",
+      "mars": "1/23",
+      "jupiter": "3/16",
+      "saturn": "5/7",
+      "uranus": "6/28",
+      "neptune": "8/19"
+    }
+  },
+  "October 11": {
+    "card": "J ♣",
+    "periods": {
+      "mercury": "10/11",
+      "venus": "12/2",
+      "mars": "1/24",
+      "jupiter": "3/17",
+      "saturn": "5/8",
+      "uranus": "6/29",
+      "neptune": "8/20"
+    }
+  },
+  "October 12": {
+    "card": "10 ♣",
+    "periods": {
+      "mercury": "10/12",
+      "venus": "12/3",
+      "mars": "1/25",
+      "jupiter": "3/18",
+      "saturn": "5/9",
+      "uranus": "6/30",
+      "neptune": "8/21"
+    }
+  },
+  "October 13": {
+    "card": "9 ♣",
+    "periods": {
+      "mercury": "10/13",
+      "venus": "12/4",
+      "mars": "1/26",
+      "jupiter": "3/19",
+      "saturn": "5/10",
+      "uranus": "7/1",
+      "neptune": "8/22"
+    }
+  },
+  "October 14": {
+    "card": "8 ♣",
+    "periods": {
+      "mercury": "10/14",
+      "venus": "12/5",
+      "mars": "1/27",
+      "jupiter": "3/20",
+      "saturn": "5/11",
+      "uranus": "7/2",
+      "neptune": "8/23"
+    }
+  },
+  "October 15": {
+    "card": "7 ♣",
+    "periods": {
+      "mercury": "10/15",
+      "venus": "12/6",
+      "mars": "1/28",
+      "jupiter": "3/21",
+      "saturn": "5/12",
+      "uranus": "7/3",
+      "neptune": "8/24"
+    }
+  },
+  "October 16": {
+    "card": "6 ♣",
+    "periods": {
+      "mercury": "10/16",
+      "venus": "12/7",
+      "mars": "1/29",
+      "jupiter": "3/22",
+      "saturn": "5/13",
+      "uranus": "7/4",
+      "neptune": "8/25"
+    }
+  },
+  "October 17": {
+    "card": "5 ♣",
+    "periods": {
+      "mercury": "10/17",
+      "venus": "12/8",
+      "mars": "1/30",
+      "jupiter": "3/23",
+      "saturn": "5/14",
+      "uranus": "7/5",
+      "neptune": "8/26"
+    }
+  },
+  "October 18": {
+    "card": "4 ♣",
+    "periods": {
+      "mercury": "10/18",
+      "venus": "12/9",
+      "mars": "1/31",
+      "jupiter": "3/24",
+      "saturn": "5/15",
+      "uranus": "7/6",
+      "neptune": "8/27"
+    }
+  },
+  "October 19": {
+    "card": "3 ♣",
+    "periods": {
+      "mercury": "10/19",
+      "venus": "12/10",
+      "mars": "2/1",
+      "jupiter": "3/25",
+      "saturn": "5/16",
+      "uranus": "7/7",
+      "neptune": "8/28"
+    }
+  },
+  "October 20": {
+    "card": "2 ♣",
+    "periods": {
+      "mercury": "10/20",
+      "venus": "12/11",
+      "mars": "2/2",
+      "jupiter": "3/26",
+      "saturn": "5/17",
+      "uranus": "7/8",
+      "neptune": "8/29"
+    }
+  },
+  "October 21": {
+    "card": "A ♣",
+    "periods": {
+      "mercury": "10/21",
+      "venus": "12/12",
+      "mars": "2/3",
+      "jupiter": "3/27",
+      "saturn": "5/18",
+      "uranus": "7/9",
+      "neptune": "8/30"
+    }
+  },
+  "October 22": {
+    "card": "K ♥",
+    "periods": {
+      "mercury": "10/22",
+      "venus": "12/13",
+      "mars": "2/4",
+      "jupiter": "3/28",
+      "saturn": "5/19",
+      "uranus": "7/10",
+      "neptune": "8/31"
+    }
+  },
+  "October 23": {
+    "card": "Q ♥",
+    "periods": {
+      "mercury": "10/23",
+      "venus": "12/14",
+      "mars": "2/5",
+      "jupiter": "3/29",
+      "saturn": "5/20",
+      "uranus": "7/11",
+      "neptune": "9/1"
+    }
+  },
+  "October 24": {
+    "card": "J ♥",
+    "periods": {
+      "mercury": "10/24",
+      "venus": "12/15",
+      "mars": "2/6",
+      "jupiter": "3/30",
+      "saturn": "5/21",
+      "uranus": "7/12",
+      "neptune": "9/2"
+    }
+  },
+  "October 25": {
+    "card": "10 ♥",
+    "periods": {
+      "mercury": "10/25",
+      "venus": "12/16",
+      "mars": "2/7",
+      "jupiter": "3/31",
+      "saturn": "5/22",
+      "uranus": "7/13",
+      "neptune": "9/3"
+    }
+  },
+  "October 26": {
+    "card": "9 ♥",
+    "periods": {
+      "mercury": "10/26",
+      "venus": "12/17",
+      "mars": "2/8",
+      "jupiter": "4/1",
+      "saturn": "5/23",
+      "uranus": "7/14",
+      "neptune": "9/4"
+    }
+  },
+  "October 27": {
+    "card": "8 ♥",
+    "periods": {
+      "mercury": "10/27",
+      "venus": "12/18",
+      "mars": "2/9",
+      "jupiter": "4/2",
+      "saturn": "5/24",
+      "uranus": "7/15",
+      "neptune": "9/5"
+    }
+  },
+  "October 28": {
+    "card": "7 ♥",
+    "periods": {
+      "mercury": "10/28",
+      "venus": "12/19",
+      "mars": "2/10",
+      "jupiter": "4/3",
+      "saturn": "5/25",
+      "uranus": "7/16",
+      "neptune": "9/6"
+    }
+  },
+  "October 29": {
+    "card": "6 ♥",
+    "periods": {
+      "mercury": "10/29",
+      "venus": "12/20",
+      "mars": "2/11",
+      "jupiter": "4/4",
+      "saturn": "5/26",
+      "uranus": "7/17",
+      "neptune": "9/7"
+    }
+  },
+  "October 30": {
+    "card": "5 ♥",
+    "periods": {
+      "mercury": "10/30",
+      "venus": "12/21",
+      "mars": "2/12",
+      "jupiter": "4/5",
+      "saturn": "5/27",
+      "uranus": "7/18",
+      "neptune": "9/8"
+    }
+  },
+  "October 31": {
+    "card": "4 ♥",
+    "periods": {
+      "mercury": "10/31",
+      "venus": "12/22",
+      "mars": "2/13",
+      "jupiter": "4/6",
+      "saturn": "5/28",
+      "uranus": "7/19",
+      "neptune": "9/9"
+    }
+  },
+  "November 1": {
+    "card": "6 ♦",
+    "periods": {
+      "mercury": "11/1",
+      "venus": "12/23",
+      "mars": "2/14",
+      "jupiter": "4/7",
+      "saturn": "5/29",
+      "uranus": "7/20",
+      "neptune": "9/10"
+    }
+  },
+  "November 2": {
+    "card": "5 ♦",
+    "periods": {
+      "mercury": "11/2",
+      "venus": "12/24",
+      "mars": "2/15",
+      "jupiter": "4/8",
+      "saturn": "5/30",
+      "uranus": "7/21",
+      "neptune": "9/11"
+    }
+  },
+  "November 3": {
+    "card": "4 ♦",
+    "periods": {
+      "mercury": "11/3",
+      "venus": "12/25",
+      "mars": "2/16",
+      "jupiter": "4/9",
+      "saturn": "5/31",
+      "uranus": "7/22",
+      "neptune": "9/12"
+    }
+  },
+  "November 4": {
+    "card": "3 ♦",
+    "periods": {
+      "mercury": "11/4",
+      "venus": "12/26",
+      "mars": "2/17",
+      "jupiter": "4/10",
+      "saturn": "6/1",
+      "uranus": "7/23",
+      "neptune": "9/13"
+    }
+  },
+  "November 5": {
+    "card": "2 ♦",
+    "periods": {
+      "mercury": "11/5",
+      "venus": "12/27",
+      "mars": "2/18",
+      "jupiter": "4/11",
+      "saturn": "6/2",
+      "uranus": "7/24",
+      "neptune": "9/14"
+    }
+  },
+  "November 6": {
+    "card": "A ♦",
+    "periods": {
+      "mercury": "11/6",
+      "venus": "12/28",
+      "mars": "2/19",
+      "jupiter": "4/12",
+      "saturn": "6/3",
+      "uranus": "7/25",
+      "neptune": "9/15"
+    }
+  },
+  "November 7": {
+    "card": "K ♣",
+    "periods": {
+      "mercury": "11/7",
+      "venus": "12/29",
+      "mars": "2/20",
+      "jupiter": "4/13",
+      "saturn": "6/4",
+      "uranus": "7/26",
+      "neptune": "9/16"
+    }
+  },
+  "November 8": {
+    "card": "Q ♣",
+    "periods": {
+      "mercury": "11/8",
+      "venus": "12/30",
+      "mars": "2/21",
+      "jupiter": "4/14",
+      "saturn": "6/5",
+      "uranus": "7/27",
+      "neptune": "9/17"
+    }
+  },
+  "November 9": {
+    "card": "J ♣",
+    "periods": {
+      "mercury": "11/9",
+      "venus": "1/1",
+      "mars": "2/22",
+      "jupiter": "4/15",
+      "saturn": "6/6",
+      "uranus": "7/28",
+      "neptune": "9/18"
+    }
+  },
+  "November 10": {
+    "card": "10 ♣",
+    "periods": {
+      "mercury": "11/10",
+      "venus": "1/2",
+      "mars": "2/23",
+      "jupiter": "4/16",
+      "saturn": "6/7",
+      "uranus": "7/29",
+      "neptune": "9/19"
+    }
+  },
+  "November 11": {
+    "card": "9 ♣",
+    "periods": {
+      "mercury": "11/11",
+      "venus": "1/3",
+      "mars": "2/24",
+      "jupiter": "4/17",
+      "saturn": "6/8",
+      "uranus": "7/30",
+      "neptune": "9/20"
+    }
+  },
+  "November 12": {
+    "card": "8 ♣",
+    "periods": {
+      "mercury": "11/12",
+      "venus": "1/4",
+      "mars": "2/25",
+      "jupiter": "4/18",
+      "saturn": "6/9",
+      "uranus": "7/31",
+      "neptune": "9/21"
+    }
+  },
+  "November 13": {
+    "card": "7 ♣",
+    "periods": {
+      "mercury": "11/13",
+      "venus": "1/5",
+      "mars": "2/26",
+      "jupiter": "4/19",
+      "saturn": "6/10",
+      "uranus": "8/1",
+      "neptune": "9/22"
+    }
+  },
+  "November 14": {
+    "card": "6 ♣",
+    "periods": {
+      "mercury": "11/14",
+      "venus": "1/6",
+      "mars": "2/27",
+      "jupiter": "4/20",
+      "saturn": "6/11",
+      "uranus": "8/2",
+      "neptune": "9/23"
+    }
+  },
+  "November 15": {
+    "card": "5 ♣",
+    "periods": {
+      "mercury": "11/15",
+      "venus": "1/7",
+      "mars": "2/28",
+      "jupiter": "4/21",
+      "saturn": "6/12",
+      "uranus": "8/3",
+      "neptune": "9/24"
+    }
+  },
+  "November 16": {
+    "card": "4 ♣",
+    "periods": {
+      "mercury": "11/16",
+      "venus": "1/8",
+      "mars": "3/1",
+      "jupiter": "4/22",
+      "saturn": "6/13",
+      "uranus": "8/4",
+      "neptune": "9/25"
+    }
+  },
+  "November 17": {
+    "card": "3 ♣",
+    "periods": {
+      "mercury": "11/17",
+      "venus": "1/9",
+      "mars": "3/2",
+      "jupiter": "4/23",
+      "saturn": "6/14",
+      "uranus": "8/5",
+      "neptune": "9/26"
+    }
+  },
+  "November 18": {
+    "card": "2 ♣",
+    "periods": {
+      "mercury": "11/18",
+      "venus": "1/10",
+      "mars": "3/3",
+      "jupiter": "4/24",
+      "saturn": "6/15",
+      "uranus": "8/6",
+      "neptune": "9/27"
+    }
+  },
+  "November 19": {
+    "card": "A ♣",
+    "periods": {
+      "mercury": "11/19",
+      "venus": "1/11",
+      "mars": "3/4",
+      "jupiter": "4/25",
+      "saturn": "6/16",
+      "uranus": "8/7",
+      "neptune": "9/28"
+    }
+  },
+  "November 20": {
+    "card": "K ♥",
+    "periods": {
+      "mercury": "11/20",
+      "venus": "1/12",
+      "mars": "3/5",
+      "jupiter": "4/26",
+      "saturn": "6/17",
+      "uranus": "8/8",
+      "neptune": "9/29"
+    }
+  },
+  "November 21": {
+    "card": "Q ♥",
+    "periods": {
+      "mercury": "11/21",
+      "venus": "1/13",
+      "mars": "3/6",
+      "jupiter": "4/27",
+      "saturn": "6/18",
+      "uranus": "8/9",
+      "neptune": "9/30"
+    }
+  },
+  "November 22": {
+    "card": "J ♥",
+    "periods": {
+      "mercury": "11/22",
+      "venus": "1/14",
+      "mars": "3/7",
+      "jupiter": "4/28",
+      "saturn": "6/19",
+      "uranus": "8/10",
+      "neptune": "10/1"
+    }
+  },
+  "November 23": {
+    "card": "10 ♥",
+    "periods": {
+      "mercury": "11/23",
+      "venus": "1/15",
+      "mars": "3/8",
+      "jupiter": "4/29",
+      "saturn": "6/20",
+      "uranus": "8/11",
+      "neptune": "10/2"
+    }
+  },
+  "November 24": {
+    "card": "9 ♥",
+    "periods": {
+      "mercury": "11/24",
+      "venus": "1/16",
+      "mars": "3/9",
+      "jupiter": "4/30",
+      "saturn": "6/21",
+      "uranus": "8/12",
+      "neptune": "10/3"
+    }
+  },
+  "November 25": {
+    "card": "8 ♥",
+    "periods": {
+      "mercury": "11/25",
+      "venus": "1/17",
+      "mars": "3/10",
+      "jupiter": "5/1",
+      "saturn": "6/22",
+      "uranus": "8/13",
+      "neptune": "10/4"
+    }
+  },
+  "November 26": {
+    "card": "7 ♥",
+    "periods": {
+      "mercury": "11/26",
+      "venus": "1/18",
+      "mars": "3/11",
+      "jupiter": "5/2",
+      "saturn": "6/23",
+      "uranus": "8/14",
+      "neptune": "10/5"
+    }
+  },
+  "November 27": {
+    "card": "6 ♥",
+    "periods": {
+      "mercury": "11/27",
+      "venus": "1/19",
+      "mars": "3/12",
+      "jupiter": "5/3",
+      "saturn": "6/24",
+      "uranus": "8/15",
+      "neptune": "10/6"
+    }
+  },
+  "November 28": {
+    "card": "5 ♥",
+    "periods": {
+      "mercury": "11/28",
+      "venus": "1/20",
+      "mars": "3/13",
+      "jupiter": "5/4",
+      "saturn": "6/25",
+      "uranus": "8/16",
+      "neptune": "10/7"
+    }
+  },
+  "November 29": {
+    "card": "4 ♥",
+    "periods": {
+      "mercury": "11/29",
+      "venus": "1/21",
+      "mars": "3/14",
+      "jupiter": "5/5",
+      "saturn": "6/26",
+      "uranus": "8/17",
+      "neptune": "10/8"
+    }
+  },
+  "November 30": {
+    "card": "3 ♥",
+    "periods": {
+      "mercury": "11/30",
+      "venus": "1/22",
+      "mars": "3/15",
+      "jupiter": "5/6",
+      "saturn": "6/27",
+      "uranus": "8/18",
+      "neptune": "10/9"
+    }
+  },
+  "December 1": {
+    "card": "4 ♦",
+    "periods": {
+      "mercury": "12/1",
+      "venus": "1/23",
+      "mars": "3/16",
+      "jupiter": "5/7",
+      "saturn": "6/28",
+      "uranus": "8/19",
+      "neptune": "10/10"
+    }
+  },
+  "December 2": {
+    "card": "3 ♦",
+    "periods": {
+      "mercury": "12/2",
+      "venus": "1/24",
+      "mars": "3/17",
+      "jupiter": "5/8",
+      "saturn": "6/29",
+      "uranus": "8/20",
+      "neptune": "10/11"
+    }
+  },
+  "December 3": {
+    "card": "2 ♦",
+    "periods": {
+      "mercury": "12/3",
+      "venus": "1/25",
+      "mars": "3/18",
+      "jupiter": "5/9",
+      "saturn": "6/30",
+      "uranus": "8/21",
+      "neptune": "10/12"
+    }
+  },
+  "December 4": {
+    "card": "A ♦",
+    "periods": {
+      "mercury": "12/4",
+      "venus": "1/26",
+      "mars": "3/19",
+      "jupiter": "5/10",
+      "saturn": "7/1",
+      "uranus": "8/22",
+      "neptune": "10/13"
+    }
+  },
+  "December 5": {
+    "card": "K  ♣",
+    "periods": {
+      "mercury": "12/5",
+      "venus": "1/27",
+      "mars": "3/20",
+      "jupiter": "5/11",
+      "saturn": "7/2",
+      "uranus": "8/23",
+      "neptune": "10/14"
+    }
+  },
+  "December 6": {
+    "card": "Q ♣",
+    "periods": {
+      "mercury": "12/6",
+      "venus": "1/28",
+      "mars": "3/21",
+      "jupiter": "5/12",
+      "saturn": "7/3",
+      "uranus": "8/24",
+      "neptune": "10/15"
+    }
+  },
+  "December 7": {
+    "card": "J ♣",
+    "periods": {
+      "mercury": "12/7",
+      "venus": "1/29",
+      "mars": "3/22",
+      "jupiter": "5/13",
+      "saturn": "7/4",
+      "uranus": "8/25",
+      "neptune": "10/16"
+    }
+  },
+  "December 8": {
+    "card": "10 ♣",
+    "periods": {
+      "mercury": "12/8",
+      "venus": "1/30",
+      "mars": "3/23",
+      "jupiter": "5/14",
+      "saturn": "7/5",
+      "uranus": "8/26",
+      "neptune": "10/17"
+    }
+  },
+  "December 9": {
+    "card": "9 ♣",
+    "periods": {
+      "mercury": "12/9",
+      "venus": "1/31",
+      "mars": "3/24",
+      "jupiter": "5/15",
+      "saturn": "7/6",
+      "uranus": "8/27",
+      "neptune": "10/18"
+    }
+  },
+  "December 10": {
+    "card": "8 ♣",
+    "periods": {
+      "mercury": "12/10",
+      "venus": "2/1",
+      "mars": "3/25",
+      "jupiter": "5/16",
+      "saturn": "7/7",
+      "uranus": "8/28",
+      "neptune": "10/19"
+    }
+  },
+  "December 11": {
+    "card": "7 ♣",
+    "periods": {
+      "mercury": "12/11",
+      "venus": "2/2",
+      "mars": "3/26",
+      "jupiter": "5/17",
+      "saturn": "7/8",
+      "uranus": "8/29",
+      "neptune": "10/20"
+    }
+  },
+  "December 12": {
+    "card": "6 ♣",
+    "periods": {
+      "mercury": "12/12",
+      "venus": "2/3",
+      "mars": "3/27",
+      "jupiter": "5/18",
+      "saturn": "7/9",
+      "uranus": "8/30",
+      "neptune": "10/21"
+    }
+  },
+  "December 13": {
+    "card": "5 ♣",
+    "periods": {
+      "mercury": "12/13",
+      "venus": "2/4",
+      "mars": "3/28",
+      "jupiter": "5/19",
+      "saturn": "7/10",
+      "uranus": "8/31",
+      "neptune": "10/22"
+    }
+  },
+  "December 14": {
+    "card": "4 ♣",
+    "periods": {
+      "mercury": "12/14",
+      "venus": "2/5",
+      "mars": "3/29",
+      "jupiter": "5/20",
+      "saturn": "7/11",
+      "uranus": "9/1",
+      "neptune": "10/23"
+    }
+  },
+  "December 15": {
+    "card": "3 ♣",
+    "periods": {
+      "mercury": "12/15",
+      "venus": "2/6",
+      "mars": "3/30",
+      "jupiter": "5/21",
+      "saturn": "7/12",
+      "uranus": "9/2",
+      "neptune": "10/24"
+    }
+  },
+  "December 16": {
+    "card": "2 ♣",
+    "periods": {
+      "mercury": "12/16",
+      "venus": "2/7",
+      "mars": "3/31",
+      "jupiter": "5/22",
+      "saturn": "7/13",
+      "uranus": "9/3",
+      "neptune": "10/25"
+    }
+  },
+  "December 17": {
+    "card": "A ♣",
+    "periods": {
+      "mercury": "12/17",
+      "venus": "2/8",
+      "mars": "4/1",
+      "jupiter": "5/23",
+      "saturn": "7/14",
+      "uranus": "9/4",
+      "neptune": "10/26"
+    }
+  },
+  "December 18": {
+    "card": "K ♥",
+    "periods": {
+      "mercury": "12/18",
+      "venus": "2/9",
+      "mars": "4/2",
+      "jupiter": "5/24",
+      "saturn": "7/15",
+      "uranus": "9/5",
+      "neptune": "10/27"
+    }
+  },
+  "December 19": {
+    "card": "Q ♥",
+    "periods": {
+      "mercury": "12/19",
+      "venus": "2/10",
+      "mars": "4/3",
+      "jupiter": "5/25",
+      "saturn": "7/16",
+      "uranus": "9/6",
+      "neptune": "10/28"
+    }
+  },
+  "December 20": {
+    "card": "J ♥",
+    "periods": {
+      "mercury": "12/20",
+      "venus": "2/11",
+      "mars": "4/4",
+      "jupiter": "5/26",
+      "saturn": "7/17",
+      "uranus": "9/7",
+      "neptune": "10/29"
+    }
+  },
+  "December 21": {
+    "card": "10 ♥",
+    "periods": {
+      "mercury": "12/21",
+      "venus": "2/12",
+      "mars": "4/5",
+      "jupiter": "5/27",
+      "saturn": "7/18",
+      "uranus": "9/8",
+      "neptune": "10/30"
+    }
+  },
+  "December 22": {
+    "card": "9 ♥",
+    "periods": {
+      "mercury": "12/22",
+      "venus": "2/13",
+      "mars": "4/6",
+      "jupiter": "5/28",
+      "saturn": "7/19",
+      "uranus": "9/9",
+      "neptune": "10/31"
+    }
+  },
+  "December 23": {
+    "card": "8 ♥",
+    "periods": {
+      "mercury": "12/23",
+      "venus": "2/14",
+      "mars": "4/7",
+      "jupiter": "5/29",
+      "saturn": "7/20",
+      "uranus": "9/10",
+      "neptune": "11/1"
+    }
+  },
+  "December 24": {
+    "card": "7 ♥",
+    "periods": {
+      "mercury": "12/24",
+      "venus": "2/15",
+      "mars": "4/8",
+      "jupiter": "5/30",
+      "saturn": "7/21",
+      "uranus": "9/11",
+      "neptune": "11/2"
+    }
+  },
+  "December 25": {
+    "card": "6 ♥",
+    "periods": {
+      "mercury": "12/25",
+      "venus": "2/16",
+      "mars": "4/9",
+      "jupiter": "5/31",
+      "saturn": "7/22",
+      "uranus": "9/12",
+      "neptune": "11/3"
+    }
+  },
+  "December 26": {
+    "card": "5 ♥",
+    "periods": {
+      "mercury": "12/26",
+      "venus": "2/17",
+      "mars": "4/10",
+      "jupiter": "6/1",
+      "saturn": "7/23",
+      "uranus": "9/13",
+      "neptune": "11/4"
+    }
+  },
+  "December 27": {
+    "card": "4 ♥",
+    "periods": {
+      "mercury": "12/27",
+      "venus": "2/18",
+      "mars": "4/11",
+      "jupiter": "6/2",
+      "saturn": "7/24",
+      "uranus": "9/14",
+      "neptune": "11/5"
+    }
+  },
+  "December 28": {
+    "card": "3 ♥",
+    "periods": {
+      "mercury": "12/28",
+      "venus": "2/19",
+      "mars": "4/12",
+      "jupiter": "6/3",
+      "saturn": "7/25",
+      "uranus": "9/15",
+      "neptune": "11/6"
+    }
+  },
+  "December 29": {
+    "card": "2 ♥",
+    "periods": {
+      "mercury": "12/29",
+      "venus": "2/20",
+      "mars": "4/13",
+      "jupiter": "6/4",
+      "saturn": "7/26",
+      "uranus": "9/16",
+      "neptune": "11/7"
+    }
+  },
+  "December 30": {
+    "card": "A ♥",
+    "periods": {
+      "mercury": "12/30",
+      "venus": "2/21",
+      "mars": "4/14",
+      "jupiter": "6/5",
+      "saturn": "7/27",
+      "uranus": "9/17",
+      "neptune": "11/8"
+    }
+  },
+  "December 31": {
+    "card": "🎭",
+    "periods": {
+      "mercury": "Joker",
+      "venus": "No",
+      "mars": "Forecast",
+      "jupiter": "",
+      "saturn": "",
+      "uranus": "",
+      "neptune": ""
+    }
+  }
+}
