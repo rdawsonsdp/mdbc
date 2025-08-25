@@ -112,7 +112,15 @@ export default function MDBCApp() {
   };
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+    setCurrentSlide((prev) => {
+      const nextIndex = prev + 1;
+      if (nextIndex >= carouselSlides.length) {
+        // If we're at the last slide, go to the form
+        setStep('form');
+        return prev; // Keep current slide index unchanged
+      }
+      return nextIndex;
+    });
   };
 
   const prevSlide = () => {
@@ -295,7 +303,15 @@ export default function MDBCApp() {
   useEffect(() => {
     if (step === 'landing') {
       const interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+        setCurrentSlide((prev) => {
+          const nextIndex = prev + 1;
+          if (nextIndex >= carouselSlides.length) {
+            // If we're at the last slide, go to the form
+            setStep('form');
+            return prev; // Keep current slide index unchanged
+          }
+          return nextIndex;
+        });
       }, 5000); // Change slide every 5 seconds
       return () => clearInterval(interval);
     }
