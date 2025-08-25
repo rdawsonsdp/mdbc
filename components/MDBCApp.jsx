@@ -689,9 +689,20 @@ export default function MDBCApp() {
                   <input
                     type="number"
                     value={age}
-                    onChange={(e) => setAge(parseInt(e.target.value))}
-                    className="w-16 p-2 border border-gray-300 rounded text-black text-center"
-                    disabled={!isEditing}
+                    onChange={async (e) => {
+                      const newAge = parseInt(e.target.value);
+                      setAge(newAge);
+                      
+                      // Update yearly forecasts when age changes
+                      if (birthCard && newAge && !isNaN(newAge)) {
+                        const forecast = await getForecastForAge(birthCard.card, newAge);
+                        setYearlyCards(forecast);
+                        showNotification(`📅 Forecast updated for age ${newAge}`);
+                      }
+                    }}
+                    className="w-16 p-2 border border-navy-300 rounded text-black text-center"
+                    min="1"
+                    max="120"
                   />
                   {isEditing ? (
                     <div className="flex gap-2">
