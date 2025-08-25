@@ -201,10 +201,39 @@ export default function MDBCApp() {
     setDay(profile.day);
     setYear(profile.year);
     
-    // Automatically generate the reading after loading profile
-    setTimeout(() => {
-      handleSubmit();
-    }, 100); // Small delay to ensure state is updated
+    // Automatically generate the reading with profile data
+    const dateKey = `${profile.month} ${parseInt(profile.day)}`;
+    const birthCardData = getBirthCardFromDate(dateKey);
+    setBirthCard(birthCardData);
+    
+    // Calculate age properly accounting for whether birthday has passed this year
+    const today = new Date();
+    const birthDate = new Date(parseInt(profile.year), getMonthIndex(profile.month), parseInt(profile.day));
+    let calculatedAge = today.getFullYear() - birthDate.getFullYear();
+    
+    // Check if birthday hasn't occurred yet this year
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      calculatedAge--;
+    }
+    
+    setAge(calculatedAge);
+    
+    // Get yearly forecast
+    const forecast = await getForecastForAge(birthCardData.card, calculatedAge);
+    setYearlyCards(forecast);
+    
+    // Get planetary periods
+    const periods = getAllPlanetaryPeriods(dateKey);
+    setPlanetaryPeriods(periods);
+    
+    setStep('results');
+    
+    // Initialize chat with welcome message
+    setChatMessages([{
+      role: 'assistant',
+      content: `Welcome! I am your Cardology Business Coach, I'm here to help you activate your entrepreneurial gifts and decode your million-dollar blueprint using your birth card, yearly spreads, and planetary cycles—so you can unlock your most aligned path to business success.`
+    }]);
   };
 
   const getCardImageUrl = (card) => {
