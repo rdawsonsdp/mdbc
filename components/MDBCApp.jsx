@@ -835,7 +835,9 @@ export default function MDBCApp() {
                 if (!dateStr) return '';
                 const [month, day] = dateStr.split('/');
                 const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-                return `${monthNames[parseInt(month) - 1]} ${day}`;
+                const currentYear = new Date().getFullYear();
+                const twoDigitYear = currentYear.toString().slice(-2);
+                return `${monthNames[parseInt(month) - 1]} ${day} '${twoDigitYear}`;
               };
               
               // Get the corresponding card from yearly forecast based on planet name
