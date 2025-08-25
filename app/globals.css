@@ -227,3 +227,63 @@ textarea {
 .shimmer-hover:hover::before {
   left: 100%;
 }
+
+/* Modal 3D animations */
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Modal hover effects for cards */
+.card-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shimmer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.card-shimmer:hover::before {
+  left: 100%;
+}
+
+.card-glow {
+  transition: all 0.3s ease-in-out;
+}
+
+.card-glow:hover {
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+.mobile-feedback:active {
+  transform: scale(0.98);
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

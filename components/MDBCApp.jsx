@@ -9,14 +9,18 @@ import { getAllPlanetaryPeriods } from '../utils/planetaryPeriodLookup';
 import cardActivities from '../lib/data/cardToActivities.json';
 
 // Enhanced Card component with flip animation and scrollable descriptions
-const FlippableCard = ({ card, title, description, imageUrl, isCurrent = false, cardType = 'default' }) => {
+const FlippableCard = ({ card, title, description, imageUrl, isCurrent = false, cardType = 'default', onCardClick }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleCardClick = () => {
-    setIsFlipped(!isFlipped);
-    // Add haptic feedback for mobile
-    if (navigator.vibrate) {
-      navigator.vibrate(50);
+    if (onCardClick) {
+      onCardClick(card, cardType);
+    } else {
+      setIsFlipped(!isFlipped);
+      // Add haptic feedback for mobile
+      if (navigator.vibrate) {
+        navigator.vibrate(50);
+      }
     }
   };
 
@@ -35,8 +39,8 @@ const FlippableCard = ({ card, title, description, imageUrl, isCurrent = false, 
               alt={card}
               width={100}
               height={140}
-              className={`w-full h-full object-cover rounded-lg shadow-lg card-hover shimmer-hover ${
-                isCurrent ? 'ring-4 ring-purple-400 ring-opacity-60' : ''
+              className={`w-full h-full object-cover rounded-lg shadow-lg card-hover shimmer-hover card-shimmer card-glow mobile-feedback fade-in ${
+                isCurrent ? 'ring-4 ring-gold-400 ring-opacity-60' : ''
               }`}
             />
           </div>
@@ -84,6 +88,75 @@ export default function MDBCApp() {
   const [notification, setNotification] = useState(null);
   const [sparkleElements, setSparkleElements] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Card Modal component
+  const CardModal = ({ card, type, isOpen, onClose }) => {
+    const [isFlipped, setIsFlipped] = useState(false);
+    const [cardDescription, setCardDescription] = useState('');
+
+    useEffect(() => {
+      if (isOpen && card) {
+        setIsFlipped(false);
+        // Get card description based on type
+        const cardData = cardActivities[card];
+        if (cardData) {
+          if (type === 'birth') {
+            setCardDescription(cardData.entrepreneurialActivation || cardData.description || 'Birth card description not available.');
+          } else if (type === 'forecast' || type === 'planetary') {
+            setCardDescription(cardData.entrepreneurialActivation || cardData.description || 'Card description not available.');
+          }
+        } else {
+          setCardDescription('Card description not available.');
+        }
+      }
+    }, [card, type, isOpen]);
+
+    const handleFlip = () => {
+      if (navigator.vibrate) {
+        navigator.vibrate(50);
+      }
+      setIsFlipped(!isFlipped);
+    };
+
+    if (!isOpen) return null;
+
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={onClose}>
+        <div className="relative w-[260px] h-[360px] sm:w-[320px] sm:h-[440px]" onClick={(e) => e.stopPropagation()}>
+          <div className={`relative w-full h-full transition-all duration-700 transform-style-preserve-3d ${
+            isFlipped ? 'rotate-y-180' : ''
+          }`} onClick={handleFlip}>
+            {/* Front Side */}
+            <div className="absolute w-full h-full backface-hidden rounded-lg shadow-xl cursor-pointer">
+              <Image 
+                src={getCardImageUrl(card)} 
+                alt={card}
+                width={320}
+                height={440}
+                className="w-full h-full object-contain rounded-lg"
+              />
+            </div>
+            {/* Back Side */}
+            <div className="absolute w-full h-full backface-hidden rotate-y-180 bg-white rounded-lg shadow-xl p-4 overflow-hidden flex flex-col cursor-pointer">
+              <h2 className="font-semibold text-lg mb-2 text-navy-800">{card}</h2>
+              <div className="flex-1 overflow-y-auto pr-2">
+                <p className="text-sm whitespace-pre-line text-gray-700" dangerouslySetInnerHTML={{ 
+                  __html: cardDescription.replace(/\\n/g, '<br>').replace(/\\. /g, '.<br><br>') 
+                }} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <button onClick={onClose} className="absolute top-6 right-6 text-white hover:text-red-400 z-50">
+          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    );
+  };
 
   // Load saved profiles and conversations from localStorage
   useEffect(() => {
@@ -361,6 +434,21 @@ export default function MDBCApp() {
     setTimeout(() => {
       setSparkleElements(prev => prev.filter(id => id !== elementId));
     }, 1000);
+  };
+
+  // Card modal handlers
+  const handleCardClick = (card, type) => {
+    setSelectedCard({ card, type });
+    setIsModalOpen(true);
+    // Haptic feedback for mobile
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedCard(null);
   };
 
   // Function to determine current planetary period
@@ -807,6 +895,7 @@ export default function MDBCApp() {
                 description={cardActivities[birthCard.card]?.entrepreneurialActivation}
                 imageUrl={getCardImageUrl(birthCard.card)}
                 cardType="birth"
+                onCardClick={handleCardClick}
               />
             )}
             {/* Show only specific cards from yearly forecast */}
@@ -820,6 +909,7 @@ export default function MDBCApp() {
                 description={cardActivities[item.card]?.entrepreneurialActivation}
                 imageUrl={getCardImageUrl(item.card)}
                 cardType="strategic"
+                onCardClick={handleCardClick}
               />
             ))}
           </div>
@@ -856,6 +946,7 @@ export default function MDBCApp() {
                     imageUrl={getCardImageUrl(cardToDisplay)}
                     cardType="planetary"
                     isCurrent={getCurrentPlanetaryPeriod() === period.planet}
+                    onCardClick={handleCardClick}
                   />
                 </div>
               );
@@ -999,6 +1090,14 @@ export default function MDBCApp() {
           {notification}
         </div>
       )}
+      
+      {/* Card Modal */}
+      <CardModal
+        card={selectedCard?.card}
+        type={selectedCard?.type}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </div>
   );
 }
