@@ -15,7 +15,7 @@ async function loadYearlyForecastsData() {
   if (yearlyForecastsData) return yearlyForecastsData;
   
   try {
-    const response = await fetch('/data/Yearly Forecasts.csv');
+    const response = await fetch('/data/Yearly Forecasts Updated.csv');
     if (!response.ok) {
       throw new Error(`Failed to load Yearly Forecasts.csv: ${response.status}`);
     }

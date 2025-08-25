@@ -437,23 +437,7 @@ export default function MDBCApp() {
     }
   ];
 
-  // Auto-advance carousel
-  useEffect(() => {
-    if (step === 'landing') {
-      const interval = setInterval(() => {
-        setCurrentSlide((prev) => {
-          const nextIndex = prev + 1;
-          if (nextIndex >= carouselSlides.length) {
-            // If we're at the last slide, go to the form
-            setStep('form');
-            return prev; // Keep current slide index unchanged
-          }
-          return nextIndex;
-        });
-      }, 5000); // Change slide every 5 seconds
-      return () => clearInterval(interval);
-    }
-  }, [step, carouselSlides.length]);
+  // Removed auto-advance carousel - now manual navigation only
 
   // Notification and sparkle functions
   const showNotification = (message) => {
@@ -824,6 +808,27 @@ export default function MDBCApp() {
                       if (birthCard && newAge && !isNaN(newAge)) {
                         const forecast = await getForecastForAge(birthCard.card, newAge);
                         setYearlyCards(forecast);
+                        
+                        // Update enhanced card data which includes planetary period dates
+                        const dateKey = `${month} ${parseInt(day)}`;
+                        setIsLoadingEnhancedData(true);
+                        try {
+                          const enhancedData = await getEnhancedCardData(
+                            birthCard.card,
+                            newAge,
+                            dateKey
+                          );
+                          setEnhancedCardData(enhancedData);
+                          console.log('Enhanced card data updated for new age:', enhancedData);
+                        } catch (error) {
+                          console.error('Error updating enhanced card data:', error);
+                        }
+                        setIsLoadingEnhancedData(false);
+                        
+                        // Update legacy planetary periods
+                        const periods = getAllPlanetaryPeriods(dateKey);
+                        setPlanetaryPeriods(periods);
+                        
                         showNotification(`📅 Forecast updated for age ${newAge}`);
                       }
                     }}
@@ -863,6 +868,21 @@ export default function MDBCApp() {
                           // Get new planetary periods
                           const periods = getAllPlanetaryPeriods(dateKey);
                           setPlanetaryPeriods(periods);
+                          
+                          // Update enhanced card data which includes planetary period dates
+                          setIsLoadingEnhancedData(true);
+                          try {
+                            const enhancedData = await getEnhancedCardData(
+                              birthCardData.card,
+                              calculatedAge,
+                              dateKey
+                            );
+                            setEnhancedCardData(enhancedData);
+                            console.log('Enhanced card data updated after save:', enhancedData);
+                          } catch (error) {
+                            console.error('Error updating enhanced card data:', error);
+                          }
+                          setIsLoadingEnhancedData(false);
                           
                           // Reset chat with new welcome message
                           setChatMessages([{
@@ -1025,7 +1045,21 @@ export default function MDBCApp() {
             {/* Enhanced Planetary Periods */}
             {enhancedCardData?.planetaryPeriods?.map((period, idx) => (
               <div key={`enhanced-${idx}`} className="text-center">
-                <p className="text-sm font-medium mb-1">{period.formattedStartDate}</p>
+                <p className="text-sm font-medium mb-1">{period.formattedStartDate ? 
+                  (() => {
+                    // Convert from "Jan 25 '24" to "01/25/2024" format
+                    const monthMap = {'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06', 
+                                      'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'};
+                    const parts = period.formattedStartDate.split(' ');
+                    if (parts.length >= 3) {
+                      const month = monthMap[parts[0]] || '01';
+                      const day = parts[1].padStart(2, '0');
+                      const yearPart = parts[2].replace("'", "");
+                      const year = yearPart.length === 2 ? `20${yearPart}` : yearPart;
+                      return `${month}/${day}/${year}`;
+                    }
+                    return period.formattedStartDate;
+                  })() : ''}</p>
                 <p className="text-sm text-navy-600 font-semibold mb-2">{period.displayName}</p>
                 <FlippableCard
                   card={period.card}
@@ -1039,14 +1073,25 @@ export default function MDBCApp() {
             )) ||
             /* Fallback Planetary Periods */
             planetaryPeriods.map((period, idx) => {
-              // Convert date format from "1/25" to "Jan 25"
+              // Convert date format from "1/25" to "mm/dd/yyyy"
               const formatDate = (dateStr) => {
                 if (!dateStr) return '';
-                const [month, day] = dateStr.split('/');
-                const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const [monthNum, dayNum] = dateStr.split('/');
                 const currentYear = new Date().getFullYear();
-                const twoDigitYear = currentYear.toString().slice(-2);
-                return `${monthNames[parseInt(month) - 1]} ${day} '${twoDigitYear}`;
+                const birthDate = new Date(parseInt(year), getMonthIndex(month), parseInt(day));
+                const periodMonth = parseInt(monthNum) - 1;
+                const periodDay = parseInt(dayNum);
+                
+                // Calculate the correct year for this planetary period
+                const periodDate = new Date(currentYear, periodMonth, periodDay);
+                const birthdayThisYear = new Date(currentYear, birthDate.getMonth(), birthDate.getDate());
+                
+                let periodYear = currentYear;
+                if (periodDate < birthdayThisYear) {
+                  periodYear = currentYear + 1;
+                }
+                
+                return `${monthNum.padStart(2, '0')}/${dayNum.padStart(2, '0')}/${periodYear}`;
               };
               
               // Get the corresponding card from yearly forecast based on planet name
