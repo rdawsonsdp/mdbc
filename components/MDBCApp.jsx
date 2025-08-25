@@ -7,6 +7,7 @@ import { getForecastForAge } from '../utils/yearlyForecastLookup';
 import { getCardActions } from '../utils/actionLookup';
 import { getAllPlanetaryPeriods } from '../utils/planetaryPeriodLookup';
 import cardActivities from '../lib/data/cardToActivities.json';
+import { getEnhancedCardData, getStrategicOutlookCards, getPlanetaryPeriodCards, validateCSVAccess } from '../utils/enhancedCardSystem.js';
 
 // Enhanced Card component with flip animation and scrollable descriptions
 const FlippableCard = ({ card, title, description, imageUrl, isCurrent = false, cardType = 'default', onCardClick }) => {
@@ -90,6 +91,17 @@ export default function MDBCApp() {
   const [isEditing, setIsEditing] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [enhancedCardData, setEnhancedCardData] = useState(null);
+  const [isLoadingEnhancedData, setIsLoadingEnhancedData] = useState(false);
+  const [csvValidation, setCsvValidation] = useState(null);
+  
+  // Debug function to validate CSV access
+  const validateCSVs = async () => {
+    const validation = await validateCSVAccess();
+    setCsvValidation(validation);
+    console.log('CSV Validation Results:', validation);
+    showNotification(`CSV Access: ${validation.errors.length === 0 ? '✅ All files accessible' : '❌ Some files missing'}`);
+  };
 
   // Card Modal component
   const CardModal = ({ card, type, isOpen, onClose }) => {
@@ -99,16 +111,22 @@ export default function MDBCApp() {
     useEffect(() => {
       if (isOpen && card) {
         setIsFlipped(false);
-        // Get card description based on type
-        const cardData = cardActivities[card];
-        if (cardData) {
-          if (type === 'birth') {
-            setCardDescription(cardData.entrepreneurialActivation || cardData.description || 'Birth card description not available.');
-          } else if (type === 'forecast' || type === 'planetary') {
-            setCardDescription(cardData.entrepreneurialActivation || cardData.description || 'Card description not available.');
-          }
+        
+        // Use enhanced activation data if available
+        if (selectedCard?.activation) {
+          setCardDescription(selectedCard.activation);
         } else {
-          setCardDescription('Card description not available.');
+          // Fall back to legacy card activities data
+          const cardData = cardActivities[card];
+          if (cardData) {
+            if (type === 'birth') {
+              setCardDescription(cardData.entrepreneurialActivation || cardData.description || 'Birth card description not available.');
+            } else if (type === 'forecast' || type === 'planetary') {
+              setCardDescription(cardData.entrepreneurialActivation || cardData.description || 'Card description not available.');
+            }
+          } else {
+            setCardDescription('Card description not available.');
+          }
         }
       }
     }, [card, type, isOpen]);
@@ -218,11 +236,25 @@ export default function MDBCApp() {
     
     setAge(calculatedAge);
     
-    // Get yearly forecast
+    // Get enhanced card data from CSV system
+    setIsLoadingEnhancedData(true);
+    try {
+      const enhancedData = await getEnhancedCardData(
+        birthCardData.card,
+        calculatedAge,
+        dateKey
+      );
+      setEnhancedCardData(enhancedData);
+      console.log('Enhanced card data loaded:', enhancedData);
+    } catch (error) {
+      console.error('Error loading enhanced card data:', error);
+    }
+    setIsLoadingEnhancedData(false);
+    
+    // Keep legacy data for backward compatibility
     const forecast = await getForecastForAge(birthCardData.card, calculatedAge);
     setYearlyCards(forecast);
     
-    // Get planetary periods
     const periods = getAllPlanetaryPeriods(dateKey);
     setPlanetaryPeriods(periods);
     
@@ -449,6 +481,23 @@ export default function MDBCApp() {
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedCard(null);
+  };
+  
+  // Enhanced card modal handler with CSV data
+  const handleEnhancedCardClick = async (card, type, period = null) => {
+    let activation = '';
+    
+    if (enhancedCardData && period) {
+      activation = enhancedCardData.activations[period] || '';
+    }
+    
+    setSelectedCard({ card, type, period, activation });
+    setIsModalOpen(true);
+    
+    // Haptic feedback for mobile
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
   };
 
   // Function to determine current planetary period
@@ -886,9 +935,30 @@ export default function MDBCApp() {
         <section className="bg-cream-100 p-6 rounded-lg mb-8 border border-gold-200">
           <h2 className="text-2xl font-bold mb-2 text-center text-navy-600">Yearly Strategic Outlook</h2>
           <p className="text-center text-gray-600 mb-6">{name} Strategic Outlook for {age}</p>
+          
+          {isLoadingEnhancedData && (
+            <div className="text-center py-4">
+              <div className="inline-flex items-center">
+                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-navy-600 mr-3"></div>
+                <span className="text-navy-600">Loading enhanced card data...</span>
+              </div>
+            </div>
+          )}
+          
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
-            {/* Birth Card */}
-            {birthCard && (
+            {/* Enhanced Birth Card */}
+            {birthCard && enhancedCardData && (
+              <FlippableCard
+                card={birthCard.card}
+                title="Birth Card"
+                description={enhancedCardData.birthCard?.activation || cardActivities[birthCard.card]?.entrepreneurialActivation}
+                imageUrl={getCardImageUrl(birthCard.card)}
+                cardType="birth"
+                onCardClick={(card, type) => handleEnhancedCardClick(card, type, 'Birth')}
+              />
+            )}
+            {/* Fallback Birth Card */}
+            {birthCard && !enhancedCardData && (
               <FlippableCard
                 card={birthCard.card}
                 title="Birth Card"
@@ -898,12 +968,25 @@ export default function MDBCApp() {
                 onCardClick={handleCardClick}
               />
             )}
-            {/* Show only specific cards from yearly forecast */}
-            {yearlyCards.filter(item => 
+            
+            {/* Enhanced Strategic Cards */}
+            {enhancedCardData?.strategicOutlook?.map((item, idx) => (
+              <FlippableCard
+                key={`enhanced-${idx}`}
+                card={item.card}
+                title={item.displayName}
+                description={item.activation}
+                imageUrl={item.imagePath}
+                cardType="strategic"
+                onCardClick={(card, type) => handleEnhancedCardClick(card, type, item.period)}
+              />
+            )) || 
+            /* Fallback Strategic Cards */
+            yearlyCards.filter(item => 
               ['Long Range', 'Pluto', 'Result', 'Support', 'Development'].includes(item.type)
             ).map((item, idx) => (
               <FlippableCard
-                key={idx}
+                key={`legacy-${idx}`}
                 card={item.card}
                 title={item.type}
                 description={cardActivities[item.card]?.entrepreneurialActivation}
@@ -920,7 +1003,23 @@ export default function MDBCApp() {
           <h2 className="text-2xl font-bold mb-2 text-center text-navy-600">Card Ruling Each 52-day Business Cycle</h2>
           <p className="text-center text-gray-600 mb-6">Current planetary influences throughout the year</p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 justify-items-center">
-            {planetaryPeriods.map((period, idx) => {
+            {/* Enhanced Planetary Periods */}
+            {enhancedCardData?.planetaryPeriods?.map((period, idx) => (
+              <div key={`enhanced-${idx}`} className="text-center">
+                <p className="text-sm font-medium mb-1">{period.formattedStartDate}</p>
+                <p className="text-sm text-navy-600 font-semibold mb-2">{period.displayName}</p>
+                <FlippableCard
+                  card={period.card}
+                  description={period.activation}
+                  imageUrl={period.imagePath}
+                  cardType="planetary"
+                  isCurrent={period.isCurrent}
+                  onCardClick={(card, type) => handleEnhancedCardClick(card, type, period.period)}
+                />
+              </div>
+            )) ||
+            /* Fallback Planetary Periods */
+            planetaryPeriods.map((period, idx) => {
               // Convert date format from "1/25" to "Jan 25"
               const formatDate = (dateStr) => {
                 if (!dateStr) return '';
@@ -937,7 +1036,7 @@ export default function MDBCApp() {
               const cardToDisplay = yearlyCard?.card || period.card;
               
               return (
-                <div key={idx} className="text-center">
+                <div key={`legacy-${idx}`} className="text-center">
                   <p className="text-sm font-medium mb-1">{formatDate(period.startDate)}</p>
                   <p className="text-sm text-navy-600 font-semibold mb-2">{period.planet}</p>
                   <FlippableCard
