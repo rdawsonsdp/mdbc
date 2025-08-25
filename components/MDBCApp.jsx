@@ -163,6 +163,19 @@ export default function MDBCApp() {
   };
 
   const saveProfile = () => {
+    // Check if profile already exists
+    const existingProfile = savedProfiles.find(p => 
+      p.name === name && 
+      p.month === month && 
+      p.day === day && 
+      p.year === year
+    );
+    
+    if (existingProfile) {
+      showNotification('⚠️ Profile already exists in saved profiles.');
+      return;
+    }
+    
     const profile = {
       id: Date.now(),
       name,
@@ -174,10 +187,6 @@ export default function MDBCApp() {
     const updated = [...savedProfiles, profile];
     setSavedProfiles(updated);
     localStorage.setItem('savedProfiles', JSON.stringify(updated));
-    
-    // Trigger sparkle effect and notification
-    triggerSparkle('save-profile-btn');
-    showNotification('✨ Added to your Saved Profiles.');
   };
 
   const deleteProfile = (id) => {
@@ -186,12 +195,16 @@ export default function MDBCApp() {
     localStorage.setItem('savedProfiles', JSON.stringify(updated));
   };
 
-  const loadProfile = (profile) => {
+  const loadProfile = async (profile) => {
     setName(profile.name);
     setMonth(profile.month);
     setDay(profile.day);
     setYear(profile.year);
-    handleSubmit();
+    
+    // Automatically generate the reading after loading profile
+    setTimeout(() => {
+      handleSubmit();
+    }, 100); // Small delay to ensure state is updated
   };
 
   const getCardImageUrl = (card) => {
@@ -475,7 +488,7 @@ export default function MDBCApp() {
             />
           </div>
           
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-sm font-medium mb-2">Birth Date</label>
             <div className="grid grid-cols-3 gap-2">
               <select 
@@ -512,6 +525,48 @@ export default function MDBCApp() {
               </select>
             </div>
           </div>
+          
+          {/* Save and Delete Profile Buttons */}
+          {name && month && day && year && (
+            <div className="mb-6 flex gap-2 justify-center">
+              <button
+                onClick={() => {
+                  saveProfile();
+                  showNotification('✨ Profile saved successfully!');
+                }}
+                className="flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm"
+              >
+                <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V2" />
+                </svg>
+                Save
+              </button>
+              
+              <button
+                onClick={() => {
+                  // Find and delete current profile if it exists
+                  const currentProfile = savedProfiles.find(p => 
+                    p.name === name && 
+                    p.month === month && 
+                    p.day === day && 
+                    p.year === year
+                  );
+                  if (currentProfile) {
+                    deleteProfile(currentProfile.id);
+                    showNotification('🗑️ Profile deleted successfully!');
+                  } else {
+                    showNotification('❌ No matching profile found to delete.');
+                  }
+                }}
+                className="flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm"
+              >
+                <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+                Delete
+              </button>
+            </div>
+          )}
           
           <button
             onClick={handleSubmit}
