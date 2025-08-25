@@ -64,16 +64,16 @@ textarea {
 
 /* Current card highlighting */
 .current-card {
-  box-shadow: 0 0 0 3px #8B5CF6, 0 20px 40px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 0 0 3px #D4AF37, 0 20px 40px rgba(212, 175, 55, 0.3);
   animation: pulse-glow 2s infinite;
 }
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 0 3px #8B5CF6, 0 20px 40px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 0 3px #D4AF37, 0 20px 40px rgba(212, 175, 55, 0.3);
   }
   50% {
-    box-shadow: 0 0 0 5px #8B5CF6, 0 20px 40px rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 0 5px #D4AF37, 0 20px 40px rgba(212, 175, 55, 0.5);
   }
 }
 
@@ -175,7 +175,7 @@ textarea {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1B3A57 0%, #D4AF37 100%);
   color: white;
   padding: 12px 20px;
   border-radius: 8px;

@@ -42,7 +42,7 @@ const FlippableCard = ({ card, title, description, imageUrl, isCurrent = false, 
           </div>
           <div className="card-back bg-gradient-to-br from-white to-gray-50 rounded-lg shadow-xl border border-gray-200">
             <div className="card-description text-sm text-gray-700 leading-relaxed">
-              <div className="font-semibold text-purple-700 mb-2 text-center border-b border-gray-200 pb-2">
+              <div className="font-semibold text-navy-700 mb-2 text-center border-b border-gold-300 pb-2">
                 {card} - {cardType === 'birth' ? 'Birth Card' : cardType === 'planetary' ? 'Planetary Influence' : 'Strategic Card'}
               </div>
               <div className="space-y-2">
@@ -627,7 +627,7 @@ export default function MDBCApp() {
         </div>
         
         {/* Header Section */}
-        <div className="bg-purple-50 p-6 rounded-lg mb-8">
+        <div className="bg-cream-100 p-6 rounded-lg mb-8 border border-gold-200">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-8">
               <div>
@@ -688,8 +688,8 @@ export default function MDBCApp() {
         </div>
 
         {/* Yearly Strategic Outlook */}
-        <section className="bg-purple-50 p-6 rounded-lg mb-8">
-          <h2 className="text-2xl font-bold mb-2 text-center text-purple-600">Yearly Strategic Outlook</h2>
+        <section className="bg-cream-100 p-6 rounded-lg mb-8 border border-gold-200">
+          <h2 className="text-2xl font-bold mb-2 text-center text-navy-600">Yearly Strategic Outlook</h2>
           <p className="text-center text-gray-600 mb-6">{name} Strategic Outlook for {age}</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
             {/* Birth Card */}
@@ -719,8 +719,8 @@ export default function MDBCApp() {
         </section>
 
         {/* Planetary Periods */}
-        <section className="bg-purple-50 p-6 rounded-lg mb-8">
-          <h2 className="text-2xl font-bold mb-2 text-center text-purple-600">Card Ruling Each 52-day Business Cycle</h2>
+        <section className="bg-cream-100 p-6 rounded-lg mb-8 border border-gold-200">
+          <h2 className="text-2xl font-bold mb-2 text-center text-navy-600">Card Ruling Each 52-day Business Cycle</h2>
           <p className="text-center text-gray-600 mb-6">Current planetary influences throughout the year</p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 justify-items-center">
             {planetaryPeriods.map((period, idx) => {
@@ -740,7 +740,7 @@ export default function MDBCApp() {
               return (
                 <div key={idx} className="text-center">
                   <p className="text-sm font-medium mb-1">{formatDate(period.startDate)}</p>
-                  <p className="text-sm text-purple-600 font-semibold mb-2">{period.planet}</p>
+                  <p className="text-sm text-navy-600 font-semibold mb-2">{period.planet}</p>
                   <FlippableCard
                     card={cardToDisplay}
                     description={cardActivities[cardToDisplay]?.entrepreneurialActivation}
@@ -774,7 +774,7 @@ export default function MDBCApp() {
                     <div
                       key={conv.id}
                       className={`p-2 rounded cursor-pointer text-sm flex items-center justify-between group ${
-                        activeConversation?.id === conv.id ? 'bg-purple-100' : 'hover:bg-gray-100'
+                        activeConversation?.id === conv.id ? 'bg-gold-100' : 'hover:bg-cream-200'
                       }`}
                     >
                       <div
@@ -868,8 +868,8 @@ export default function MDBCApp() {
                       onClick={() => setEmotionalIntent(tone.key)}
                       className={`px-3 py-1 text-sm rounded-full border transition ${
                         emotionalIntent === tone.key
-                          ? 'bg-purple-600 text-white border-purple-600'
-                          : 'bg-white text-gray-700 border-gray-300 hover:border-purple-400'
+                          ? 'bg-navy-600 text-white border-navy-600'
+                          : 'bg-white text-gray-700 border-gray-300 hover:border-gold-400'
                       }`}
                       title={tone.desc}
                     >
