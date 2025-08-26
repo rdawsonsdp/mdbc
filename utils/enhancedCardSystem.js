@@ -7,6 +7,7 @@
 import { fetchYearlyForecastData, formatForecastForDisplay } from './yearlyForecastsCSV.js';
 import { enrichForecastWithPlanetaryPeriods, getCardImagePath } from './planetaryPeriodsCSV.js';
 import { getActivationsForForecast, getCardActivation } from './cardActivitiesCSV.js';
+import { getBirthCardProfile, formatBirthCardProfileForModal } from './cardProfilesCSV.js';
 import { normalizeBirthCardForCSV } from './csvParser.js';
 
 /**
@@ -32,8 +33,11 @@ export async function getEnhancedCardData(birthCard, age, birthDate, birthYear =
     // STEP 5: Get activation info for all cards
     const activations = await getActivationsForForecast(forecast);
     
-    // Get birth card activation separately
+    // Get birth card activation separately  
     const birthCardActivation = await getCardActivation(birthCard);
+    
+    // Get birth card profile from MDBC Card Profiles.csv
+    const birthCardProfile = await getBirthCardProfile(normalizeBirthCardForCSV(birthCard));
     
     // Format for display
     const enhancedData = {
@@ -45,6 +49,8 @@ export async function getEnhancedCardData(birthCard, age, birthDate, birthYear =
         card: birthCard,
         normalized: normalizeBirthCardForCSV(birthCard),
         activation: birthCardActivation,
+        profile: birthCardProfile,
+        profileForModal: formatBirthCardProfileForModal(birthCardProfile),
         imagePath: getCardImagePath(normalizeBirthCardForCSV(birthCard))
       },
       

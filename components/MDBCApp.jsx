@@ -111,8 +111,11 @@ export default function MDBCApp() {
       if (isOpen && card) {
         setIsFlipped(false);
         
-        // Use enhanced activation data if available
-        if (selectedCard?.activation) {
+        // Check if this is a birth card and we have enhanced profile data
+        if (type === 'birth' && enhancedCardData?.birthCard?.profileForModal) {
+          setCardDescription(enhancedCardData.birthCard.profileForModal);
+        } else if (selectedCard?.activation) {
+          // Use enhanced activation data for other cards
           setCardDescription(selectedCard.activation);
         } else {
           // Fall back to legacy card activities data
@@ -128,7 +131,7 @@ export default function MDBCApp() {
           }
         }
       }
-    }, [card, type, isOpen]);
+    }, [card, type, isOpen, selectedCard, enhancedCardData]);
 
     const handleFlip = () => {
       if (navigator.vibrate) {
