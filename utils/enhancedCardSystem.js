@@ -15,10 +15,11 @@ import { normalizeBirthCardForCSV } from './csvParser.js';
  * @param {string} birthCard - Birth card in any format
  * @param {number|string} age - User's age
  * @param {string} birthDate - Birth date in "Month Day" format
+ * @param {number} birthYear - User's birth year
  * @returns {Promise<Object>} Complete enhanced card data
  */
-export async function getEnhancedCardData(birthCard, age, birthDate) {
-  console.log('Getting enhanced card data:', { birthCard, age, birthDate });
+export async function getEnhancedCardData(birthCard, age, birthDate, birthYear = null) {
+  console.log('Getting enhanced card data:', { birthCard, age, birthDate, birthYear });
   console.log('Normalized birth card for CSV:', normalizeBirthCardForCSV(birthCard));
   
   try {
@@ -26,7 +27,7 @@ export async function getEnhancedCardData(birthCard, age, birthDate) {
     const forecast = await fetchYearlyForecastData(birthCard, age);
     
     // STEP 4: Enrich with planetary periods and dates
-    const { periods, currentPeriod, startDates } = await enrichForecastWithPlanetaryPeriods(forecast, birthDate);
+    const { periods, currentPeriod, startDates } = await enrichForecastWithPlanetaryPeriods(forecast, birthDate, birthYear, age);
     
     // STEP 5: Get activation info for all cards
     const activations = await getActivationsForForecast(forecast);

@@ -175,27 +175,23 @@ function formatDateForComparison(date) {
 }
 
 /**
- * Format start date for display with 2-digit year
+ * Format start date for display as mm/dd/yyyy
  * @param {string} startDate - Start date string like "1/1"
- * @returns {string} Formatted display string like "Jan 1 '25"
+ * @param {number} year - The year to use for the date
+ * @returns {string} Formatted display string like "01/01/2025"
  */
-export function formatStartDateForDisplay(startDate) {
+export function formatStartDateForDisplay(startDate, year = null) {
   if (!startDate) return '';
   
   try {
-    const currentYear = new Date().getFullYear();
-    const date = parsePlanetaryDate(startDate, currentYear);
+    const targetYear = year || new Date().getFullYear();
+    const date = parsePlanetaryDate(startDate, targetYear);
     
-    const monthNames = [
-      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-    ];
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const fullYear = date.getFullYear();
     
-    const month = monthNames[date.getMonth()];
-    const day = date.getDate();
-    const twoDigitYear = currentYear.toString().slice(-2);
-    
-    return `${month} ${day} '${twoDigitYear}`;
+    return `${month}/${day}/${fullYear}`;
     
   } catch (error) {
     console.warn(`Error formatting start date "${startDate}":`, error);
@@ -208,15 +204,26 @@ export function formatStartDateForDisplay(startDate) {
  * Combines yearly forecast with start dates and current period detection
  * @param {Object} forecast - Forecast from fetchYearlyForecastData
  * @param {string} birthDate - Birth date for period lookup
+ * @param {number} userBirthYear - User's birth year 
+ * @param {number} userAge - User's current age
  * @returns {Promise<Object>} Enriched data with periods array and currentPeriod
  */
-export async function enrichForecastWithPlanetaryPeriods(forecast, birthDate) {
+export async function enrichForecastWithPlanetaryPeriods(forecast, birthDate, userBirthYear = null, userAge = null) {
   try {
     // Get start dates for this birthday
     const startDates = await getPlanetaryPeriodStartDates(birthDate);
     
     // Determine current period
     const currentPeriod = getCurrentPlanetaryPeriod(startDates);
+    
+    // Calculate the correct year for planetary periods
+    // The year should be based on the user's birth year + age
+    let periodYear = new Date().getFullYear();
+    if (userBirthYear && userAge !== null) {
+      // The planetary periods run from birthday to birthday
+      // So the year is birth year + age
+      periodYear = userBirthYear + userAge;
+    }
     
     // Build enriched periods array
     const PERIOD_ORDER = [
@@ -238,7 +245,7 @@ export async function enrichForecastWithPlanetaryPeriods(forecast, birthDate) {
         isPlanetary,
         isStrategic,
         startDate: isPlanetary ? startDates[period] : null,
-        formattedStartDate: isPlanetary ? formatStartDateForDisplay(startDates[period]) : null,
+        formattedStartDate: isPlanetary ? formatStartDateForDisplay(startDates[period], periodYear) : null,
         imagePath: getCardImagePath(card),
         isCurrent: period === currentPeriod
       };

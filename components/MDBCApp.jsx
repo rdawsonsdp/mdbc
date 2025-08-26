@@ -2,12 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { getBirthCardFromDate } from '../utils/birthCardLookup';
+import { getBirthCardFromDateCSV } from '../utils/birthdateCardCSV';
 import { getForecastForAge } from '../utils/yearlyForecastLookup';
-import { getCardActions } from '../utils/actionLookup';
 import { getAllPlanetaryPeriods } from '../utils/planetaryPeriodLookup';
 import cardActivities from '../lib/data/cardToActivities.json';
-import { getEnhancedCardData, getStrategicOutlookCards, getPlanetaryPeriodCards, validateCSVAccess } from '../utils/enhancedCardSystem.js';
+import { getEnhancedCardData, validateCSVAccess } from '../utils/enhancedCardSystem.js';
 
 // Enhanced Card component with flip animation and scrollable descriptions
 const FlippableCard = ({ card, title, description, imageUrl, isCurrent = false, cardType = 'default', onCardClick }) => {
@@ -220,7 +219,10 @@ export default function MDBCApp() {
 
   const handleSubmit = async () => {
     const dateKey = `${month} ${parseInt(day)}`;
-    const birthCardData = getBirthCardFromDate(dateKey);
+    
+    // Use CSV-based birth card lookup (STEP 1)
+    const monthIndex = getMonthIndex(month) + 1; // Convert to 1-12
+    const birthCardData = await getBirthCardFromDateCSV(monthIndex, parseInt(day));
     setBirthCard(birthCardData);
     
     // Calculate age properly accounting for whether birthday has passed this year
@@ -242,7 +244,8 @@ export default function MDBCApp() {
       const enhancedData = await getEnhancedCardData(
         birthCardData.card,
         calculatedAge,
-        dateKey
+        dateKey,
+        parseInt(year)
       );
       setEnhancedCardData(enhancedData);
       console.log('Enhanced card data loaded:', enhancedData);
@@ -308,7 +311,10 @@ export default function MDBCApp() {
     
     // Automatically generate the reading with profile data
     const dateKey = `${profile.month} ${parseInt(profile.day)}`;
-    const birthCardData = getBirthCardFromDate(dateKey);
+    
+    // Use CSV-based birth card lookup (STEP 1)
+    const monthIndex = getMonthIndex(profile.month) + 1;
+    const birthCardData = await getBirthCardFromDateCSV(monthIndex, parseInt(profile.day));
     setBirthCard(birthCardData);
     
     // Calculate age properly accounting for whether birthday has passed this year
@@ -816,7 +822,8 @@ export default function MDBCApp() {
                           const enhancedData = await getEnhancedCardData(
                             birthCard.card,
                             newAge,
-                            dateKey
+                            dateKey,
+                            parseInt(year)
                           );
                           setEnhancedCardData(enhancedData);
                           console.log('Enhanced card data updated for new age:', enhancedData);
@@ -845,7 +852,10 @@ export default function MDBCApp() {
                           
                           // Regenerate everything with new data
                           const dateKey = `${month} ${parseInt(day)}`;
-                          const birthCardData = getBirthCardFromDate(dateKey);
+                          
+                          // Use CSV-based birth card lookup (STEP 1)
+                          const monthIndex = getMonthIndex(month) + 1;
+                          const birthCardData = await getBirthCardFromDateCSV(monthIndex, parseInt(day));
                           setBirthCard(birthCardData);
                           
                           // Recalculate age properly
@@ -875,7 +885,8 @@ export default function MDBCApp() {
                             const enhancedData = await getEnhancedCardData(
                               birthCardData.card,
                               calculatedAge,
-                              dateKey
+                              dateKey,
+                              parseInt(year)
                             );
                             setEnhancedCardData(enhancedData);
                             console.log('Enhanced card data updated after save:', enhancedData);
@@ -1045,21 +1056,7 @@ export default function MDBCApp() {
             {/* Enhanced Planetary Periods */}
             {enhancedCardData?.planetaryPeriods?.map((period, idx) => (
               <div key={`enhanced-${idx}`} className="text-center">
-                <p className="text-sm font-medium mb-1">{period.formattedStartDate ? 
-                  (() => {
-                    // Convert from "Jan 25 '24" to "01/25/2024" format
-                    const monthMap = {'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06', 
-                                      'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'};
-                    const parts = period.formattedStartDate.split(' ');
-                    if (parts.length >= 3) {
-                      const month = monthMap[parts[0]] || '01';
-                      const day = parts[1].padStart(2, '0');
-                      const yearPart = parts[2].replace("'", "");
-                      const year = yearPart.length === 2 ? `20${yearPart}` : yearPart;
-                      return `${month}/${day}/${year}`;
-                    }
-                    return period.formattedStartDate;
-                  })() : ''}</p>
+                <p className="text-sm font-medium mb-1">{period.formattedStartDate || ''}</p>
                 <p className="text-sm text-navy-600 font-semibold mb-2">{period.displayName}</p>
                 <FlippableCard
                   card={period.card}
