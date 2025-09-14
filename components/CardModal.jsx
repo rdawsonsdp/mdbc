@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import cardActivities from '../lib/data/cardToActivities.json';
 
-const CardModal = ({ isOpen, onClose, card, type, personData }) => {
+const CardModal = ({ isOpen, onClose, card, type, personData, description, title }) => {
   if (!isOpen) return null;
 
   const getCardImageUrl = (card) => {
@@ -18,7 +18,12 @@ const CardModal = ({ isOpen, onClose, card, type, personData }) => {
   };
 
   const getCardDescription = () => {
-    // Get card data from the activities JSON
+    // If description is passed in (from enhanced data), use it
+    if (description) {
+      return description;
+    }
+    
+    // Fallback to card activities JSON data
     const cardData = cardActivities[card];
     if (cardData) {
       if (type === 'birth') {
@@ -33,6 +38,12 @@ const CardModal = ({ isOpen, onClose, card, type, personData }) => {
   };
 
   const getModalTitle = () => {
+    // If a specific title is provided, use it (e.g., "Development", "Long Range", "Mercury")
+    if (title) {
+      return title;
+    }
+    
+    // Fallback to type-based titles
     switch (type) {
       case 'birth':
         return 'Birth Card';

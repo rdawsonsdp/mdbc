@@ -133,7 +133,7 @@ export default function MDBCApp() {
     // Initialize chat with welcome message
     setChatMessages([{
       role: 'assistant',
-      content: `Welcome! I am your Cardology Business Coach, I'm here to help you activate your entrepreneurial gifts and decode your million-dollar blueprint using your birth card, yearly spreads, and planetary cycles—so you can unlock your most aligned path to business success.`
+      content: `Hello! I am your Cardology Business Coach, I'm here to help you unlock your most aligned path to business success.`
     }]);
   };
 
@@ -210,7 +210,7 @@ export default function MDBCApp() {
     // Initialize chat with welcome message
     setChatMessages([{
       role: 'assistant',
-      content: `Welcome! I am your Cardology Business Coach, I'm here to help you activate your entrepreneurial gifts and decode your million-dollar blueprint using your birth card, yearly spreads, and planetary cycles—so you can unlock your most aligned path to business success.`
+      content: `Hello! I am your Cardology Business Coach, I'm here to help you unlock your most aligned path to business success.`
     }]);
   };
 
@@ -734,7 +734,7 @@ export default function MDBCApp() {
                           // Reset chat with new welcome message
                           setChatMessages([{
                             role: 'assistant',
-                            content: `Welcome! I am your Cardology Business Coach, I'm here to help you activate your entrepreneurial gifts and decode your million-dollar blueprint using your birth card, yearly spreads, and planetary cycles—so you can unlock your most aligned path to business success.`
+                            content: `Hello! I am your Cardology Business Coach, I'm here to help you unlock your most aligned path to business success.`
                           }]);
                           
                           showNotification('✨ Information updated and reading refreshed!');
@@ -837,7 +837,7 @@ export default function MDBCApp() {
               <FlippableCard
                 card={birthCard.card}
                 title="Birth Card"
-                description={enhancedCardData.birthCard?.activation || cardActivities[birthCard.card]?.entrepreneurialActivation}
+                description={enhancedCardData.birthCard?.profileForModal || cardActivities[birthCard.card]?.entrepreneurialActivation}
                 imageUrl={getCardImageUrl(birthCard.card)}
                 cardType="birth"
                 personData={{ name, age, birthDate: `${month} ${day}, ${year}` }}
@@ -896,6 +896,7 @@ export default function MDBCApp() {
                 <p className="text-sm text-navy-600 font-semibold mb-2">{period.displayName}</p>
                 <FlippableCard
                   card={period.card}
+                  title={period.displayName}
                   description={period.activation}
                   imageUrl={period.imagePath}
                   cardType="planetary"
@@ -938,6 +939,7 @@ export default function MDBCApp() {
                   <p className="text-sm text-navy-600 font-semibold mb-2">{period.planet}</p>
                   <FlippableCard
                     card={cardToDisplay}
+                    title={period.planet}
                     description={cardActivities[cardToDisplay]?.entrepreneurialActivation}
                     imageUrl={getCardImageUrl(cardToDisplay)}
                     cardType="planetary"
@@ -1010,7 +1012,7 @@ export default function MDBCApp() {
                                 setActiveConversation(null);
                                 setChatMessages([{
                                   role: 'assistant',
-                                  content: `Welcome! I am your Cardology Business Coach, I'm here to help you activate your entrepreneurial gifts and decode your million-dollar blueprint using your birth card, yearly spreads, and planetary cycles—so you can unlock your most aligned path to business success.`
+                                  content: `Hello! I am your Cardology Business Coach, I'm here to help you unlock your most aligned path to business success.`
                                 }]);
                               }
                             }

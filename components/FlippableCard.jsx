@@ -83,6 +83,8 @@ const FlippableCard = ({
         card={card}
         type={cardType}
         personData={personData}
+        description={description}
+        title={title}
       />
     </div>
   );
