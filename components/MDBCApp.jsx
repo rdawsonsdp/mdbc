@@ -8,6 +8,7 @@ import { getAllPlanetaryPeriods } from '../utils/planetaryPeriodLookup';
 import cardActivities from '../lib/data/cardToActivities.json';
 import { getEnhancedCardData, validateCSVAccess } from '../utils/enhancedCardSystem.js';
 import FlippableCard from './FlippableCard';
+import ShareButtons from './ShareButtons';
 
 
 export default function MDBCApp() {
@@ -1080,6 +1081,31 @@ export default function MDBCApp() {
             </div>
           </div>
         </section>
+
+        {/* Share Buttons */}
+        <ShareButtons 
+          title="Million Dollar Birth Card"
+          description="Discover your entrepreneurial blueprint through Cardology"
+          cardData={{
+            name: name,
+            birthCard: birthCard?.card,
+            age: age
+          }}
+        />
+
+        {/* Copyright Footer */}
+        <footer className="bg-navy-900 text-white py-6 mt-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <p className="text-sm text-gray-300">
+                Copyright © 2025 The Cardology Advantage
+              </p>
+              <p className="text-sm text-gray-400 mt-1">
+                All rights reserved.
+              </p>
+            </div>
+          </div>
+        </footer>
       </div>
       
       {/* Notification Toast */}
