@@ -36,7 +36,6 @@ const FlippableCard = ({
 
   return (
     <div className="relative">
-      {title && <h3 className="text-lg font-bold mb-2 text-center text-navy-700">{title}</h3>}
       <div 
         className={`card-container ${isCurrent ? 'current-card' : ''}`}
         onClick={handleCardClick}
