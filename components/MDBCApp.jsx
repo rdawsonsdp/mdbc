@@ -894,7 +894,7 @@ export default function MDBCApp() {
             {enhancedCardData?.planetaryPeriods?.map((period, idx) => (
               <div key={`enhanced-${idx}`} className="text-center">
                 <p className="text-sm font-medium mb-1">{period.formattedStartDate || ''}</p>
-                <p className="text-sm text-navy-600 font-semibold mb-2">{period.displayName}</p>
+                <h3 className="text-lg font-bold mb-2 text-center text-navy-700">{period.displayName}</h3>
                 <FlippableCard
                   card={period.card}
                   title={period.displayName}
@@ -937,7 +937,7 @@ export default function MDBCApp() {
               return (
                 <div key={`legacy-${idx}`} className="text-center">
                   <p className="text-sm font-medium mb-1">{formatDate(period.startDate)}</p>
-                  <p className="text-sm text-navy-600 font-semibold mb-2">{period.planet}</p>
+                  <h3 className="text-lg font-bold mb-2 text-center text-navy-700">{period.planet}</h3>
                   <FlippableCard
                     card={cardToDisplay}
                     title={period.planet}
