@@ -100,11 +100,19 @@ export function formatBirthCardProfileForModal(profile) {
   }
   
   if (profile.zoneOfGenius) {
-    content += `\n\n**Zone of Genius:**\n${profile.zoneOfGenius}`;
+    // Check if zoneOfGenius already contains "Zone of Genius:" to avoid duplication
+    const zoneContent = profile.zoneOfGenius.includes('Zone of Genius:') 
+      ? profile.zoneOfGenius 
+      : `**Zone of Genius:**\n${profile.zoneOfGenius}`;
+    content += `\n\n${zoneContent}`;
   }
   
   if (profile.howToMotivate) {
-    content += `\n\n**How to Motivate:**\n${profile.howToMotivate}`;
+    // Check if howToMotivate already contains "How to Motivate:" to avoid duplication
+    const motivateContent = profile.howToMotivate.includes('How to Motivate:') || profile.howToMotivate.includes('Motivation:')
+      ? profile.howToMotivate 
+      : `**How to Motivate:**\n${profile.howToMotivate}`;
+    content += `\n\n${motivateContent}`;
   }
   
   return content || 'Birth card profile not available.';

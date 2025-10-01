@@ -62,7 +62,10 @@ const FlippableCard = ({
               <div className="space-y-2 text-left">
                 {description ? (
                   <div className="text-left" dangerouslySetInnerHTML={{ 
-                    __html: description.replace(/\n/g, '<br>').replace(/\. /g, '.<br><br>') 
+                    __html: description
+                      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Convert **text** to <strong>text</strong>
+                      .replace(/\n/g, '<br>')
+                      .replace(/\. /g, '.<br><br>') 
                   }} />
                 ) : (
                   <div className="text-center text-gray-500 py-8">
