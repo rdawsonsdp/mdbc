@@ -38,6 +38,7 @@ export default function MDBCApp() {
   const [enhancedCardData, setEnhancedCardData] = useState(null);
   const [isLoadingEnhancedData, setIsLoadingEnhancedData] = useState(false);
   const [csvValidation, setCsvValidation] = useState(null);
+  const [isLoadingProfile, setIsLoadingProfile] = useState(false);
   
   // Debug function to validate CSV access
   const validateCSVs = async () => {
@@ -106,9 +107,8 @@ export default function MDBCApp() {
   useEffect(() => {
     if (!loading) {
       if (user) {
-        // User is authenticated, load their profile and go directly to form
+        // User is authenticated, load their profile first
         loadUserProfile();
-        setStep('form');
       } else {
         // User is not authenticated, show login
         setStep('login');
@@ -120,6 +120,7 @@ export default function MDBCApp() {
   const loadUserProfile = async () => {
     if (!user) return;
     
+    setIsLoadingProfile(true);
     try {
       const profile = await getUserProfile(user.uid);
       if (profile) {
@@ -131,6 +132,10 @@ export default function MDBCApp() {
       }
     } catch (error) {
       console.error('Error loading user profile:', error);
+    } finally {
+      setIsLoadingProfile(false);
+      // Go to form after profile loading is complete
+      setStep('form');
     }
   };
 
@@ -466,14 +471,18 @@ export default function MDBCApp() {
     }
   };
 
-  // Show loading screen while checking authentication
-  if (loading) {
+  // Show loading screen while checking authentication or loading profile
+  if (loading || isLoadingProfile) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold-500 mx-auto mb-4"></div>
-          <h2 className="text-xl font-semibold text-gray-700">Loading...</h2>
-          <p className="text-gray-500 mt-2">Please wait while we set up your experience</p>
+          <h2 className="text-xl font-semibold text-gray-700">
+            {loading ? 'Loading...' : 'Loading your profile...'}
+          </h2>
+          <p className="text-gray-500 mt-2">
+            {loading ? 'Please wait while we set up your experience' : 'Retrieving your saved information'}
+          </p>
         </div>
       </div>
     );
