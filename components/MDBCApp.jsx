@@ -419,6 +419,15 @@ export default function MDBCApp() {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
         <h1 className="text-4xl font-bold mb-8 text-center">Million Dollar Birth Card</h1>
+        
+        {/* Authentication Section */}
+        <div className="mb-6">
+          <AuthButton 
+            onSessionSaved={handleLoadSession}
+            onSessionsLoaded={(sessions) => console.log('Sessions loaded:', sessions)}
+          />
+        </div>
+        
         <div className="w-full max-w-2xl">
           {/* Carousel */}
           <div className="bg-white rounded-xl shadow-lg p-8 mb-6 relative overflow-hidden">
@@ -496,6 +505,14 @@ export default function MDBCApp() {
       <div className="min-h-screen bg-background flex items-center justify-center p-4">
         <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
           <h2 className="text-2xl font-bold mb-6 text-center">Enter Your Information</h2>
+          
+          {/* Authentication Section */}
+          <div className="mb-6 flex justify-center">
+            <AuthButton 
+              onSessionSaved={handleLoadSession}
+              onSessionsLoaded={(sessions) => console.log('Sessions loaded:', sessions)}
+            />
+          </div>
           
           {savedProfiles.length > 0 && (
             <div className="mb-6">
