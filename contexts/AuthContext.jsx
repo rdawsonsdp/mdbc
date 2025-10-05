@@ -5,6 +5,7 @@ import {
   signInWithPopup, 
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
   signOut as firebaseSignOut, 
   onAuthStateChanged,
   GoogleAuthProvider 
@@ -54,10 +55,23 @@ export const AuthProvider = ({ children }) => {
 
   const signInWithGoogle = async () => {
     try {
+      console.log('AuthContext: Starting Google sign in...');
+      console.log('AuthContext: Firebase config check:', {
+        apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY ? 'Present' : 'Missing',
+        authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN ? 'Present' : 'Missing',
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID ? 'Present' : 'Missing'
+      });
+      
       const result = await signInWithPopup(auth, googleProvider);
+      console.log('AuthContext: Google sign in successful:', result.user);
       return result.user;
     } catch (error) {
-      console.error('Error signing in with Google:', error);
+      console.error('AuthContext: Error signing in with Google:', error);
+      console.error('AuthContext: Error details:', {
+        code: error.code,
+        message: error.message,
+        stack: error.stack
+      });
       throw error;
     }
   };
@@ -86,6 +100,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const resetPassword = async (email) => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+    } catch (error) {
+      console.error('Error sending password reset email:', error);
+      throw error;
+    }
+  };
+
   const signOut = async () => {
     try {
       await firebaseSignOut(auth);
@@ -101,6 +124,7 @@ export const AuthProvider = ({ children }) => {
     signInWithGoogle,
     signInWithEmail,
     signUpWithEmail,
+    resetPassword,
     signOut
   };
 

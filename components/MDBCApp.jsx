@@ -13,6 +13,7 @@ import AuthButton from './AuthButton';
 import SaveSessionButton from './SaveSessionButton';
 import { useAuth } from '../contexts/AuthContext';
 import { saveUserProfile, getUserProfile } from '../utils/sessionManager';
+import FirebaseDebug from './FirebaseDebug';
 
 
 export default function MDBCApp() {
@@ -556,32 +557,33 @@ export default function MDBCApp() {
     );
   }
 
-  // Login step - show authentication options
-  if (step === 'login') {
-    return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
-        <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-navy-600 mb-2">Million Dollar Birth Card</h1>
-            <p className="text-gray-600">Discover your strategic business cycles through cardology</p>
-          </div>
-          
-          <div className="space-y-4">
-            <AuthButton 
-              onSessionSaved={handleLoadSession}
-              onSessionsLoaded={(sessions) => console.log('Sessions loaded:', sessions)}
-            />
-          </div>
-          
-          <div className="mt-8 text-center">
-            <p className="text-sm text-gray-500">
-              Sign in to save your readings and access your session history
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
+          // Login step - show authentication options
+          if (step === 'login') {
+            return (
+              <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
+                <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
+                  <div className="text-center mb-8">
+                    <h1 className="text-3xl font-bold text-navy-600 mb-2">Million Dollar Birth Card</h1>
+                    <p className="text-gray-600">Discover your strategic business cycles through cardology</p>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <AuthButton 
+                      onSessionSaved={handleLoadSession}
+                      onSessionsLoaded={(sessions) => console.log('Sessions loaded:', sessions)}
+                    />
+                  </div>
+                  
+                  <div className="mt-8 text-center">
+                    <p className="text-sm text-gray-500">
+                      Sign in to save your readings and access your session history
+                    </p>
+                  </div>
+                </div>
+                <FirebaseDebug />
+              </div>
+            );
+          }
 
   if (step === 'landing') {
     return (

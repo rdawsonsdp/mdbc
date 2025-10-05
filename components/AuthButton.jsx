@@ -6,7 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { saveSession, getUserSessions } from '../utils/sessionManager';
 
 const AuthButton = ({ onSessionSaved, onSessionsLoaded }) => {
-  const { user, loading, signInWithGoogle, signInWithEmail, signUpWithEmail, signOut } = useAuth();
+  const { user, loading, signInWithGoogle, signInWithEmail, signUpWithEmail, resetPassword, signOut } = useAuth();
   const [isSigningIn, setIsSigningIn] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [sessions, setSessions] = useState([]);
@@ -17,14 +17,46 @@ const AuthButton = ({ onSessionSaved, onSessionsLoaded }) => {
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [authError, setAuthError] = useState('');
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [resetEmailSent, setResetEmailSent] = useState(false);
 
   const handleGoogleSignIn = async () => {
     try {
       setIsSigningIn(true);
+      console.log('Starting Google sign in...');
       await signInWithGoogle();
+      console.log('Google sign in successful');
     } catch (error) {
       console.error('Google sign in error:', error);
-      alert('Failed to sign in with Google. Please try again.');
+      console.error('Error code:', error.code);
+      console.error('Error message:', error.message);
+      
+      let errorMessage = 'Failed to sign in with Google. ';
+      
+      switch (error.code) {
+        case 'auth/popup-closed-by-user':
+          errorMessage += 'Sign-in popup was closed. Please try again.';
+          break;
+        case 'auth/popup-blocked':
+          errorMessage += 'Popup was blocked by your browser. Please allow popups and try again.';
+          break;
+        case 'auth/cancelled-popup-request':
+          errorMessage += 'Another sign-in attempt is already in progress.';
+          break;
+        case 'auth/unauthorized-domain':
+          errorMessage += 'This domain is not authorized for Google sign-in.';
+          break;
+        case 'auth/operation-not-allowed':
+          errorMessage += 'Google sign-in is not enabled. Please contact support.';
+          break;
+        case 'auth/network-request-failed':
+          errorMessage += 'Network error. Please check your internet connection.';
+          break;
+        default:
+          errorMessage += `Error: ${error.message}`;
+      }
+      
+      alert(errorMessage);
     } finally {
       setIsSigningIn(false);
     }
@@ -53,6 +85,27 @@ const AuthButton = ({ onSessionSaved, onSessionsLoaded }) => {
     }
   };
 
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+    setAuthError('');
+    
+    if (!email) {
+      setAuthError('Please enter your email address first.');
+      return;
+    }
+    
+    try {
+      setIsSigningIn(true);
+      await resetPassword(email);
+      setResetEmailSent(true);
+    } catch (error) {
+      console.error('Password reset error:', error);
+      setAuthError(getErrorMessage(error.code));
+    } finally {
+      setIsSigningIn(false);
+    }
+  };
+
   const getErrorMessage = (errorCode) => {
     switch (errorCode) {
       case 'auth/user-not-found':
@@ -65,6 +118,8 @@ const AuthButton = ({ onSessionSaved, onSessionsLoaded }) => {
         return 'Password should be at least 6 characters.';
       case 'auth/invalid-email':
         return 'Please enter a valid email address.';
+      case 'auth/too-many-requests':
+        return 'Too many attempts. Please try again later.';
       default:
         return 'Authentication failed. Please try again.';
     }
