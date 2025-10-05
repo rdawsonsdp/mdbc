@@ -6,7 +6,9 @@ import {
   limit, 
   getDocs,
   doc,
-  deleteDoc
+  deleteDoc,
+  setDoc,
+  getDoc
 } from 'firebase/firestore';
 import { db } from '../lib/firebaseClient';
 
@@ -77,6 +79,54 @@ export async function deleteSession(userId, sessionId) {
     console.log('Session deleted:', sessionId);
   } catch (error) {
     console.error('Error deleting session:', error);
+    throw error;
+  }
+}
+
+/**
+ * Save user profile data to Firestore
+ * @param {string} userId - User's Firebase UID
+ * @param {Object} profileData - Profile data to save
+ */
+export async function saveUserProfile(userId, profileData) {
+  try {
+    const { name, birthMonth, birthDay, birthYear, birthCard } = profileData;
+    
+    await setDoc(doc(db, 'users', userId), {
+      profile: {
+        name,
+        birthMonth,
+        birthDay,
+        birthYear,
+        birthCard,
+        lastUpdated: new Date()
+      }
+    }, { merge: true });
+    
+    console.log('User profile saved:', profileData);
+  } catch (error) {
+    console.error('Error saving user profile:', error);
+    throw error;
+  }
+}
+
+/**
+ * Get user profile data from Firestore
+ * @param {string} userId - User's Firebase UID
+ * @returns {Promise<Object|null>} User profile data or null
+ */
+export async function getUserProfile(userId) {
+  try {
+    const userDoc = await getDoc(doc(db, 'users', userId));
+    
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+      return userData.profile || null;
+    }
+    
+    return null;
+  } catch (error) {
+    console.error('Error fetching user profile:', error);
     throw error;
   }
 }

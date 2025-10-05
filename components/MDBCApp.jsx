@@ -12,6 +12,7 @@ import ShareButtons from './ShareButtons';
 import AuthButton from './AuthButton';
 import SaveSessionButton from './SaveSessionButton';
 import { useAuth } from '../contexts/AuthContext';
+import { saveUserProfile, getUserProfile } from '../utils/sessionManager';
 
 
 export default function MDBCApp() {
@@ -101,18 +102,37 @@ export default function MDBCApp() {
   };
 
 
-  // Handle authentication state
+  // Handle authentication state and load user profile
   useEffect(() => {
     if (!loading) {
       if (user) {
-        // User is authenticated, go to landing page
-        setStep('landing');
+        // User is authenticated, load their profile and go directly to form
+        loadUserProfile();
+        setStep('form');
       } else {
         // User is not authenticated, show login
         setStep('login');
       }
     }
   }, [user, loading]);
+
+  // Load user profile from Firestore
+  const loadUserProfile = async () => {
+    if (!user) return;
+    
+    try {
+      const profile = await getUserProfile(user.uid);
+      if (profile) {
+        setName(profile.name || '');
+        setMonth(profile.birthMonth || '');
+        setDay(profile.birthDay?.toString() || '');
+        setYear(profile.birthYear?.toString() || '');
+        console.log('User profile loaded:', profile);
+      }
+    } catch (error) {
+      console.error('Error loading user profile:', error);
+    }
+  };
 
   // Load saved profiles and conversations from localStorage
   useEffect(() => {
@@ -201,6 +221,22 @@ export default function MDBCApp() {
     setPlanetaryPeriods(periods);
     
     setStep('results');
+    
+    // Save user profile to Firestore if authenticated
+    if (user) {
+      try {
+        await saveUserProfile(user.uid, {
+          name,
+          birthMonth: month,
+          birthDay: parseInt(day),
+          birthYear: parseInt(year),
+          birthCard: birthCardData.card
+        });
+        console.log('User profile saved to Firestore');
+      } catch (error) {
+        console.error('Error saving user profile:', error);
+      }
+    }
     
     // Initialize chat with welcome message
     setChatMessages([{
