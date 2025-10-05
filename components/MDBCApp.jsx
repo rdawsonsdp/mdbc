@@ -11,10 +11,12 @@ import FlippableCard from './FlippableCard';
 import ShareButtons from './ShareButtons';
 import AuthButton from './AuthButton';
 import SaveSessionButton from './SaveSessionButton';
+import { useAuth } from '../contexts/AuthContext';
 
 
 export default function MDBCApp() {
-  const [step, setStep] = useState('landing');
+  const { user, loading } = useAuth();
+  const [step, setStep] = useState('login');
   const [name, setName] = useState('');
   const [month, setMonth] = useState('');
   const [day, setDay] = useState('');
@@ -98,6 +100,19 @@ export default function MDBCApp() {
     }
   };
 
+
+  // Handle authentication state
+  useEffect(() => {
+    if (!loading) {
+      if (user) {
+        // User is authenticated, go to landing page
+        setStep('landing');
+      } else {
+        // User is not authenticated, show login
+        setStep('login');
+      }
+    }
+  }, [user, loading]);
 
   // Load saved profiles and conversations from localStorage
   useEffect(() => {
@@ -415,18 +430,50 @@ export default function MDBCApp() {
     }
   };
 
+  // Show loading screen while checking authentication
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold-500 mx-auto mb-4"></div>
+          <h2 className="text-xl font-semibold text-gray-700">Loading...</h2>
+          <p className="text-gray-500 mt-2">Please wait while we set up your experience</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Login step - show authentication options
+  if (step === 'login') {
+    return (
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
+        <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-navy-600 mb-2">Million Dollar Birth Card</h1>
+            <p className="text-gray-600">Discover your strategic business cycles through cardology</p>
+          </div>
+          
+          <div className="space-y-4">
+            <AuthButton 
+              onSessionSaved={handleLoadSession}
+              onSessionsLoaded={(sessions) => console.log('Sessions loaded:', sessions)}
+            />
+          </div>
+          
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-500">
+              Sign in to save your readings and access your session history
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (step === 'landing') {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
         <h1 className="text-4xl font-bold mb-8 text-center">Million Dollar Birth Card</h1>
-        
-        {/* Authentication Section */}
-        <div className="mb-6">
-          <AuthButton 
-            onSessionSaved={handleLoadSession}
-            onSessionsLoaded={(sessions) => console.log('Sessions loaded:', sessions)}
-          />
-        </div>
         
         <div className="w-full max-w-2xl">
           {/* Carousel */}
@@ -505,14 +552,6 @@ export default function MDBCApp() {
       <div className="min-h-screen bg-background flex items-center justify-center p-4">
         <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
           <h2 className="text-2xl font-bold mb-6 text-center">Enter Your Information</h2>
-          
-          {/* Authentication Section */}
-          <div className="mb-6 flex justify-center">
-            <AuthButton 
-              onSessionSaved={handleLoadSession}
-              onSessionsLoaded={(sessions) => console.log('Sessions loaded:', sessions)}
-            />
-          </div>
           
           {savedProfiles.length > 0 && (
             <div className="mb-6">
