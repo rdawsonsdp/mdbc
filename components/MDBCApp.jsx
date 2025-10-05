@@ -129,13 +129,81 @@ export default function MDBCApp() {
         setDay(profile.birthDay?.toString() || '');
         setYear(profile.birthYear?.toString() || '');
         console.log('User profile loaded:', profile);
+        
+        // If user has complete profile data, generate the reading and go to results
+        if (profile.name && profile.birthMonth && profile.birthDay && profile.birthYear) {
+          await generateReadingFromProfile(profile);
+          setStep('results');
+        } else {
+          // Incomplete profile, go to form
+          setStep('form');
+        }
+      } else {
+        // No profile found, go to form
+        setStep('form');
       }
     } catch (error) {
       console.error('Error loading user profile:', error);
+      setStep('form');
     } finally {
       setIsLoadingProfile(false);
-      // Go to form after profile loading is complete
-      setStep('form');
+    }
+  };
+
+  // Generate reading from saved profile data
+  const generateReadingFromProfile = async (profile) => {
+    try {
+      const dateKey = `${profile.birthMonth} ${profile.birthDay}`;
+      
+      // Use CSV-based birth card lookup
+      const monthIndex = getMonthIndex(profile.birthMonth) + 1;
+      const birthCardData = await getBirthCardFromDateCSV(monthIndex, profile.birthDay);
+      setBirthCard(birthCardData);
+      
+      // Calculate age
+      const today = new Date();
+      const birthDate = new Date(profile.birthYear, getMonthIndex(profile.birthMonth), profile.birthDay);
+      let calculatedAge = today.getFullYear() - birthDate.getFullYear();
+      
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        calculatedAge--;
+      }
+      
+      setAge(calculatedAge);
+      
+      // Get enhanced card data
+      setIsLoadingEnhancedData(true);
+      try {
+        const enhancedData = await getEnhancedCardData(
+          birthCardData.card,
+          calculatedAge,
+          dateKey,
+          profile.birthYear
+        );
+        setEnhancedCardData(enhancedData);
+        console.log('Enhanced card data loaded from profile:', enhancedData);
+      } catch (error) {
+        console.error('Error loading enhanced card data:', error);
+      }
+      setIsLoadingEnhancedData(false);
+      
+      // Keep legacy data for backward compatibility
+      const forecast = await getForecastForAge(birthCardData.card, calculatedAge);
+      setYearlyCards(forecast);
+      
+      const periods = getAllPlanetaryPeriods(dateKey);
+      setPlanetaryPeriods(periods);
+      
+      // Initialize chat with welcome message
+      setChatMessages([{
+        role: 'assistant',
+        content: `Hello! I am your Cardology Business Coach, I'm here to help you unlock your most aligned path to business success.`
+      }]);
+      
+      console.log('Reading generated from profile successfully');
+    } catch (error) {
+      console.error('Error generating reading from profile:', error);
     }
   };
 
@@ -481,7 +549,7 @@ export default function MDBCApp() {
             {loading ? 'Loading...' : 'Loading your profile...'}
           </h2>
           <p className="text-gray-500 mt-2">
-            {loading ? 'Please wait while we set up your experience' : 'Retrieving your saved information'}
+            {loading ? 'Please wait while we set up your experience' : 'Generating your personalized reading...'}
           </p>
         </div>
       </div>
