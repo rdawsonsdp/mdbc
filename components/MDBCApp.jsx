@@ -9,6 +9,8 @@ import cardActivities from '../lib/data/cardToActivities.json';
 import { getEnhancedCardData, validateCSVAccess } from '../utils/enhancedCardSystem.js';
 import FlippableCard from './FlippableCard';
 import ShareButtons from './ShareButtons';
+import AuthButton from './AuthButton';
+import SaveSessionButton from './SaveSessionButton';
 
 
 export default function MDBCApp() {
@@ -40,6 +42,60 @@ export default function MDBCApp() {
     setCsvValidation(validation);
     console.log('CSV Validation Results:', validation);
     showNotification(`CSV Access: ${validation.errors.length === 0 ? '✅ All files accessible' : '❌ Some files missing'}`);
+  };
+
+  // Handle loading a session from history
+  const handleLoadSession = async (session) => {
+    try {
+      setName(session.name);
+      setMonth(session.birthMonth);
+      setDay(session.birthDay.toString());
+      setYear(session.birthYear.toString());
+      
+      // Calculate age
+      const today = new Date();
+      const birthDate = new Date(session.birthYear, getMonthIndex(session.birthMonth), session.birthDay);
+      let calculatedAge = today.getFullYear() - birthDate.getFullYear();
+      
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        calculatedAge--;
+      }
+      
+      setAge(calculatedAge);
+      
+      // Regenerate the reading with the loaded data
+      const dateKey = `${session.birthMonth} ${session.birthDay}`;
+      const monthIndex = getMonthIndex(session.birthMonth) + 1;
+      const birthCardData = await getBirthCardFromDateCSV(monthIndex, session.birthDay);
+      setBirthCard(birthCardData);
+      
+      const forecast = await getForecastForAge(birthCardData.card, calculatedAge);
+      setYearlyCards(forecast);
+      
+      const periods = getAllPlanetaryPeriods(dateKey);
+      setPlanetaryPeriods(periods);
+      
+      // Load enhanced data
+      setIsLoadingEnhancedData(true);
+      try {
+        const enhancedData = await getEnhancedCardData(
+          birthCardData.card,
+          calculatedAge,
+          dateKey,
+          session.birthYear
+        );
+        setEnhancedCardData(enhancedData);
+      } catch (error) {
+        console.error('Error loading enhanced card data:', error);
+      }
+      setIsLoadingEnhancedData(false);
+      
+      showNotification(`📋 Session loaded: ${session.name}`);
+    } catch (error) {
+      console.error('Error loading session:', error);
+      showNotification('❌ Failed to load session');
+    }
   };
 
 
@@ -795,6 +851,23 @@ export default function MDBCApp() {
                   )}
                 </div>
               </div>
+            </div>
+            
+            {/* Authentication Section */}
+            <div className="flex flex-col items-end space-y-3">
+              <AuthButton 
+                onSessionSaved={handleLoadSession}
+                onSessionsLoaded={(sessions) => console.log('Sessions loaded:', sessions)}
+              />
+              {birthCard && (
+                <SaveSessionButton 
+                  name={name}
+                  month={month}
+                  day={day}
+                  year={year}
+                  birthCard={birthCard.card}
+                />
+              )}
             </div>
           </div>
         </div>

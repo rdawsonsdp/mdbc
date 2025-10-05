@@ -1,4 +1,5 @@
 import './globals.css'
+import { AuthProvider } from '../contexts/AuthContext'
 
 export const metadata = {
   title: 'MDBC - Million Dollar Birth Card',
@@ -8,7 +9,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="font-serif">{children}</body>
+      <body className="font-serif">
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+      </body>
     </html>
   )
 }
