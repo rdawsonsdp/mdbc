@@ -9,8 +9,6 @@ const SecureChatInterface = ({ userData, onSessionSaved }) => {
       role: 'assistant',
       content: `Hello! I am your Cardology Business Coach. I analyze comprehensive cardology knowledge to provide you with accurate, personalized guidance based on your birth card.
 
-**⏱️ Response Time: 20-30 seconds** - I'm analyzing extensive cardology knowledge to give you the best answer.
-
 What would you like to know about your business strategy?`,
       citations: 0
     }
@@ -159,8 +157,6 @@ What would you like to know about your business strategy?`,
         role: 'assistant',
         content: `Hello! I am your Cardology Business Coach. I analyze comprehensive cardology knowledge to provide you with accurate, personalized guidance based on your birth card.
 
-**⏱️ Response Time: 20-30 seconds** - I'm analyzing extensive cardology knowledge to give you the best answer.
-
 What would you like to know about your business strategy?`,
         citations: 0
       }]);
@@ -173,8 +169,6 @@ What would you like to know about your business strategy?`,
     setMessages([{
       role: 'assistant',
       content: `Hello! I am your Cardology Business Coach. I analyze comprehensive cardology knowledge to provide you with accurate, personalized guidance based on your birth card.
-
-**⏱️ Response Time: 20-30 seconds** - I'm analyzing extensive cardology knowledge to give you the best answer.
 
 What would you like to know about your business strategy?`,
       citations: 0
