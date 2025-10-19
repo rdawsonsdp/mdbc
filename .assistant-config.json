@@ -1,0 +1,24 @@
+{
+  "vectorStoreId": "vs_68f52cbb00888191a141c2945de0c06a",
+  "assistants": {
+    "mdbc": {
+      "id": "asst_1AXu3o41hm3O2X477K6VzxYK",
+      "name": "MDBC Business Coach",
+      "focus": "business",
+      "model": "gpt-4-turbo-preview"
+    },
+    "lcc": {
+      "id": "asst_cSvJwZR2l95ryl6tQlqoqnx5",
+      "name": "Love Cheat Code Coach",
+      "focus": "relationships",
+      "model": "gpt-4-turbo-preview"
+    },
+    "dyk": {
+      "id": "asst_QwKF5tRMDF2EgjgDOid6C5MP",
+      "name": "Decode Your Kid Coach",
+      "focus": "parenting",
+      "model": "gpt-4-turbo-preview"
+    }
+  },
+  "createdAt": "2025-10-19T18:26:12.702Z"
+}

@@ -1,0 +1,69 @@
+{
+  "vectorStoreId": "vs_68f52cbb00888191a141c2945de0c06a",
+  "createdAt": "2025-10-19T18:25:31.169Z",
+  "apps": [
+    "mdbc",
+    "lcc",
+    "dyk"
+  ],
+  "totalFiles": 8,
+  "files": [
+    {
+      "filename": " High and Low Energy of Each Card.docx - Google Docs.pdf",
+      "fileId": "file-NRCQ6J3LBfD2n2QjqWCdWy",
+      "vectorStoreFileId": "file-NRCQ6J3LBfD2n2QjqWCdWy",
+      "size": 127146,
+      "app": "all apps"
+    },
+    {
+      "filename": "ALL -Planetary Cross Reference with Cards - Google Docs.pdf",
+      "fileId": "file-SnJtzJY77a4h8bsodYabRx",
+      "vectorStoreFileId": "file-SnJtzJY77a4h8bsodYabRx",
+      "size": 164118,
+      "app": "all apps"
+    },
+    {
+      "filename": "Decode Your Kid.pdf",
+      "fileId": "file-KiPQ5zWLzaKbaNDmuoEcHj",
+      "vectorStoreFileId": "file-KiPQ5zWLzaKbaNDmuoEcHj",
+      "size": 9705644,
+      "app": "all apps"
+    },
+    {
+      "filename": "How Planetary Periods Affect Energy - Google Docs.pdf",
+      "fileId": "file-Enmoa2vGtjNCgzEumkktHn",
+      "vectorStoreFileId": "file-Enmoa2vGtjNCgzEumkktHn",
+      "size": 75812,
+      "app": "all apps"
+    },
+    {
+      "filename": "Sacred Symbols of the Ancients 1974.pdf",
+      "fileId": "file-YAeU56EengAq4sAMGo58n9",
+      "vectorStoreFileId": "file-YAeU56EengAq4sAMGo58n9",
+      "size": 26561949,
+      "app": "all apps"
+    },
+    {
+      "filename": "The Love Cheat Code.pdf",
+      "fileId": "file-Y8emea4gvEqdvrnzRVxQ7M",
+      "vectorStoreFileId": "file-Y8emea4gvEqdvrnzRVxQ7M",
+      "size": 12850807,
+      "app": "all apps"
+    },
+    {
+      "filename": "The Million Dollar Birth Card.pdf",
+      "fileId": "file-XV3NcP7ZjwYV32FwK2mLod",
+      "vectorStoreFileId": "file-XV3NcP7ZjwYV32FwK2mLod",
+      "size": 9259272,
+      "app": "all apps"
+    },
+    {
+      "filename": "The significance of someone_s birth card in your spread - Google Docs.pdf",
+      "fileId": "file-7aNdSuoitYxkrT4uq44gXy",
+      "vectorStoreFileId": "file-7aNdSuoitYxkrT4uq44gXy",
+      "size": 56363,
+      "app": "all apps"
+    }
+  ],
+  "status": "completed"
+}

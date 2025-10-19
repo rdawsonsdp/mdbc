@@ -1,8 +1,43 @@
-// Secure Chat Integration
-// This utility handles secure communication with the AI chat API
+// Secure Chat Integration with Vector Database Assistants
+// Handles secure communication with OpenAI Assistants API
 
 /**
- * Send a message to the secure AI chat API
+ * Get or create a session ID for thread persistence
+ * @returns {string} Session ID
+ */
+function getSessionId() {
+  // Try to get existing session ID
+  let sessionId = localStorage.getItem('chat_session_id');
+  
+  // Create new session if none exists
+  if (!sessionId) {
+    sessionId = `session-${Date.now()}-${Math.random().toString(36).substring(7)}`;
+    localStorage.setItem('chat_session_id', sessionId);
+  }
+  
+  return sessionId;
+}
+
+/**
+ * Clear the current session (use when user logs out)
+ */
+export function clearChatSession() {
+  const sessionId = localStorage.getItem('chat_session_id');
+  
+  if (sessionId) {
+    // Try to delete thread on server
+    fetch('/api/chat', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sessionId })
+    }).catch(err => console.warn('Could not delete thread:', err));
+    
+    localStorage.removeItem('chat_session_id');
+  }
+}
+
+/**
+ * Send a message to the Vector Database AI chat API
  * @param {string} message - User's message
  * @param {Object} userData - User's profile data
  * @returns {Promise<string>} AI response
@@ -14,6 +49,9 @@ export async function sendSecureMessage(message, userData) {
       throw new Error('Message and user data are required');
     }
 
+    // Get session ID for thread persistence
+    const sessionId = getSessionId();
+
     // Prepare request data
     const requestData = {
       query: message,
@@ -21,29 +59,74 @@ export async function sendSecureMessage(message, userData) {
         birthCard: userData.birthCard,
         age: userData.age,
         name: userData.name,
-        // Only send necessary data, not proprietary information
-      }
+        uid: userData.uid || 'anonymous'
+      },
+      sessionId: sessionId
     };
 
-    // Call secure API
-    const response = await fetch('/api/chat', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(requestData),
-    });
+    console.log('📤 Sending request to Vector Database API...');
+    const startTime = Date.now();
+    
+    // Call Vector Database API (with 60 second timeout)
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 60000);
+    
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+        signal: controller.signal
+      });
 
-    if (!response.ok) {
-      throw new Error(`API request failed: ${response.status}`);
+      clearTimeout(timeoutId);
+      const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+      console.log(`⏱️ API responded in ${elapsed}s`);
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        
+        if (response.status === 429) {
+          throw new Error('Too many requests. Please wait a moment before sending another message.');
+        }
+        
+        throw new Error(errorData.error || `API request failed: ${response.status}`);
+      }
+
+      const data = await response.json();
+      
+      // Log citations count if available
+      if (data.citations > 0) {
+        console.log(`📚 Response includes ${data.citations} citations from books`);
+      }
+      
+      if (!data.response) {
+        console.error('❌ No response in data:', data);
+        throw new Error('No response received from API');
+      }
+      
+      console.log(`✅ Received response: ${data.response.length} characters`);
+      
+      // Return full data object with response and citations
+      return {
+        response: data.response,
+        citations: data.citations || 0,
+        threadId: data.threadId
+      };
+      
+    } catch (fetchError) {
+      clearTimeout(timeoutId);
+      if (fetchError.name === 'AbortError') {
+        throw new Error('Request timed out after 60 seconds. Please try again.');
+      }
+      throw fetchError;
     }
-
-    const data = await response.json();
-    return data.response;
 
   } catch (error) {
     console.error('Secure chat error:', error);
-    throw new Error('Unable to get AI response. Please try again.');
+    throw new Error(error.message || 'Unable to get AI response. Please try again.');
   }
 }
 
@@ -85,16 +168,26 @@ export function sanitizeMessage(message) {
 }
 
 /**
- * Format AI response for display
+ * Format AI response for display (with Markdown support)
  * @param {string} response - AI response
  * @returns {string} Formatted response
  */
 export function formatAIResponse(response) {
-  // Convert line breaks to HTML
+  // Convert Markdown-style formatting to HTML
   return response
-    .replace(/\n/g, '<br>')
+    // Headers
+    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+    // Bold
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>');
+    // Italic
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    // Lists
+    .replace(/^\- (.*$)/gim, '<li>$1</li>')
+    // Line breaks
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/\n/g, '<br>');
 }
 
 /**
@@ -105,21 +198,26 @@ export function formatAIResponse(response) {
 export function getChatSuggestions(birthCard) {
   const suggestions = {
     'Queen of Spades': [
-      "How can I improve my strategic leadership skills?",
-      "What business opportunities should I focus on this year?",
-      "How can I make better intuitive business decisions?"
+      "What are my business strengths?",
+      "How can I improve my strategic leadership?",
+      "What business opportunities should I focus on?"
     ],
     'King of Hearts': [
       "How can I build stronger business relationships?",
-      "What's the best approach for emotional intelligence in business?",
-      "How can I improve my networking skills?"
+      "What's my approach to emotional intelligence in business?",
+      "How can I improve my networking?"
+    ],
+    'Ace of Clubs': [
+      "What business ideas align with my card?",
+      "How can I communicate better in business?",
+      "What learning opportunities should I pursue?"
     ],
     // Add more card-specific suggestions
     'default': [
+      "What are my business strengths?",
       "What business strategies align with my birth card?",
-      "How can I optimize my business cycles?",
-      "What should I focus on for business growth?",
-      "How can I improve my business timing?"
+      "How can I optimize my business timing?",
+      "What should I focus on for growth?"
     ]
   };
 

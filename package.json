@@ -1,6 +1,6 @@
 {
   "name": "dyk",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,8 +11,9 @@
   "dependencies": {
     "autoprefixer": "^10.4.14",
     "firebase": "^12.3.0",
+    "firebase-admin": "^13.5.0",
     "next": "14.0.0",
-    "openai": "^6.1.0",
+    "openai": "^6.5.0",
     "postcss": "^8.4.24",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -22,6 +23,8 @@
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.32",
     "firebase-tools": "^14.18.0",
+    "markdown-pdf": "^11.0.0",
+    "marked": "^13.0.3",
     "typescript": "^5.2.2"
   }
 }

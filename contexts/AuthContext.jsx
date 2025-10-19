@@ -32,25 +32,41 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Set a timeout to prevent infinite loading
+    const timeout = setTimeout(() => {
+      console.warn('Auth timeout - setting loading to false');
+      setLoading(false);
+    }, 5000);
+
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        // Create or update user document in Firestore
-        await setDoc(doc(db, 'users', user.uid), {
-          email: user.email,
-          displayName: user.displayName,
-          photoURL: user.photoURL,
-          lastLoginAt: serverTimestamp(),
-          createdAt: serverTimestamp()
-        }, { merge: true });
-        
+      clearTimeout(timeout);
+      try {
+        if (user) {
+          // Create or update user document in Firestore
+          await setDoc(doc(db, 'users', user.uid), {
+            email: user.email,
+            displayName: user.displayName,
+            photoURL: user.photoURL,
+            lastLoginAt: serverTimestamp(),
+            createdAt: serverTimestamp()
+          }, { merge: true });
+          
+          setUser(user);
+        } else {
+          setUser(null);
+        }
+      } catch (error) {
+        console.error('Error in auth state change:', error);
+        // Still set user even if Firestore write fails
         setUser(user);
-      } else {
-        setUser(null);
       }
       setLoading(false);
     });
 
-    return () => unsubscribe();
+    return () => {
+      clearTimeout(timeout);
+      unsubscribe();
+    };
   }, []);
 
   const signInWithGoogle = async () => {

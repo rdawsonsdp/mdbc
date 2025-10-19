@@ -4,6 +4,16 @@ const nextConfig = {
   experimental: {
     esmExternals: false
   },
+  images: {
+    domains: [
+      'lh3.googleusercontent.com',
+      'lh4.googleusercontent.com',
+      'lh5.googleusercontent.com',
+      'lh6.googleusercontent.com',
+      'avatars.githubusercontent.com',
+      'firebasestorage.googleapis.com'
+    ],
+  },
   webpack: (config) => {
     config.resolve.fallback = {
       fs: false,
@@ -12,3 +22,5 @@ const nextConfig = {
     return config;
   },
 }
+
+module.exports = nextConfig

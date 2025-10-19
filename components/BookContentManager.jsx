@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { uploadBookContent, getAllBooks, getBookContent } from '../utils/bookStorage';
+import { uploadBook, getAllBooks, getBook } from '../utils/unifiedBookStorage';
 
 const BookContentManager = () => {
   const [books, setBooks] = useState([]);

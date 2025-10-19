@@ -11,6 +11,7 @@ import FlippableCard from './FlippableCard';
 import ShareButtons from './ShareButtons';
 import AuthButton from './AuthButton';
 import SaveSessionButton from './SaveSessionButton';
+import SecureChatInterface from './SecureChatInterface';
 import { useAuth } from '../contexts/AuthContext';
 import { saveUserProfile, getUserProfile } from '../utils/sessionManager';
 import FirebaseDebug from './FirebaseDebug';
@@ -28,10 +29,6 @@ export default function MDBCApp() {
   const [yearlyCards, setYearlyCards] = useState([]);
   const [planetaryPeriods, setPlanetaryPeriods] = useState([]);
   const [savedProfiles, setSavedProfiles] = useState([]);
-  const [chatMessages, setChatMessages] = useState([]);
-  const [chatInput, setChatInput] = useState('');
-  const [savedConversations, setSavedConversations] = useState([]);
-  const [activeConversation, setActiveConversation] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [notification, setNotification] = useState(null);
   const [sparkleElements, setSparkleElements] = useState([]);
@@ -196,28 +193,17 @@ export default function MDBCApp() {
       const periods = getAllPlanetaryPeriods(dateKey);
       setPlanetaryPeriods(periods);
       
-      // Initialize chat with welcome message
-      setChatMessages([{
-        role: 'assistant',
-        content: `Hello! I am your Cardology Business Coach, I'm here to help you unlock your most aligned path to business success.`
-      }]);
-      
       console.log('Reading generated from profile successfully');
     } catch (error) {
       console.error('Error generating reading from profile:', error);
     }
   };
 
-  // Load saved profiles and conversations from localStorage
+  // Load saved profiles from localStorage
   useEffect(() => {
     const savedProfilesData = localStorage.getItem('savedProfiles');
     if (savedProfilesData) {
       setSavedProfiles(JSON.parse(savedProfilesData));
-    }
-    
-    const savedConvsData = localStorage.getItem('savedConversations');
-    if (savedConvsData) {
-      setSavedConversations(JSON.parse(savedConvsData));
     }
   }, []);
 
@@ -388,12 +374,6 @@ export default function MDBCApp() {
     setPlanetaryPeriods(periods);
     
     setStep('results');
-    
-    // Initialize chat with welcome message
-    setChatMessages([{
-      role: 'assistant',
-      content: `Hello! I am your Cardology Business Coach, I'm here to help you unlock your most aligned path to business success.`
-    }]);
   };
 
   const getCardImageUrl = (card) => {
@@ -404,70 +384,6 @@ export default function MDBCApp() {
     const rank = cleanCard.slice(0, -1);
     const suitMap = { '♥': 'H', '♦': 'D', '♣': 'C', '♠': 'S' };
     return `/cards/${rank}${suitMap[suit] || 'S'}.png`;
-  };
-
-  const getSystemPrompt = (intent) => {
-    const basePrompt = "You are a purpose-driven business strategist who uses Cardology to guide entrepreneurs. Use birth cards, yearly and planetary spreads, planetary cycles, and cardology knowledge to offer actionable insight into growth, alignment, and income potential.";
-    
-    const toneVariations = {
-      supportive: `${basePrompt} Speak with encouraging, nurturing guidance that builds confidence and offers emotional support. Your tone is warm, understanding, and uplifting while maintaining strategic focus.`,
-      practical: `${basePrompt} Speak with grounded clarity, sharp wit, and the energy of a million-dollar mindset. Focus on actionable business strategies and concrete steps they can take immediately.`,
-      educational: `${basePrompt} Speak with deep wisdom and teaching energy. Share deeper Cardology knowledge and business development insights. Explain the 'why' behind your guidance and help them understand the foundations.`,
-      gentle: `${basePrompt} Speak with a soft, patient, emotionally sensitive tone. Be compassionate and understanding, especially when addressing challenges or setbacks. Your guidance is tender yet powerful.`,
-      empowering: `${basePrompt} Speak with strengths-focused confidence building energy. Emphasize their natural gifts, celebrate their potential, and help them see their power. Your tone is bold, inspiring, and achievement-oriented.`
-    };
-    
-    return toneVariations[intent] || toneVariations.practical;
-  };
-
-  const sendChatMessage = async () => {
-    if (!chatInput.trim()) return;
-    
-    const newMessage = { role: 'user', content: chatInput };
-    setChatMessages([...chatMessages, newMessage]);
-    setChatInput('');
-    
-    // Simulate GPT response with cardology context
-    setTimeout(() => {
-      const response = {
-        role: 'assistant',
-        content: `Your ${birthCard.name} birth card is a million-dollar blueprint. Here's what's happening: In your ${age}-year cycle, the ${yearlyCards[0]?.type || 'Long Range'} card (${yearlyCards[0]?.card || ''}) is creating specific opportunities. What would you like to explore about your cardology insights?`
-      };
-      setChatMessages(prev => [...prev, response]);
-    }, 1000);
-  };
-
-  const saveConversation = () => {
-    if (!activeConversation) {
-      // Create new conversation
-      const conversation = {
-        id: Date.now(),
-        name: `Chat ${new Date().toLocaleDateString()}`,
-        messages: chatMessages,
-        timestamp: new Date(),
-        profileId: savedProfiles.find(p => 
-          p.name === name && p.month === month && p.day === day && p.year === year
-        )?.id
-      };
-      const updated = [...savedConversations, conversation];
-      setSavedConversations(updated);
-      setActiveConversation(conversation);
-      localStorage.setItem('savedConversations', JSON.stringify(updated));
-      // Trigger sparkle effect and notification for new conversation
-      triggerSparkle('save-conversation-btn');
-      showNotification('✨ Added to your Saved Conversations.');
-    } else {
-      // Update existing conversation
-      const updated = savedConversations.map(conv => 
-        conv.id === activeConversation.id 
-          ? { ...conv, messages: chatMessages, timestamp: new Date() }
-          : conv
-      );
-      setSavedConversations(updated);
-      localStorage.setItem('savedConversations', JSON.stringify(updated));
-      // Show update notification
-      showNotification('💾 Conversation updated.');
-    }
   };
 
   // Carousel slides data
@@ -959,12 +875,6 @@ export default function MDBCApp() {
                           }
                           setIsLoadingEnhancedData(false);
                           
-                          // Reset chat with new welcome message
-                          setChatMessages([{
-                            role: 'assistant',
-                            content: `Hello! I am your Cardology Business Coach, I'm here to help you unlock your most aligned path to business success.`
-                          }]);
-                          
                           showNotification('✨ Information updated and reading refreshed!');
                         }}
                         className="px-3 py-1 bg-gold-600 text-white rounded hover:bg-gold-700 transition-colors text-sm font-medium"
@@ -1197,132 +1107,21 @@ export default function MDBCApp() {
           </div>
         </section>
 
-        {/* Chat Interface */}
+        {/* Chat Interface - Using Vector Database */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold mb-6 text-center">Cardology Business Coach</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-            {/* Conversation List */}
-            <div className="lg:col-span-1 bg-white rounded-lg shadow p-4">
-              <h3 className="font-bold mb-4">Conversations</h3>
-              <div className="space-y-2">
-                {savedConversations
-                  .filter(conv => {
-                    // Show only conversations for current profile
-                    const currentProfile = savedProfiles.find(p => 
-                      p.name === name && p.month === month && p.day === day && p.year === year
-                    );
-                    return conv.profileId === currentProfile?.id;
-                  })
-                  .map(conv => (
-                    <div
-                      key={conv.id}
-                      className={`p-2 rounded cursor-pointer text-sm flex items-center justify-between group ${
-                        activeConversation?.id === conv.id ? 'bg-gold-100' : 'hover:bg-cream-200'
-                      }`}
-                    >
-                      <div
-                        onClick={() => {
-                          setActiveConversation(conv);
-                          setChatMessages(conv.messages);
-                        }}
-                        className="flex-1"
-                      >
-                        {conv.name}
-                      </div>
-                      <div className="opacity-0 group-hover:opacity-100 flex gap-1">
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            const newName = prompt('Rename conversation:', conv.name);
-                            if (newName) {
-                              const updated = savedConversations.map(c => 
-                                c.id === conv.id ? { ...c, name: newName } : c
-                              );
-                              setSavedConversations(updated);
-                              localStorage.setItem('savedConversations', JSON.stringify(updated));
-                            }
-                          }}
-                          className="text-xs text-blue-600 hover:underline"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            if (confirm('Delete this conversation?')) {
-                              const updated = savedConversations.filter(c => c.id !== conv.id);
-                              setSavedConversations(updated);
-                              localStorage.setItem('savedConversations', JSON.stringify(updated));
-                              if (activeConversation?.id === conv.id) {
-                                setActiveConversation(null);
-                                setChatMessages([{
-                                  role: 'assistant',
-                                  content: `Hello! I am your Cardology Business Coach, I'm here to help you unlock your most aligned path to business success.`
-                                }]);
-                              }
-                            }
-                          }}
-                          className="text-xs text-red-600 hover:underline"
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </div>
-                  ))
-                }
-                {savedConversations.filter(conv => {
-                  const currentProfile = savedProfiles.find(p => 
-                    p.name === name && p.month === month && p.day === day && p.year === year
-                  );
-                  return conv.profileId === currentProfile?.id;
-                }).length === 0 && (
-                  <p className="text-gray-500 text-sm">No saved conversations</p>
-                )}
-              </div>
-            </div>
-            
-            {/* Chat Window */}
-            <div className="lg:col-span-3 bg-white rounded-lg shadow p-6">
-              <div className="h-64 overflow-y-auto mb-2 border border-gray-200 rounded p-4">
-                {chatMessages.map((msg, idx) => (
-                  <div key={idx} className={`mb-4 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
-                    <div className={`inline-block p-3 rounded-lg ${
-                      msg.role === 'user' ? 'bg-primary text-white' : 'bg-gray-100'
-                    }`}>
-                      {msg.content}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  value={chatInput}
-                  onChange={(e) => setChatInput(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && sendChatMessage()}
-                  placeholder="Ask me anything..."
-                  className="flex-1 p-3 border border-secondary rounded-lg text-black"
-                />
-                <button
-                  onClick={sendChatMessage}
-                  className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-gray-800"
-                >
-                  Send
-                </button>
-                <button
-                  id="save-conversation-btn"
-                  onClick={saveConversation}
-                  className={`bg-secondary text-primary px-3 py-3 rounded-lg hover:bg-yellow-500 ml-1 shimmer-hover ${sparkleElements.includes('save-conversation-btn') ? 'sparkle' : ''}`}
-                  title="Save Conversation"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V2" />
-                  </svg>
-                </button>
-              </div>
-            </div>
+          <div className="bg-white rounded-lg shadow p-6">
+            <SecureChatInterface 
+              userData={{
+                name: name,
+                birthCard: birthCard?.card,
+                age: age,
+                uid: user?.uid || 'anonymous'
+              }}
+              onSessionSaved={(session) => {
+                console.log('Chat session saved:', session);
+              }}
+            />
           </div>
         </section>
 
