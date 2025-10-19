@@ -3,12 +3,21 @@
 
 import OpenAI from 'openai';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Lazy initialization of OpenAI client
+let openaiClient = null;
+function getOpenAIClient() {
+  if (!openaiClient) {
+    openaiClient = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+  }
+  return openaiClient;
+}
 
 // Get Assistant ID from environment
-const ASSISTANT_ID = process.env.OPENAI_ASSISTANT_ID;
+function getAssistantId() {
+  return process.env.OPENAI_ASSISTANT_ID;
+}
 
 // Thread storage (in production, use Redis or Firestore)
 const threadStore = new Map();
@@ -51,6 +60,10 @@ export async function POST(request) {
         timestamp: new Date().toISOString()
       }, { status: 429 });
     }
+
+    // Get OpenAI client and Assistant ID
+    const openai = getOpenAIClient();
+    const ASSISTANT_ID = getAssistantId();
 
     // Validate Assistant ID is configured
     if (!ASSISTANT_ID) {
@@ -148,6 +161,7 @@ Please provide personalized guidance based on my birth card using the cardology 
 export async function DELETE(request) {
   try {
     const { sessionId } = await request.json();
+    const openai = getOpenAIClient();
     
     if (threadStore.has(sessionId)) {
       const threadId = threadStore.get(sessionId);
