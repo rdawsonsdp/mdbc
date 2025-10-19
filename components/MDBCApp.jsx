@@ -1116,7 +1116,11 @@ export default function MDBCApp() {
                 name: name,
                 birthCard: birthCard?.card,
                 age: age,
-                uid: user?.uid || 'anonymous'
+                uid: user?.uid || 'anonymous',
+                // Include calculated app data
+                yearlyCards: yearlyCards || [],
+                planetaryPeriods: enhancedCardData?.planetaryPeriods || planetaryPeriods || [],
+                enhancedCardData: enhancedCardData
               }}
               onSessionSaved={(session) => {
                 console.log('Chat session saved:', session);

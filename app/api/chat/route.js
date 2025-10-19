@@ -84,16 +84,48 @@ export async function POST(request) {
       console.log('📝 Created new thread:', threadId);
     }
 
-    // Build contextual query with user profile
-    const contextualQuery = `
+    // Build contextual query with user profile and app-calculated data
+    let contextualQuery = `
 User Profile:
 - Name: ${userData.name || 'User'}
 - Birth Card: ${userData.birthCard}
 - Age: ${userData.age || 'Not specified'}
+`;
 
-Question: ${query}
+    // Add yearly forecast cards if available
+    if (userData.yearlyCards && userData.yearlyCards.length > 0) {
+      contextualQuery += `\nCurrent Year Spread (Age ${userData.age}):\n`;
+      userData.yearlyCards.forEach(card => {
+        contextualQuery += `- ${card.type}: ${card.card}\n`;
+      });
+    }
 
-Please provide personalized guidance based on my birth card using the cardology books in your knowledge base. Include specific citations when referencing book content.
+    // Add planetary periods if available
+    if (userData.planetaryPeriods && userData.planetaryPeriods.length > 0) {
+      contextualQuery += `\nPlanetary Periods (52-day cycles):\n`;
+      
+      // Find current period
+      const today = new Date();
+      const currentDateStr = `${today.getMonth() + 1}/${today.getDate()}`;
+      
+      userData.planetaryPeriods.forEach(period => {
+        const isCurrent = period.isCurrent || false;
+        const marker = isCurrent ? ' (CURRENT)' : '';
+        const displayName = period.displayName || period.planet;
+        const card = period.card;
+        const startDate = period.formattedStartDate || period.startDate || '';
+        
+        contextualQuery += `- ${displayName}: ${card} (starts ${startDate})${marker}\n`;
+      });
+    }
+
+    contextualQuery += `\nQuestion: ${query}
+
+Please provide personalized guidance using BOTH:
+1. The cardology books in your knowledge base
+2. The user's specific yearly cards and planetary periods listed above
+
+When answering questions about "what period am I in" or "what are my yearly cards", reference the SPECIFIC data provided above. Include citations from the books when explaining the meaning of these cards.
 `;
 
     // Add message to thread
