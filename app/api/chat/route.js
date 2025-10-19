@@ -136,15 +136,30 @@ User Profile:
 
 Question: ${query}
 
-IMPORTANT INSTRUCTIONS:
-1. When asked "what period am I in" or "what's my current planetary period", answer with the CURRENT PLANETARY PERIOD shown above (marked with 🔴)
-2. When asked about yearly cards, use the YEARLY FORECAST CARDS listed above
-3. When asked about dates or timing, use the dates provided above
-4. FIRST answer the question using the actual data above
-5. THEN explain what it means using your cardology books knowledge
-6. Include citations from books when explaining meanings
+===== CRITICAL INSTRUCTIONS FOR ALL RESPONSES =====
 
-DO NOT make up or infer period information - use ONLY the data provided above.
+ANSWER HIERARCHY (ALWAYS FOLLOW THIS ORDER):
+1. 🔴 FIRST: Check if the user's actual data above answers the question
+2. 🔴 SECOND: Use your cardology books to explain, expand, or provide context
+
+RULES:
+✅ DO: Start every response by checking the USER'S ACTUAL DATA section above
+✅ DO: Use the specific cards, dates, and information provided above
+✅ DO: Answer with the exact data shown (current period, yearly cards, etc.)
+✅ DO: Then add book knowledge to explain what it means
+✅ DO: Include citations when referencing book content
+
+❌ DON'T: Make up or infer information that's provided above
+❌ DON'T: Use book examples instead of the user's actual data
+❌ DON'T: Give generic answers when specific data is available
+
+EXAMPLES:
+- Question: "What period am I in?" → Answer: "You are in [CURRENT PERIOD from 🔴 above]" + explain from books
+- Question: "What are my yearly cards?" → Answer: List the YEARLY FORECAST CARDS above + explain from books
+- Question: "What's my Long Range card?" → Answer: The specific Long Range card listed above + explain from books
+- Question: "When does my Venus period start?" → Answer: The date from the data above + explain from books
+
+ALWAYS: User's app data FIRST, book explanations SECOND.
 `;
 
     // Add message to thread
@@ -158,7 +173,21 @@ DO NOT make up or infer period information - use ONLY the data provided above.
     // Run assistant with file search
     const run = await openai.beta.threads.runs.createAndPoll(threadId, {
       assistant_id: ASSISTANT_ID,
-      instructions: `The user's birth card is ${userData.birthCard}. Focus your response on their specific card characteristics and provide actionable guidance. Always cite sources from the books when referencing specific information.`
+      instructions: `CRITICAL: The user has provided their ACTUAL calculated data in the message above.
+
+ANSWER PRIORITY:
+1. FIRST: Use the user's actual data (current period, yearly cards, dates) from the message
+2. SECOND: Use your books to EXPLAIN what that data means
+
+The user's birth card is ${userData.birthCard}.
+
+When answering:
+- If the question can be answered with the user's actual data provided, answer with that data FIRST
+- Then explain what it means using your cardology books
+- Always cite sources when explaining meanings
+- Do not make up or infer data that was explicitly provided
+
+Example: If asked "what period am I in?" and the data shows "Venus: 8♣ (CURRENT)", your answer must start with "You are currently in your Venus period with the 8 of Clubs card" - then explain from books.`
     });
 
     console.log('🤖 Assistant run status:', run.status);
