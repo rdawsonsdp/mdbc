@@ -86,31 +86,44 @@ export async function POST(request) {
 
     // Build contextual query with user profile and app-calculated data
     let contextualQuery = `
+===== USER'S ACTUAL DATA (USE THIS FIRST) =====
+
 User Profile:
 - Name: ${userData.name || 'User'}
 - Birth Card: ${userData.birthCard}
 - Age: ${userData.age || 'Not specified'}
 `;
 
+    // Find and highlight current period
+    let currentPeriod = null;
+    if (userData.planetaryPeriods && userData.planetaryPeriods.length > 0) {
+      currentPeriod = userData.planetaryPeriods.find(p => p.isCurrent);
+    }
+
+    // Add current period prominently at the top
+    if (currentPeriod) {
+      contextualQuery += `\n🔴 CURRENT PLANETARY PERIOD RIGHT NOW:\n`;
+      contextualQuery += `- Planet: ${currentPeriod.displayName || currentPeriod.planet}\n`;
+      contextualQuery += `- Card: ${currentPeriod.card}\n`;
+      contextualQuery += `- Started: ${currentPeriod.formattedStartDate || currentPeriod.startDate}\n`;
+      contextualQuery += `- Duration: 52 days\n`;
+    }
+
     // Add yearly forecast cards if available
     if (userData.yearlyCards && userData.yearlyCards.length > 0) {
-      contextualQuery += `\nCurrent Year Spread (Age ${userData.age}):\n`;
+      contextualQuery += `\nYEARLY FORECAST CARDS (Age ${userData.age}):\n`;
       userData.yearlyCards.forEach(card => {
         contextualQuery += `- ${card.type}: ${card.card}\n`;
       });
     }
 
-    // Add planetary periods if available
+    // Add all planetary periods
     if (userData.planetaryPeriods && userData.planetaryPeriods.length > 0) {
-      contextualQuery += `\nPlanetary Periods (52-day cycles):\n`;
-      
-      // Find current period
-      const today = new Date();
-      const currentDateStr = `${today.getMonth() + 1}/${today.getDate()}`;
+      contextualQuery += `\nALL PLANETARY PERIODS THIS YEAR (52-day cycles):\n`;
       
       userData.planetaryPeriods.forEach(period => {
         const isCurrent = period.isCurrent || false;
-        const marker = isCurrent ? ' (CURRENT)' : '';
+        const marker = isCurrent ? ' ← CURRENT PERIOD' : '';
         const displayName = period.displayName || period.planet;
         const card = period.card;
         const startDate = period.formattedStartDate || period.startDate || '';
@@ -119,13 +132,19 @@ User Profile:
       });
     }
 
-    contextualQuery += `\nQuestion: ${query}
+    contextualQuery += `\n===== END OF USER'S ACTUAL DATA =====
 
-Please provide personalized guidance using BOTH:
-1. The cardology books in your knowledge base
-2. The user's specific yearly cards and planetary periods listed above
+Question: ${query}
 
-When answering questions about "what period am I in" or "what are my yearly cards", reference the SPECIFIC data provided above. Include citations from the books when explaining the meaning of these cards.
+IMPORTANT INSTRUCTIONS:
+1. When asked "what period am I in" or "what's my current planetary period", answer with the CURRENT PLANETARY PERIOD shown above (marked with 🔴)
+2. When asked about yearly cards, use the YEARLY FORECAST CARDS listed above
+3. When asked about dates or timing, use the dates provided above
+4. FIRST answer the question using the actual data above
+5. THEN explain what it means using your cardology books knowledge
+6. Include citations from books when explaining meanings
+
+DO NOT make up or infer period information - use ONLY the data provided above.
 `;
 
     // Add message to thread
