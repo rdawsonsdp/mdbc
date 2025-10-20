@@ -52,14 +52,20 @@ export async function sendSecureMessage(message, userData) {
     // Get session ID for thread persistence
     const sessionId = getSessionId();
 
-    // Prepare request data
+    // Prepare request data - PASS ALL SESSION DATA TO API
     const requestData = {
       query: message,
       userData: {
+        // Core user info
         birthCard: userData.birthCard,
         age: userData.age,
         name: userData.name,
-        uid: userData.uid || 'anonymous'
+        uid: userData.uid || 'anonymous',
+        
+        // Calculated app data (CRITICAL for accurate responses)
+        yearlyCards: userData.yearlyCards || [],
+        planetaryPeriods: userData.planetaryPeriods || [],
+        enhancedCardData: userData.enhancedCardData || null
       },
       sessionId: sessionId
     };
