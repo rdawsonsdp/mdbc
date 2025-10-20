@@ -75,6 +75,14 @@ export function getQuickAnswer(question, userData) {
     return formatCurrentPeriodCardContent(userData);
   }
 
+  // Specific Planetary Period Card Content (Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune)
+  const planetaryPeriods = ['mercury', 'venus', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune'];
+  for (const planet of planetaryPeriods) {
+    if (q.includes(planet) && (q.includes('card') || q.includes('period')) && (q.includes('say') || q.includes('mean') || q.includes('about'))) {
+      return formatPlanetaryPeriodCardContent(userData, planet);
+    }
+  }
+
   // Specific Yearly Card Questions - JUST THE CARD NAME
   if (q.includes('long range') && q.includes('card')) {
     return formatSpecificYearlyCard(userData, 'Long Range');
@@ -333,6 +341,54 @@ The detailed profile content isn't loaded yet.
 
   let response = `**Your Current ${planet} Period Card:** ${currentPeriod.card}\n`;
   response += `**Started:** ${startDate} • **Duration:** 52 days\n\n`;
+  response += formatCardProfileForChat(profile, '');
+
+  return response;
+}
+
+/**
+ * Format specific planetary period card content
+ * Handles: Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune
+ */
+function formatPlanetaryPeriodCardContent(userData, planetName) {
+  if (!userData.planetaryPeriods || userData.planetaryPeriods.length === 0) {
+    return `I don't have your planetary periods data loaded.`;
+  }
+
+  // Find the period - match by planet name or displayName
+  const period = userData.planetaryPeriods.find(p => {
+    const pName = (p.planet || '').toLowerCase();
+    const pDisplayName = (p.displayName || '').toLowerCase();
+    return pName.includes(planetName) || pDisplayName.includes(planetName);
+  });
+
+  if (!period) {
+    return `I couldn't find your ${planetName.charAt(0).toUpperCase() + planetName.slice(1)} period data.`;
+  }
+
+  const profile = getCardProfile(period.card);
+
+  if (!profile) {
+    const planet = period.displayName || period.planet;
+    return `Your **${planet} period** card is the **${period.card}**.
+
+The detailed profile content isn't loaded yet.
+
+💡 *Ask me to interpret what this period means for your business and I'll consult the knowledge base.*`;
+  }
+
+  const planet = period.displayName || period.planet;
+  const startDate = period.formattedStartDate || period.startDate;
+  const isCurrent = period.isCurrent;
+
+  let response = `**Your ${planet} Period Card:** ${period.card}\n`;
+  response += `**Starts:** ${startDate} • **Duration:** 52 days`;
+  
+  if (isCurrent) {
+    response += ` ✨ **CURRENT PERIOD**`;
+  }
+  
+  response += `\n\n`;
   response += formatCardProfileForChat(profile, '');
 
   return response;
