@@ -49,7 +49,9 @@ export function getQuickAnswer(question, userData) {
   }
 
   // Specific Yearly Card Questions - WITH CONTENT
-  if (q.includes('long range') && (q.includes('say') || q.includes('mean') || q.includes('about'))) {
+  // Long Range (also accept "long term" as variation)
+  if ((q.includes('long range') || q.includes('long term') || q.includes('longrange')) && 
+      (q.includes('say') || q.includes('mean') || q.includes('about'))) {
     return formatCardContent(userData, 'Long Range');
   }
   if (q.includes('pluto') && (q.includes('say') || q.includes('mean') || q.includes('about')) && !q.includes('period')) {
@@ -84,7 +86,8 @@ export function getQuickAnswer(question, userData) {
   }
 
   // Specific Yearly Card Questions - JUST THE CARD NAME
-  if (q.includes('long range') && q.includes('card')) {
+  // Long Range (also accept "long term" as variation)
+  if ((q.includes('long range') || q.includes('long term') || q.includes('longrange')) && q.includes('card')) {
     return formatSpecificYearlyCard(userData, 'Long Range');
   }
   if (q.includes('pluto') && q.includes('card') && !q.includes('period')) {
