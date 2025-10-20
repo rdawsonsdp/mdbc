@@ -64,6 +64,22 @@ What would you like to know about your business strategy?`,
     setMessages(newMessages);
     setInputMessage('');
     setError('');
+
+    // Try to answer from session data first (instant response - no API call)
+    const quickAnswer = getQuickAnswer(sanitizedMessage, userData);
+    
+    if (quickAnswer) {
+      console.log('⚡ Quick answer from session data (no API call needed)');
+      setMessages([...newMessages, {
+        role: 'assistant',
+        content: quickAnswer,
+        citations: 0,
+        source: 'session' // Mark as session-based answer
+      }]);
+      return; // Skip API call
+    }
+
+    // If no quick answer available, call the Vector Database API
     setIsLoading(true);
 
     try {
@@ -78,7 +94,8 @@ What would you like to know about your business strategy?`,
       setMessages([...newMessages, { 
         role: 'assistant', 
         content: responseData.response || responseData,
-        citations: responseData.citations || 0
+        citations: responseData.citations || 0,
+        source: 'gpt' // Mark as GPT-based answer
       }]);
       
     } catch (error) {
