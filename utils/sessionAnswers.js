@@ -140,7 +140,7 @@ function formatBirthCardAnswer(userData) {
 
 This is your core identity card in cardology - it represents your innate gifts, challenges, and life purpose.
 
-💡 *Would you like to know more about what this card means for your business strategy?*`;
+💡 **Would you like to explore this further?** Ask me how this card impacts your business strategy, timing, or offers.`;
 }
 
 /**
@@ -164,7 +164,7 @@ function formatCurrentPeriodAnswer(userData) {
 
 Each planetary period brings different energies and opportunities. Your ${planet} period with the ${card} has specific implications for your business timing and strategy.
 
-💡 *Would you like to know what this period means for your business?*`;
+💡 **Would you like to explore this further?** Ask me how this period impacts your business timing, what moves to make now, or what to avoid.`;
 }
 
 /**
@@ -183,7 +183,7 @@ function formatYearlyCardsAnswer(userData) {
 
   response += `\nThese cards represent the major themes and energies influencing your year.
 
-💡 *Would you like me to interpret what these cards mean for your business strategy this year?*`;
+💡 **Would you like to explore this further?** Ask me what these cards mean for your business strategy, revenue goals, or key decisions this year.`;
 
   return response;
 }
@@ -200,7 +200,7 @@ function formatSpecificYearlyCard(userData, cardType) {
 
   return `Your **${cardType} Card** for this year (age ${userData.age}) is the **${yearlyCard.card}**.
 
-💡 *Would you like to know what this card means for your business?*`;
+💡 **Would you like to explore this further?** Ask me what this card means for your business strategy, timing, or specific goals.`;
 }
 
 /**
@@ -224,7 +224,7 @@ function formatAllPeriodsAnswer(userData) {
     response += `• **${displayName}:** ${card} (starts ${startDate})${marker}\n`;
   });
 
-  response += `\n💡 *Would you like to explore what a specific period means for your business timing?*`;
+  response += `\n💡 **Would you like to explore this further?** Ask me about a specific period, best timing for launches, or what moves to make in each cycle.`;
 
   return response;
 }
@@ -255,7 +255,7 @@ function formatPeriodStartDate(userData, planetName) {
     response += `\n\n✨ This is your **CURRENT PERIOD** right now!`;
   }
 
-  response += `\n\n💡 *Would you like to know what this period means for your business strategy?*`;
+  response += `\n\n💡 **Would you like to explore this further?** Ask me what this period means for your business timing, what to focus on, or how to maximize this cycle.`;
 
   return response;
 }
@@ -288,10 +288,13 @@ function formatCardContent(userData, cardType) {
 
 I have the card identified, but the detailed profile content isn't loaded yet. 
 
-💡 *Ask me to interpret what this card means for your business and I'll consult the knowledge base.*`;
+💡 **Would you like to explore this further?** Ask me to interpret what this card means for your business and I'll consult the knowledge base.`;
   }
 
-  return formatCardProfileForChat(profile, `${cardType} Card (Age ${userData.age})`);
+  let response = formatCardProfileForChat(profile, `${cardType} Card (Age ${userData.age})`);
+  response += `\n\n💡 **Would you like to explore this further?** Ask me how to apply this card to your business strategy, timing decisions, or specific offers.`;
+  
+  return response;
 }
 
 /**
@@ -309,10 +312,13 @@ function formatBirthCardContent(userData) {
 
 The detailed profile content isn't loaded yet.
 
-💡 *Ask me to interpret what this card means for your business and I'll consult the knowledge base.*`;
+💡 **Would you like to explore this further?** Ask me to interpret what this card means for your business and I'll consult the knowledge base.`;
   }
 
-  return formatCardProfileForChat(profile, 'Birth Card');
+  let response = formatCardProfileForChat(profile, 'Birth Card');
+  response += `\n\n💡 **Would you like to explore this further?** Ask me how to leverage this card for your business success, ideal offers, or million-dollar mindset.`;
+  
+  return response;
 }
 
 /**
@@ -333,7 +339,7 @@ function formatCurrentPeriodCardContent(userData) {
 
 The detailed profile content isn't loaded yet.
 
-💡 *Ask me to interpret what this period means for your business and I'll consult the knowledge base.*`;
+💡 **Would you like to explore this further?** Ask me to interpret what this period means for your business and I'll consult the knowledge base.`;
   }
 
   const planet = currentPeriod.displayName || currentPeriod.planet;
@@ -342,6 +348,7 @@ The detailed profile content isn't loaded yet.
   let response = `**Your Current ${planet} Period Card:** ${currentPeriod.card}\n`;
   response += `**Started:** ${startDate} • **Duration:** 52 days\n\n`;
   response += formatCardProfileForChat(profile, '');
+  response += `\n\n💡 **Would you like to explore this further?** Ask me how to maximize this period for business growth, what timing moves to make, or what to focus on right now.`;
 
   return response;
 }
@@ -374,7 +381,7 @@ function formatPlanetaryPeriodCardContent(userData, planetName) {
 
 The detailed profile content isn't loaded yet.
 
-💡 *Ask me to interpret what this period means for your business and I'll consult the knowledge base.*`;
+💡 **Would you like to explore this further?** Ask me to interpret what this period means for your business and I'll consult the knowledge base.`;
   }
 
   const planet = period.displayName || period.planet;
@@ -390,6 +397,7 @@ The detailed profile content isn't loaded yet.
   
   response += `\n\n`;
   response += formatCardProfileForChat(profile, '');
+  response += `\n\n💡 **Would you like to explore this further?** Ask me how to use this period for strategic business decisions, best timing for launches, or what opportunities to watch for.`;
 
   return response;
 }
