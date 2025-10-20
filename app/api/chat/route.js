@@ -8,7 +8,7 @@ let openaiClient = null;
 function getOpenAIClient() {
   if (!openaiClient) {
     openaiClient = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
     });
   }
   return openaiClient;
@@ -68,9 +68,9 @@ export async function POST(request) {
     // Validate Assistant ID is configured
     if (!ASSISTANT_ID) {
       console.error('OPENAI_ASSISTANT_ID not configured');
-      return Response.json({ 
+        return Response.json({
         error: 'Service configuration error. Please contact support.',
-        timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString()
       }, { status: 500 });
     }
 
@@ -180,6 +180,14 @@ TONE: Speak with grounded clarity, sharp wit, and the energy of a million-dollar
 
 FOCUS: Business alignment, purpose, growth cycles, timing, offers, mindset.
 
+=== CARD NAMING CONVENTIONS ===
+ALWAYS use these card names when responding:
+- "Development" (NOT "Displacement") - This is the Development card
+- "Support" (NOT "Environment") - This is the Support card
+- Pluto and Result cards are ALWAYS interpreted as a pair - best to know both cards for full interpretation
+
+When the user's data shows "Displacement" or "Environment", translate to "Development" and "Support" in your responses.
+
 === CONFIDENTIALITY ===
 All uploaded materials (books, CSVs, frameworks) are PROPRIETARY and CONFIDENTIAL:
 - Do NOT quote directly from books unless citing as references
@@ -266,7 +274,7 @@ Remember: User's app data FIRST, your cardology expertise SECOND, actionable bus
 
     console.log(`✅ Response generated with ${citations.length} citations`);
 
-    return Response.json({
+    return Response.json({ 
       response: responseText,
       citations: citations.length,
       threadId: threadId,

@@ -8,9 +8,9 @@ const SecureChatInterface = ({ userData, onSessionSaved }) => {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: `Hello! I am your Cardology Business Coach. I analyze comprehensive cardology knowledge to provide you with accurate, personalized guidance based on your birth card.
+      content: `Hi there! I'm your Cardology Business Coach, ready to help you unlock the path to your most aligned business success. I can't see your full spread, but if you tell me which card you're looking at and its position, I'll decode exactly what it means for your business strategy.
 
-What would you like to know about your business strategy?`,
+So—what part of your business would you like clarity on today?`,
       citations: 0
     }
   ]);
@@ -173,9 +173,9 @@ What would you like to know about your business strategy?`,
       // Reset to new conversation
       setMessages([{
         role: 'assistant',
-        content: `Hello! I am your Cardology Business Coach. I analyze comprehensive cardology knowledge to provide you with accurate, personalized guidance based on your birth card.
+        content: `Hi there! I'm your Cardology Business Coach, ready to help you unlock the path to your most aligned business success. I can't see your full spread, but if you tell me which card you're looking at and its position, I'll decode exactly what it means for your business strategy.
 
-What would you like to know about your business strategy?`,
+So—what part of your business would you like clarity on today?`,
         citations: 0
       }]);
       setCurrentConversationId(null);
@@ -186,14 +186,14 @@ What would you like to know about your business strategy?`,
   const startNewConversation = () => {
     setMessages([{
       role: 'assistant',
-      content: `Hello! I am your Cardology Business Coach. I analyze comprehensive cardology knowledge to provide you with accurate, personalized guidance based on your birth card.
+      content: `Hi there! I'm your Cardology Business Coach, ready to help you unlock the path to your most aligned business success. I can't see your full spread, but if you tell me which card you're looking at and its position, I'll decode exactly what it means for your business strategy.
 
-What would you like to know about your business strategy?`,
-      citations: 0
-    }]);
-    setCurrentConversationId(null);
-    setShowSidebar(false);
-  };
+So—what part of your business would you like clarity on today?`,
+        citations: 0
+      }]);
+      setCurrentConversationId(null);
+      setShowSidebar(false);
+    };
 
   const suggestions = getChatSuggestions(userData?.birthCard);
 

@@ -60,11 +60,13 @@ export function getQuickAnswer(question, userData) {
   if (q.includes('result') && (q.includes('say') || q.includes('mean') || q.includes('about')) && !q.includes('period')) {
     return formatCardContent(userData, 'Result');
   }
-  if (q.includes('environment') && (q.includes('say') || q.includes('mean') || q.includes('about'))) {
-    return formatCardContent(userData, 'Environment');
+  // Support (also called Environment in data)
+  if ((q.includes('support') || q.includes('environment')) && (q.includes('say') || q.includes('mean') || q.includes('about'))) {
+    return formatCardContent(userData, 'Environment', 'Support');
   }
-  if (q.includes('displacement') && (q.includes('say') || q.includes('mean') || q.includes('about'))) {
-    return formatCardContent(userData, 'Displacement');
+  // Development (also called Displacement in data)
+  if ((q.includes('development') || q.includes('displacement')) && (q.includes('say') || q.includes('mean') || q.includes('about'))) {
+    return formatCardContent(userData, 'Displacement', 'Development');
   }
 
   // Birth Card Content Question
@@ -96,11 +98,13 @@ export function getQuickAnswer(question, userData) {
   if (q.includes('result') && q.includes('card') && !q.includes('period')) {
     return formatSpecificYearlyCard(userData, 'Result');
   }
-  if (q.includes('environment') && q.includes('card')) {
-    return formatSpecificYearlyCard(userData, 'Environment');
+  // Support (also called Environment in data)
+  if ((q.includes('support') || q.includes('environment')) && q.includes('card')) {
+    return formatSpecificYearlyCard(userData, 'Environment', 'Support');
   }
-  if (q.includes('displacement') && q.includes('card')) {
-    return formatSpecificYearlyCard(userData, 'Displacement');
+  // Development (also called Displacement in data)
+  if ((q.includes('development') || q.includes('displacement')) && q.includes('card')) {
+    return formatSpecificYearlyCard(userData, 'Displacement', 'Development');
   }
 
   // All Planetary Periods
@@ -193,15 +197,19 @@ function formatYearlyCardsAnswer(userData) {
 
 /**
  * Format specific yearly card
+ * @param {Object} userData - User data
+ * @param {string} cardType - Card type in data (e.g., 'Environment', 'Displacement')
+ * @param {string} displayName - Optional display name (e.g., 'Support', 'Development')
  */
-function formatSpecificYearlyCard(userData, cardType) {
+function formatSpecificYearlyCard(userData, cardType, displayName = null) {
   const yearlyCard = userData.yearlyCards?.find(c => c.type === cardType);
+  const label = displayName || cardType;
 
   if (!yearlyCard) {
-    return `I don't have your ${cardType} card data loaded. Please make sure your birthdate and age are entered correctly.`;
+    return `I don't have your ${label} card data loaded. Please make sure your birthdate and age are entered correctly.`;
   }
 
-  return `Your **${cardType} Card** for this year (age ${userData.age}) is the **${yearlyCard.card}**.
+  return `Your **${label} Card** for this year (age ${userData.age}) is the **${yearlyCard.card}**.
 
 💡 **Would you like to explore this further?** Ask me what this card means for your business strategy, timing, or specific goals.`;
 }
@@ -276,25 +284,29 @@ function formatAgeAnswer(userData) {
 
 /**
  * Format card content (description, zone of genius, how to motivate)
+ * @param {Object} userData - User data
+ * @param {string} cardType - Card type in data (e.g., 'Environment', 'Displacement')
+ * @param {string} displayName - Optional display name (e.g., 'Support', 'Development')
  */
-function formatCardContent(userData, cardType) {
+function formatCardContent(userData, cardType, displayName = null) {
   const yearlyCard = userData.yearlyCards?.find(c => c.type === cardType);
+  const label = displayName || cardType;
 
   if (!yearlyCard) {
-    return `I don't have your ${cardType} card data loaded.`;
+    return `I don't have your ${label} card data loaded.`;
   }
 
   const profile = getCardProfile(yearlyCard.card);
 
   if (!profile) {
-    return `Your **${cardType} Card** is the **${yearlyCard.card}**.
+    return `Your **${label} Card** is the **${yearlyCard.card}**.
 
 I have the card identified, but the detailed profile content isn't loaded yet. 
 
 💡 **Would you like to explore this further?** Ask me to interpret what this card means for your business and I'll consult the knowledge base.`;
   }
 
-  let response = formatCardProfileForChat(profile, `${cardType} Card (Age ${userData.age})`);
+  let response = formatCardProfileForChat(profile, `${label} Card (Age ${userData.age})`);
   response += `\n\n💡 **Would you like to explore this further?** Ask me how to apply this card to your business strategy, timing decisions, or specific offers.`;
   
   return response;
