@@ -5,6 +5,8 @@
  * session state data, avoiding unnecessary API calls for simple queries.
  */
 
+import { getCardProfile, formatCardProfileForChat } from './allCardProfiles.js';
+
 /**
  * Checks if a question can be answered from session data
  * Returns the answer if available, or null if GPT is needed
@@ -46,7 +48,34 @@ export function getQuickAnswer(question, userData) {
     return formatYearlyCardsAnswer(userData);
   }
 
-  // Specific Yearly Card Questions
+  // Specific Yearly Card Questions - WITH CONTENT
+  if (q.includes('long range') && (q.includes('say') || q.includes('mean') || q.includes('about'))) {
+    return formatCardContent(userData, 'Long Range');
+  }
+  if (q.includes('pluto') && (q.includes('say') || q.includes('mean') || q.includes('about')) && !q.includes('period')) {
+    return formatCardContent(userData, 'Pluto');
+  }
+  if (q.includes('result') && (q.includes('say') || q.includes('mean') || q.includes('about')) && !q.includes('period')) {
+    return formatCardContent(userData, 'Result');
+  }
+  if (q.includes('environment') && (q.includes('say') || q.includes('mean') || q.includes('about'))) {
+    return formatCardContent(userData, 'Environment');
+  }
+  if (q.includes('displacement') && (q.includes('say') || q.includes('mean') || q.includes('about'))) {
+    return formatCardContent(userData, 'Displacement');
+  }
+
+  // Birth Card Content Question
+  if ((q.includes('birth card') || q.includes('my card')) && (q.includes('say') || q.includes('mean') || q.includes('about'))) {
+    return formatBirthCardContent(userData);
+  }
+
+  // Current Period Card Content
+  if (q.includes('current') && q.includes('period') && (q.includes('say') || q.includes('mean') || q.includes('about'))) {
+    return formatCurrentPeriodCardContent(userData);
+  }
+
+  // Specific Yearly Card Questions - JUST THE CARD NAME
   if (q.includes('long range') && q.includes('card')) {
     return formatSpecificYearlyCard(userData, 'Long Range');
   }
@@ -232,6 +261,81 @@ function formatAgeAnswer(userData) {
   }
 
   return `You are **${userData.age} years old**.`;
+}
+
+/**
+ * Format card content (description, zone of genius, how to motivate)
+ */
+function formatCardContent(userData, cardType) {
+  const yearlyCard = userData.yearlyCards?.find(c => c.type === cardType);
+
+  if (!yearlyCard) {
+    return `I don't have your ${cardType} card data loaded.`;
+  }
+
+  const profile = getCardProfile(yearlyCard.card);
+
+  if (!profile) {
+    return `Your **${cardType} Card** is the **${yearlyCard.card}**.
+
+I have the card identified, but the detailed profile content isn't loaded yet. 
+
+💡 *Ask me to interpret what this card means for your business and I'll consult the knowledge base.*`;
+  }
+
+  return formatCardProfileForChat(profile, `${cardType} Card (Age ${userData.age})`);
+}
+
+/**
+ * Format birth card content
+ */
+function formatBirthCardContent(userData) {
+  if (!userData.birthCard) {
+    return `I don't have your birth card data loaded.`;
+  }
+
+  const profile = getCardProfile(userData.birthCard);
+
+  if (!profile) {
+    return `Your birth card is the **${userData.birthCard}**.
+
+The detailed profile content isn't loaded yet.
+
+💡 *Ask me to interpret what this card means for your business and I'll consult the knowledge base.*`;
+  }
+
+  return formatCardProfileForChat(profile, 'Birth Card');
+}
+
+/**
+ * Format current period card content
+ */
+function formatCurrentPeriodCardContent(userData) {
+  const currentPeriod = userData.planetaryPeriods?.find(p => p.isCurrent);
+  
+  if (!currentPeriod) {
+    return `I don't have your current planetary period data loaded.`;
+  }
+
+  const profile = getCardProfile(currentPeriod.card);
+
+  if (!profile) {
+    const planet = currentPeriod.displayName || currentPeriod.planet;
+    return `Your current **${planet} period** card is the **${currentPeriod.card}**.
+
+The detailed profile content isn't loaded yet.
+
+💡 *Ask me to interpret what this period means for your business and I'll consult the knowledge base.*`;
+  }
+
+  const planet = currentPeriod.displayName || currentPeriod.planet;
+  const startDate = currentPeriod.formattedStartDate || currentPeriod.startDate;
+
+  let response = `**Your Current ${planet} Period Card:** ${currentPeriod.card}\n`;
+  response += `**Started:** ${startDate} • **Duration:** 52 days\n\n`;
+  response += formatCardProfileForChat(profile, '');
+
+  return response;
 }
 
 /**

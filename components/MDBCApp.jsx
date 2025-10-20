@@ -7,6 +7,7 @@ import { getForecastForAge } from '../utils/yearlyForecastLookup';
 import { getAllPlanetaryPeriods } from '../utils/planetaryPeriodLookup';
 import cardActivities from '../lib/data/cardToActivities.json';
 import { getEnhancedCardData, validateCSVAccess } from '../utils/enhancedCardSystem.js';
+import { loadAllCardProfiles } from '../utils/allCardProfiles.js';
 import FlippableCard from './FlippableCard';
 import ShareButtons from './ShareButtons';
 import AuthButton from './AuthButton';
@@ -37,6 +38,21 @@ export default function MDBCApp() {
   const [isLoadingEnhancedData, setIsLoadingEnhancedData] = useState(false);
   const [csvValidation, setCsvValidation] = useState(null);
   const [isLoadingProfile, setIsLoadingProfile] = useState(false);
+  const [cardProfilesLoaded, setCardProfilesLoaded] = useState(false);
+  
+  // Load all card profiles into session on app start
+  useEffect(() => {
+    const loadProfiles = async () => {
+      try {
+        await loadAllCardProfiles();
+        setCardProfilesLoaded(true);
+        console.log('✅ All 52 card profiles loaded into session memory');
+      } catch (error) {
+        console.error('❌ Error loading card profiles:', error);
+      }
+    };
+    loadProfiles();
+  }, []);
   
   // Debug function to validate CSV access
   const validateCSVs = async () => {
