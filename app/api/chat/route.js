@@ -113,8 +113,14 @@ User Profile:
     if (userData.yearlyCards && userData.yearlyCards.length > 0) {
       contextualQuery += `\nYEARLY FORECAST CARDS (Age ${userData.age}):\n`;
       userData.yearlyCards.forEach(card => {
-        contextualQuery += `- ${card.type}: ${card.card}\n`;
+        // Translate card names to proper terminology
+        let displayName = card.type;
+        if (card.type === 'Displacement') displayName = 'Development';
+        if (card.type === 'Environment') displayName = 'Support';
+        
+        contextualQuery += `- ${displayName}: ${card.card}\n`;
       });
+      contextualQuery += `\n(Note: Pluto and Result are interpreted as a pair)\n`;
     }
 
     // Add all planetary periods

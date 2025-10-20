@@ -185,10 +185,17 @@ function formatYearlyCardsAnswer(userData) {
   let response = `**Your Yearly Forecast Cards (Age ${userData.age}):**\n\n`;
 
   userData.yearlyCards.forEach(card => {
-    response += `• **${card.type}:** ${card.card}\n`;
+    // Translate card names for display
+    let displayName = card.type;
+    if (card.type === 'Displacement') displayName = 'Development';
+    if (card.type === 'Environment') displayName = 'Support';
+    
+    response += `• **${displayName}:** ${card.card}\n`;
   });
 
   response += `\nThese cards represent the major themes and energies influencing your year.
+
+**Note:** Pluto and Result cards are best interpreted together as a pair.
 
 💡 **Would you like to explore this further?** Ask me what these cards mean for your business strategy, revenue goals, or key decisions this year.`;
 
