@@ -403,60 +403,13 @@ const AuthButton = ({ onSessionSaved, onSessionsLoaded }) => {
           </span>
           <span className="text-xs text-gray-500">{user.email}</span>
         </div>
-        <div className="flex space-x-2">
-          <button
-            onClick={handleShowHistory}
-            className="bg-gold-500 hover:bg-gold-600 text-white px-3 py-1 rounded text-sm transition-colors"
-          >
-            {showHistory ? 'Hide History' : 'History'}
-          </button>
-          <button
-            onClick={handleSignOut}
-            className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm transition-colors"
-          >
-            Sign Out
-          </button>
-        </div>
+        <button
+          onClick={handleSignOut}
+          className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm transition-colors"
+        >
+          Sign Out
+        </button>
       </div>
-
-      {/* History Panel */}
-      {showHistory && (
-        <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-200 z-50">
-          <div className="p-4">
-            <h3 className="font-semibold text-gray-900 mb-3">Session History</h3>
-            {loadingSessions ? (
-              <div className="flex items-center justify-center py-4">
-                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-gold-500"></div>
-              </div>
-            ) : sessions.length === 0 ? (
-              <p className="text-gray-500 text-sm">No saved sessions yet.</p>
-            ) : (
-              <div className="space-y-2 max-h-64 overflow-y-auto">
-                {sessions.map((session) => (
-                  <div
-                    key={session.id}
-                    onClick={() => loadSession(session)}
-                    className="p-3 bg-gray-50 hover:bg-gray-100 rounded-lg cursor-pointer transition-colors"
-                  >
-                    <div className="font-medium text-sm text-gray-900">
-                      {session.name}
-                    </div>
-                    <div className="text-xs text-gray-600">
-                      {session.birthMonth} {session.birthDay}, {session.birthYear}
-                    </div>
-                    <div className="text-xs text-gold-600 font-medium">
-                      {session.birthCard}
-                    </div>
-                    <div className="text-xs text-gray-400">
-                      {new Date(session.createdAt?.seconds * 1000).toLocaleDateString()}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

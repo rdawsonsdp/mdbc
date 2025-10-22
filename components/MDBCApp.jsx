@@ -11,7 +11,6 @@ import { loadAllCardProfiles } from '../utils/allCardProfiles.js';
 import FlippableCard from './FlippableCard';
 import ShareButtons from './ShareButtons';
 import AuthButton from './AuthButton';
-import SaveSessionButton from './SaveSessionButton';
 import SecureChatInterface from './SecureChatInterface';
 import { useAuth } from '../contexts/AuthContext';
 import { saveUserProfile, getUserProfile } from '../utils/sessionManager';
@@ -956,15 +955,6 @@ export default function MDBCApp() {
                 onSessionSaved={handleLoadSession}
                 onSessionsLoaded={(sessions) => console.log('Sessions loaded:', sessions)}
               />
-              {birthCard && (
-                <SaveSessionButton 
-                  name={name}
-                  month={month}
-                  day={day}
-                  year={year}
-                  birthCard={birthCard.card}
-                />
-              )}
             </div>
           </div>
         </div>
