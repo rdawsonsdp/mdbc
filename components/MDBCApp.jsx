@@ -1153,19 +1153,6 @@ export default function MDBCApp() {
           }}
         />
 
-        {/* Save Session Button */}
-        {birthCard && (
-          <div className="flex justify-center mt-8 mb-8">
-            <SaveSessionButton 
-              name={name}
-              month={month}
-              day={day}
-              year={year}
-              birthCard={birthCard.card}
-            />
-          </div>
-        )}
-
         {/* Copyright Footer */}
         <footer className="bg-navy-900 text-white py-6 mt-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
