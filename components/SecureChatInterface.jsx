@@ -144,8 +144,13 @@ So—what part of your business would you like clarity on today?`,
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
     } catch (error) {
-      console.error('Error saving conversation:', error);
-      alert('Failed to save conversation. Please try again.');
+      console.error('❌ Error saving conversation:', error);
+      console.error('Error details:', {
+        message: error.message,
+        code: error.code,
+        stack: error.stack
+      });
+      alert(`Failed to save conversation: ${error.message || 'Unknown error'}. Check console for details.`);
     } finally {
       setIsSaving(false);
     }

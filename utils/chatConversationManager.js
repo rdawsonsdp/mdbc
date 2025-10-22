@@ -6,8 +6,18 @@ import { collection, addDoc, updateDoc, doc, getDocs, query, where, orderBy, del
  */
 export async function saveChatConversation(userId, conversationData) {
   try {
+    console.log('📤 Attempting to save conversation...', {
+      userId: userId,
+      messageCount: conversationData.messages?.length,
+      userData: conversationData.userData
+    });
+
     if (!userId) {
       throw new Error('User must be logged in to save conversations');
+    }
+
+    if (!db) {
+      throw new Error('Firestore database not initialized');
     }
 
     const conversationsRef = collection(db, 'chatConversations');
@@ -25,12 +35,20 @@ export async function saveChatConversation(userId, conversationData) {
       lastUpdated: new Date().toISOString()
     };
 
+    console.log('📝 Conversation data prepared:', {
+      userId: conversation.userId,
+      title: conversation.title,
+      messageCount: conversation.messages?.length
+    });
+
     const docRef = await addDoc(conversationsRef, conversation);
     console.log('✅ Conversation saved with ID:', docRef.id);
     
     return { success: true, id: docRef.id };
   } catch (error) {
     console.error('❌ Error saving conversation:', error);
+    console.error('Error code:', error.code);
+    console.error('Error message:', error.message);
     throw error;
   }
 }
