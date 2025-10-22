@@ -1138,9 +1138,6 @@ export default function MDBCApp() {
                 planetaryPeriods: enhancedCardData?.planetaryPeriods || planetaryPeriods || [],
                 enhancedCardData: enhancedCardData
               }}
-              onSessionSaved={(session) => {
-                console.log('Chat session saved:', session);
-              }}
             />
           </div>
         </section>

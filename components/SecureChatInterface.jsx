@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { sendSecureMessage, validateMessage, sanitizeMessage, formatAIResponse, getChatSuggestions, checkRateLimit } from '../utils/secureChat';
 import { getQuickAnswer } from '../utils/sessionAnswers';
 
-const SecureChatInterface = ({ userData, onSessionSaved }) => {
+const SecureChatInterface = ({ userData }) => {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
@@ -17,22 +17,7 @@ So—what part of your business would you like clarity on today?`,
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const [savedConversations, setSavedConversations] = useState([]);
-  const [currentConversationId, setCurrentConversationId] = useState(null);
-  const [showSidebar, setShowSidebar] = useState(false);
   const messagesEndRef = useRef(null);
-
-  // Load saved conversations on mount
-  useEffect(() => {
-    const saved = localStorage.getItem('cardology_conversations');
-    if (saved) {
-      try {
-        setSavedConversations(JSON.parse(saved));
-      } catch (error) {
-        console.error('Error loading saved conversations:', error);
-      }
-    }
-  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -120,162 +105,12 @@ So—what part of your business would you like clarity on today?`,
     handleSendMessage(suggestion);
   };
 
-  // Save conversation
-  const saveConversation = () => {
-    const conversationName = prompt('Name this conversation:', `Chat ${new Date().toLocaleDateString()}`);
-    if (!conversationName) return;
-
-    const conversation = {
-      id: currentConversationId || Date.now(),
-      name: conversationName,
-      messages: messages,
-      userData: {
-        birthCard: userData.birthCard,
-        name: userData.name,
-        age: userData.age
-      },
-      timestamp: new Date().toISOString()
-    };
-
-    let updated;
-    if (currentConversationId) {
-      // Update existing
-      updated = savedConversations.map(c => 
-        c.id === currentConversationId ? conversation : c
-      );
-    } else {
-      // Save new
-      updated = [...savedConversations, conversation];
-      setCurrentConversationId(conversation.id);
-    }
-
-    setSavedConversations(updated);
-    localStorage.setItem('cardology_conversations', JSON.stringify(updated));
-    alert('✅ Conversation saved!');
-  };
-
-  // Load conversation
-  const loadConversation = (conversation) => {
-    setMessages(conversation.messages);
-    setCurrentConversationId(conversation.id);
-    setShowSidebar(false);
-  };
-
-  // Delete conversation
-  const deleteConversation = (id) => {
-    if (!confirm('Delete this conversation?')) return;
-
-    const updated = savedConversations.filter(c => c.id !== id);
-    setSavedConversations(updated);
-    localStorage.setItem('cardology_conversations', JSON.stringify(updated));
-
-    if (currentConversationId === id) {
-      // Reset to new conversation
-      setMessages([{
-        role: 'assistant',
-        content: `Hi there! I'm your Cardology Business Coach, ready to help you unlock the path to your most aligned business success. I can't see your full spread, but if you tell me which card you're looking at and its position, I'll decode exactly what it means for your business strategy.
-
-So—what part of your business would you like clarity on today?`,
-        citations: 0
-      }]);
-      setCurrentConversationId(null);
-    }
-  };
-
-  // Start new conversation
-  const startNewConversation = () => {
-    setMessages([{
-      role: 'assistant',
-      content: `Hi there! I'm your Cardology Business Coach, ready to help you unlock the path to your most aligned business success. I can't see your full spread, but if you tell me which card you're looking at and its position, I'll decode exactly what it means for your business strategy.
-
-So—what part of your business would you like clarity on today?`,
-        citations: 0
-      }]);
-      setCurrentConversationId(null);
-      setShowSidebar(false);
-    };
-
   const suggestions = getChatSuggestions(userData?.birthCard);
 
   return (
     <div className="flex h-full max-h-96">
-      {/* Sidebar - Saved Conversations */}
-      {showSidebar && (
-        <div className="w-64 bg-white border-r border-gray-200 overflow-y-auto p-3">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="font-bold text-sm">Conversations</h3>
-            <button
-              onClick={() => setShowSidebar(false)}
-              className="text-gray-500 hover:text-gray-700"
-            >
-              ✕
-            </button>
-          </div>
-          
-          <button
-            onClick={startNewConversation}
-            className="w-full mb-3 px-3 py-2 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600"
-          >
-            + New Chat
-          </button>
-
-          <div className="space-y-2">
-            {savedConversations.map(conv => (
-              <div
-                key={conv.id}
-                className={`p-2 rounded cursor-pointer text-sm ${
-                  currentConversationId === conv.id
-                    ? 'bg-blue-50 border border-blue-200'
-                    : 'bg-gray-50 hover:bg-gray-100'
-                }`}
-              >
-                <div onClick={() => loadConversation(conv)} className="flex-1">
-                  <div className="font-medium truncate">{conv.name}</div>
-                  <div className="text-xs text-gray-500">
-                    {new Date(conv.timestamp).toLocaleDateString()}
-                  </div>
-                </div>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    deleteConversation(conv.id);
-                  }}
-                  className="text-xs text-red-600 hover:text-red-800 mt-1"
-                >
-                  Delete
-                </button>
-              </div>
-            ))}
-            {savedConversations.length === 0 && (
-              <p className="text-xs text-gray-500 text-center py-4">
-                No saved conversations
-              </p>
-            )}
-          </div>
-        </div>
-      )}
-
       {/* Main Chat Area */}
       <div className="flex flex-col flex-1">
-        {/* Chat Header */}
-        <div className="flex justify-between items-center px-4 py-2 bg-white border-b border-gray-200">
-          <button
-            onClick={() => setShowSidebar(!showSidebar)}
-            className="text-sm text-gray-600 hover:text-gray-800 flex items-center gap-1"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            {savedConversations.length > 0 && `(${savedConversations.length})`}
-          </button>
-          
-          <button
-            onClick={saveConversation}
-            className="text-sm px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600"
-          >
-            💾 Save
-          </button>
-        </div>
 
         {/* Chat Messages */}
         <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
