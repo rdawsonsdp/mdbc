@@ -4,8 +4,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { sendSecureMessage, validateMessage, sanitizeMessage, formatAIResponse, getChatSuggestions, checkRateLimit } from '../utils/secureChat';
 import { getQuickAnswer } from '../utils/sessionAnswers';
 import jsPDF from 'jspdf';
+import { useAuth } from '../contexts/AuthContext';
+import { saveChatConversation, updateChatConversation } from '../utils/chatConversationManager';
 
 const SecureChatInterface = ({ userData }) => {
+  const { user } = useAuth();
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
@@ -18,6 +21,9 @@ So—what part of your business would you like clarity on today?`,
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [isSaving, setIsSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [currentConversationId, setCurrentConversationId] = useState(null);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -104,6 +110,45 @@ So—what part of your business would you like clarity on today?`,
 
   const handleSuggestionClick = (suggestion) => {
     handleSendMessage(suggestion);
+  };
+
+  // Save conversation to Firestore
+  const saveConversation = async () => {
+    if (!user) {
+      alert('Please sign in to save conversations.');
+      return;
+    }
+
+    try {
+      setIsSaving(true);
+
+      const conversationData = {
+        messages: messages.filter((msg, index) => index !== 0), // Skip welcome message
+        userData: {
+          name: userData?.name,
+          birthCard: userData?.birthCard,
+          age: userData?.age
+        },
+        title: `Chat ${new Date().toLocaleDateString()}`
+      };
+
+      if (currentConversationId) {
+        // Update existing conversation
+        await updateChatConversation(currentConversationId, conversationData);
+      } else {
+        // Save new conversation
+        const result = await saveChatConversation(user.uid, conversationData);
+        setCurrentConversationId(result.id);
+      }
+
+      setSaved(true);
+      setTimeout(() => setSaved(false), 3000);
+    } catch (error) {
+      console.error('Error saving conversation:', error);
+      alert('Failed to save conversation. Please try again.');
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   // Download chat session as PDF
@@ -233,8 +278,49 @@ So—what part of your business would you like clarity on today?`,
       {/* Main Chat Area */}
       <div className="flex flex-col flex-1">
         
-        {/* Chat Header with PDF Button */}
-        <div className="flex justify-end items-center px-4 py-2 bg-white border-b border-gray-200">
+        {/* Chat Header with Save and PDF Buttons */}
+        <div className="flex justify-between items-center px-4 py-2 bg-white border-b border-gray-200">
+          {/* Save Conversation Button */}
+          <button
+            onClick={saveConversation}
+            disabled={isSaving || saved || !user}
+            className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg transition-colors ${
+              saved
+                ? 'bg-green-500 text-white cursor-default'
+                : isSaving
+                ? 'bg-blue-400 text-white cursor-not-allowed'
+                : !user
+                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-blue-600 text-white hover:bg-blue-700'
+            }`}
+            title={!user ? 'Sign in to save conversations' : 'Save conversation to your account'}
+          >
+            {saved ? (
+              <>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="font-medium">Saved!</span>
+              </>
+            ) : isSaving ? (
+              <>
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                <span className="font-medium">Saving...</span>
+              </>
+            ) : (
+              <>
+                <svg 
+                  className="w-5 h-5" 
+                  fill="currentColor" 
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V6h5a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h5v5.586l-1.293-1.293zM9 4a1 1 0 012 0v2H9V4z" />
+                </svg>
+                <span className="font-medium">Save</span>
+              </>
+            )}
+          </button>
+          
           {/* PDF Download Button */}
           <button
             onClick={downloadPDF}
