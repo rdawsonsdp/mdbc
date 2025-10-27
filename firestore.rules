@@ -14,7 +14,8 @@ service cloud.firestore {
     // Chat conversations - users can only access their own conversations
     match /chatConversations/{conversationId} {
       allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
-      allow read, update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow get, update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow list: if request.auth != null;
     }
     
             // Books - allow read/write for authenticated users

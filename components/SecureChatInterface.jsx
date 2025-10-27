@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { sendSecureMessage, validateMessage, sanitizeMessage, formatAIResponse, getChatSuggestions, checkRateLimit } from '../utils/secureChat';
 import { getQuickAnswer } from '../utils/sessionAnswers';
 import { useAuth } from '../contexts/AuthContext';
-import { saveChatConversation, updateChatConversation } from '../utils/chatConversationManager';
+import { saveChatConversation, updateChatConversation, getChatConversations } from '../utils/chatConversationManager';
 
 const SecureChatInterface = ({ userData }) => {
   const { user } = useAuth();
@@ -23,6 +23,9 @@ So—what part of your business would you like clarity on today?`,
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [currentConversationId, setCurrentConversationId] = useState(null);
+  const [showHistory, setShowHistory] = useState(false);
+  const [savedConversations, setSavedConversations] = useState([]);
+  const [isLoadingHistory, setIsLoadingHistory] = useState(false);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -111,6 +114,60 @@ So—what part of your business would you like clarity on today?`,
     handleSendMessage(suggestion);
   };
 
+  // Load saved conversations
+  const loadConversations = async () => {
+    if (!user) {
+      alert('Please sign in to view conversation history.');
+      return;
+    }
+
+    try {
+      setIsLoadingHistory(true);
+      console.log('🔍 Loading conversations for user:', user.uid);
+      console.log('🔍 User object:', user);
+      const conversations = await getChatConversations(user.uid);
+      console.log('✅ Loaded conversations:', conversations);
+      console.log('✅ Number of conversations:', conversations.length);
+      setSavedConversations(conversations);
+      setShowHistory(true);
+    } catch (error) {
+      console.error('❌ Error loading conversations:', error);
+      console.error('❌ Error code:', error.code);
+      console.error('❌ Error message:', error.message);
+      console.error('❌ Full error:', JSON.stringify(error, null, 2));
+      
+      // More specific error messages
+      if (error.code === 'failed-precondition') {
+        alert('⏳ Firestore index is still building.\n\nPlease wait 2-5 minutes and try again.\n\nCheck: https://console.firebase.google.com/project/cardology-1558b/firestore/indexes');
+      } else if (error.code === 'permission-denied') {
+        alert('🔒 Permission denied.\n\nThe Firestore rules may not have been published yet.\n\nPlease refresh the Firebase Console rules page and click Publish again.');
+      } else if (error.message?.includes('index')) {
+        alert('📊 Index error: ' + error.message + '\n\nClick the link in the browser console to create the index.');
+      } else {
+        alert(`❌ Failed to load conversation history.\n\nError Code: ${error.code}\nError: ${error.message}\n\nCheck browser console for full details.`);
+      }
+    } finally {
+      setIsLoadingHistory(false);
+    }
+  };
+
+  // Load a specific conversation
+  const loadConversation = (conversation) => {
+    // Add welcome message back + loaded messages
+    const welcomeMessage = {
+      role: 'assistant',
+      content: `Hi there! I'm your Cardology Business Coach, ready to help you unlock the path to your most aligned business success. I can't see your full spread, but if you tell me which card you're looking at and its position, I'll decode exactly what it means for your business strategy.
+
+So—what part of your business would you like clarity on today?`,
+      citations: 0
+    };
+    
+    setMessages([welcomeMessage, ...conversation.messages]);
+    setCurrentConversationId(conversation.id);
+    // Keep sidebar open so user can browse other conversations
+    console.log('✅ Loaded conversation:', conversation.id);
+  };
+
   // Save conversation to Firestore
   const saveConversation = async () => {
     if (!user) {
@@ -160,51 +217,128 @@ So—what part of your business would you like clarity on today?`,
 
   return (
     <div className="flex h-full max-h-96">
+      {/* History Sidebar */}
+      {showHistory && (
+        <div className="w-64 bg-gray-50 border-r border-gray-200 overflow-y-auto flex-shrink-0">
+          <div className="p-3 border-b border-gray-200 flex justify-between items-center bg-white">
+            <h3 className="font-semibold text-sm">History</h3>
+            <button
+              onClick={() => setShowHistory(false)}
+              className="text-gray-500 hover:text-gray-700"
+              title="Close history"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          
+          <div className="p-2">
+            {savedConversations.length === 0 ? (
+              <p className="text-gray-500 text-xs text-center py-4">No saved conversations</p>
+            ) : (
+              <div className="space-y-1">
+                {savedConversations.map((conversation) => (
+                  <button
+                    key={conversation.id}
+                    onClick={() => loadConversation(conversation)}
+                    className="w-full text-left p-2 hover:bg-white rounded transition-colors border border-transparent hover:border-gray-200"
+                  >
+                    <div className="font-medium text-xs text-gray-900 truncate">{conversation.title}</div>
+                    <div className="text-xs text-gray-500 mt-0.5">
+                      {conversation.messages?.length || 0} msgs • {new Date(conversation.timestamp).toLocaleDateString()}
+                    </div>
+                    {conversation.userData && (
+                      <div className="text-xs text-gray-400 mt-0.5 truncate">
+                        {conversation.userData.name}
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+      
       {/* Main Chat Area */}
       <div className="flex flex-col flex-1">
         
-        {/* Chat Header with Save Button */}
-        <div className="flex justify-start items-center px-4 py-2 bg-white border-b border-gray-200">
-          {/* Save Conversation Button */}
-          <button
-            onClick={saveConversation}
-            disabled={isSaving || saved || !user}
-            className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg transition-colors ${
-              saved
-                ? 'bg-green-500 text-white cursor-default'
-                : isSaving
-                ? 'bg-blue-400 text-white cursor-not-allowed'
-                : !user
-                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                : 'bg-blue-600 text-white hover:bg-blue-700'
-            }`}
-            title={!user ? 'Sign in to save conversations' : 'Save conversation to your account'}
-          >
-            {saved ? (
-              <>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                <span className="font-medium">Saved!</span>
-              </>
-            ) : isSaving ? (
-              <>
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                <span className="font-medium">Saving...</span>
-              </>
-            ) : (
-              <>
-                <svg 
-                  className="w-5 h-5" 
-                  fill="currentColor" 
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V6h5a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h5v5.586l-1.293-1.293zM9 4a1 1 0 012 0v2H9V4z" />
-                </svg>
-                <span className="font-medium">Save</span>
-              </>
-            )}
-          </button>
+        {/* Chat Header with History and Save Buttons */}
+        <div className="flex justify-between items-center px-4 py-2 bg-white border-b border-gray-200">
+          <div className="flex items-center gap-2">
+            {/* History Button */}
+            <button
+              onClick={() => {
+                console.log('🔘 History button clicked!');
+                console.log('👤 User:', user);
+                console.log('🔄 Is loading:', isLoadingHistory);
+                loadConversations();
+              }}
+              disabled={isLoadingHistory || !user}
+              className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg transition-colors ${
+                !user
+                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  : 'bg-purple-600 text-white hover:bg-purple-700'
+              }`}
+              title={!user ? 'Sign in to view history' : 'View conversation history'}
+            >
+              {isLoadingHistory ? (
+                <>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                  <span className="font-medium">Loading...</span>
+                </>
+              ) : (
+                <>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="font-medium">History</span>
+                </>
+              )}
+            </button>
+
+            {/* Save Conversation Button */}
+            <button
+              onClick={saveConversation}
+              disabled={isSaving || saved || !user}
+              className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg transition-colors ${
+                saved
+                  ? 'bg-green-500 text-white cursor-default'
+                  : isSaving
+                  ? 'bg-blue-400 text-white cursor-not-allowed'
+                  : !user
+                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  : 'bg-blue-600 text-white hover:bg-blue-700'
+              }`}
+              title={!user ? 'Sign in to save conversations' : 'Save conversation to your account'}
+            >
+              {saved ? (
+                <>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="font-medium">Saved!</span>
+                </>
+              ) : isSaving ? (
+                <>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                  <span className="font-medium">Saving...</span>
+                </>
+              ) : (
+                <>
+                  <svg 
+                    className="w-5 h-5" 
+                    fill="currentColor" 
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V6h5a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h5v5.586l-1.293-1.293zM9 4a1 1 0 012 0v2H9V4z" />
+                  </svg>
+                  <span className="font-medium">Save</span>
+                </>
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Chat Messages */}
