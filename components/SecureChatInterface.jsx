@@ -3,7 +3,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { sendSecureMessage, validateMessage, sanitizeMessage, formatAIResponse, getChatSuggestions, checkRateLimit } from '../utils/secureChat';
 import { getQuickAnswer } from '../utils/sessionAnswers';
-import jsPDF from 'jspdf';
 import { useAuth } from '../contexts/AuthContext';
 import { saveChatConversation, updateChatConversation } from '../utils/chatConversationManager';
 
@@ -156,125 +155,6 @@ So—what part of your business would you like clarity on today?`,
     }
   };
 
-  // Download chat session as PDF
-  const downloadPDF = () => {
-    const doc = new jsPDF();
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const pageHeight = doc.internal.pageSize.getHeight();
-    const margin = 20;
-    const maxWidth = pageWidth - (margin * 2);
-    let yPosition = margin;
-
-    // Title
-    doc.setFontSize(18);
-    doc.setFont(undefined, 'bold');
-    doc.text('Cardology Business Coach Session', margin, yPosition);
-    yPosition += 10;
-
-    // User Info
-    doc.setFontSize(10);
-    doc.setFont(undefined, 'normal');
-    doc.text(`Name: ${userData?.name || 'User'}`, margin, yPosition);
-    yPosition += 6;
-    doc.text(`Birth Card: ${userData?.birthCard || 'N/A'}`, margin, yPosition);
-    yPosition += 6;
-    doc.text(`Date: ${new Date().toLocaleDateString()}`, margin, yPosition);
-    yPosition += 12;
-
-    // Separator line
-    doc.setDrawColor(200, 200, 200);
-    doc.line(margin, yPosition, pageWidth - margin, yPosition);
-    yPosition += 10;
-
-    // Messages
-    messages.forEach((message, index) => {
-      // Skip the initial welcome message if desired
-      if (index === 0 && message.role === 'assistant') {
-        return;
-      }
-
-      // Check if we need a new page
-      if (yPosition > pageHeight - 40) {
-        doc.addPage();
-        yPosition = margin;
-      }
-
-      // Message header
-      doc.setFontSize(11);
-      doc.setFont(undefined, 'bold');
-      const header = message.role === 'user' ? 'You:' : 'Coach:';
-      doc.text(header, margin, yPosition);
-      yPosition += 7;
-
-      // Message content
-      doc.setFontSize(10);
-      doc.setFont(undefined, 'normal');
-      
-      // Clean content - remove markdown-style formatting for PDF
-      let content = message.content;
-      content = content.replace(/\*\*/g, ''); // Remove bold markdown
-      content = content.replace(/\*/g, ''); // Remove italic markdown
-      content = content.replace(/#{1,6}\s/g, ''); // Remove headers
-      
-      // Split text into lines that fit the page width
-      const lines = doc.splitTextToSize(content, maxWidth);
-      
-      // Draw each line
-      lines.forEach(line => {
-        if (yPosition > pageHeight - 30) {
-          doc.addPage();
-          yPosition = margin;
-        }
-        doc.text(line, margin, yPosition);
-        yPosition += 5;
-      });
-
-      // Add source badge if available
-      if (message.source === 'session') {
-        doc.setFontSize(8);
-        doc.setTextColor(34, 197, 94); // Green color
-        doc.text('⚡ Instant answer from session data', margin, yPosition);
-        doc.setTextColor(0, 0, 0); // Reset to black
-        yPosition += 5;
-      }
-
-      // Add citations if available
-      if (message.citations > 0) {
-        doc.setFontSize(8);
-        doc.setTextColor(100, 100, 100);
-        doc.text(`📚 ${message.citations} book citation(s)`, margin, yPosition);
-        doc.setTextColor(0, 0, 0); // Reset to black
-        yPosition += 5;
-      }
-
-      yPosition += 8; // Space between messages
-
-      // Light separator line
-      if (yPosition < pageHeight - 30) {
-        doc.setDrawColor(240, 240, 240);
-        doc.line(margin, yPosition, pageWidth - margin, yPosition);
-        yPosition += 8;
-      }
-    });
-
-    // Footer on last page
-    const totalPages = doc.internal.pages.length - 1; // -1 because pages array includes a null first element
-    for (let i = 1; i <= totalPages; i++) {
-      doc.setPage(i);
-      doc.setFontSize(8);
-      doc.setTextColor(150, 150, 150);
-      doc.text(
-        `The Million Dollar Birth Card - Page ${i} of ${totalPages}`,
-        pageWidth / 2,
-        pageHeight - 10,
-        { align: 'center' }
-      );
-    }
-
-    // Download the PDF
-    const fileName = `Cardology_Session_${new Date().toISOString().split('T')[0]}.pdf`;
-    doc.save(fileName);
-  };
 
   const suggestions = getChatSuggestions(userData?.birthCard);
 
@@ -283,8 +163,8 @@ So—what part of your business would you like clarity on today?`,
       {/* Main Chat Area */}
       <div className="flex flex-col flex-1">
         
-        {/* Chat Header with Save and PDF Buttons */}
-        <div className="flex justify-between items-center px-4 py-2 bg-white border-b border-gray-200">
+        {/* Chat Header with Save Button */}
+        <div className="flex justify-start items-center px-4 py-2 bg-white border-b border-gray-200">
           {/* Save Conversation Button */}
           <button
             onClick={saveConversation}
@@ -324,22 +204,6 @@ So—what part of your business would you like clarity on today?`,
                 <span className="font-medium">Save</span>
               </>
             )}
-          </button>
-          
-          {/* PDF Download Button */}
-          <button
-            onClick={downloadPDF}
-            className="flex items-center gap-2 px-3 py-1.5 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700 transition-colors"
-            title="Download chat as PDF"
-          >
-            <svg 
-              className="w-5 h-5" 
-              fill="currentColor" 
-              viewBox="0 0 20 20"
-            >
-              <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" />
-            </svg>
-            <span className="font-medium">PDF</span>
           </button>
         </div>
 

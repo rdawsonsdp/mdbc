@@ -6,7 +6,7 @@ import { getBirthCardFromDateCSV } from '../utils/birthdateCardCSV';
 import { getForecastForAge } from '../utils/yearlyForecastLookup';
 import { getAllPlanetaryPeriods } from '../utils/planetaryPeriodLookup';
 import cardActivities from '../lib/data/cardToActivities.json';
-import { getEnhancedCardData, validateCSVAccess } from '../utils/enhancedCardSystem.js';
+import { getEnhancedCardData } from '../utils/enhancedCardSystem.js';
 import { loadAllCardProfiles } from '../utils/allCardProfiles.js';
 import FlippableCard from './FlippableCard';
 import ShareButtons from './ShareButtons';
@@ -35,7 +35,6 @@ export default function MDBCApp() {
   const [isEditing, setIsEditing] = useState(false);
   const [enhancedCardData, setEnhancedCardData] = useState(null);
   const [isLoadingEnhancedData, setIsLoadingEnhancedData] = useState(false);
-  const [csvValidation, setCsvValidation] = useState(null);
   const [isLoadingProfile, setIsLoadingProfile] = useState(false);
   const [cardProfilesLoaded, setCardProfilesLoaded] = useState(false);
   
@@ -52,14 +51,6 @@ export default function MDBCApp() {
     };
     loadProfiles();
   }, []);
-  
-  // Debug function to validate CSV access
-  const validateCSVs = async () => {
-    const validation = await validateCSVAccess();
-    setCsvValidation(validation);
-    console.log('CSV Validation Results:', validation);
-    showNotification(`CSV Access: ${validation.errors.length === 0 ? '✅ All files accessible' : '❌ Some files missing'}`);
-  };
 
   // Handle loading a session from history
   const handleLoadSession = async (session) => {
@@ -380,11 +371,27 @@ export default function MDBCApp() {
     
     setAge(calculatedAge);
     
-    // Get yearly forecast
+    // Get enhanced card data from CSV system
+    setIsLoadingEnhancedData(true);
+    try {
+      const enhancedData = await getEnhancedCardData(
+        birthCardData.card,
+        calculatedAge,
+        dateKey,
+        parseInt(profile.year)
+      );
+      setEnhancedCardData(enhancedData);
+      console.log('Enhanced card data loaded from profile:', enhancedData);
+    } catch (error) {
+      console.error('Error loading enhanced card data:', error);
+    }
+    setIsLoadingEnhancedData(false);
+    
+    // Get yearly forecast (for backward compatibility)
     const forecast = await getForecastForAge(birthCardData.card, calculatedAge);
     setYearlyCards(forecast);
     
-    // Get planetary periods
+    // Get planetary periods (for backward compatibility)
     const periods = getAllPlanetaryPeriods(dateKey);
     setPlanetaryPeriods(periods);
     
@@ -970,25 +977,6 @@ export default function MDBCApp() {
                 <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-navy-600 mr-3"></div>
                 <span className="text-navy-600">Loading enhanced card data...</span>
               </div>
-            </div>
-          )}
-          
-          {/* Debug: Show enhanced data status */}
-          {process.env.NODE_ENV === 'development' && (
-            <div className="text-center py-2">
-              <button onClick={validateCSVs} className="text-sm bg-gray-200 px-3 py-1 rounded">
-                Test CSV Access
-              </button>
-              {enhancedCardData && (
-                <p className="text-xs text-green-600 mt-1">
-                  Enhanced data loaded: {enhancedCardData.strategicOutlook?.length || 0} strategic, {enhancedCardData.planetaryPeriods?.length || 0} planetary
-                </p>
-              )}
-              {csvValidation && (
-                <p className="text-xs text-gray-600 mt-1">
-                  CSV Status: {csvValidation.errors.length === 0 ? '✅ All OK' : `❌ ${csvValidation.errors.length} errors`}
-                </p>
-              )}
             </div>
           )}
           
